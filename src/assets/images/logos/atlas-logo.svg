@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" role="img" aria-labelledby="title">
+  <title id="title">Atlas Ascenseurs logo</title>
+  <rect width="220" height="80" fill="#080808"/>
+  <path d="M30 58 57 14l27 44H67l-10-17-10 17H30Z" fill="none" stroke="#c9a84c" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M100 23h62M100 40h82M100 57h58" stroke="#e2ddd4" stroke-width="4" stroke-linecap="round"/>
+  <text x="99" y="18" fill="#c9a84c" font-family="Georgia, serif" font-size="11" letter-spacing="4">ATLAS</text>
+</svg>
