@@ -9,6 +9,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileElevatorsOpen, setMobileElevatorsOpen] = useState(false);
   const [mobileCabinOpen, setMobileCabinOpen] = useState(false);
+  const [mobileResidentialOpen, setMobileResidentialOpen] = useState(false);
+  const [mobileCommercialOpen, setMobileCommercialOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -26,6 +28,53 @@ export default function Navbar() {
     setMobileOpen(false);
     setMobileElevatorsOpen(false);
     setMobileCabinOpen(false);
+    setMobileResidentialOpen(false);
+    setMobileCommercialOpen(false);
+  };
+
+  const toggleElevators = () => {
+    setMobileElevatorsOpen((open) => {
+      const next = !open;
+      if (!next) {
+        setMobileResidentialOpen(false);
+        setMobileCommercialOpen(false);
+      } else {
+        setMobileCabinOpen(false);
+      }
+      return next;
+    });
+  };
+
+  const toggleCabin = () => {
+    setMobileCabinOpen((open) => {
+      const next = !open;
+      if (next) {
+        setMobileElevatorsOpen(false);
+        setMobileResidentialOpen(false);
+        setMobileCommercialOpen(false);
+      }
+      return next;
+    });
+  };
+
+  const toggleResidential = () => {
+    setMobileResidentialOpen((open) => {
+      const next = !open;
+      if (next) {
+        setMobileCommercialOpen(false);
+      }
+      return next;
+    });
+  };
+
+  const toggleCommercial = () => {
+    setMobileCommercialOpen((open) => {
+      const next = !open;
+      if (next) {
+        setMobileResidentialOpen(false);
+      }
+      return next;
+    });
   };
 
   return (
@@ -87,23 +136,36 @@ export default function Navbar() {
           </div>
         </div>
         <Link to="/about" onClick={closeMobile}>{t('about')}</Link>
-        <button className={`mobile-accordion ${mobileElevatorsOpen ? 'open' : ''}`} type="button" onClick={() => setMobileElevatorsOpen((v) => !v)}>
+        <button className={`mobile-accordion ${mobileElevatorsOpen ? 'open' : ''}`} type="button" onClick={toggleElevators}>
           {t('ourElevators')} <span className="mobile-accordion-chevron" />
         </button>
         <div className={`mobile-accordion-content ${mobileElevatorsOpen ? 'open' : ''}`}>
           <div className="mobile-accordion-inner">
-            <div className="mobile-sub-title">{t('residentialLifts')}</div>
-            <div className="mobile-sub">
-              {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+            <button className={`mobile-accordion mobile-accordion-sub ${mobileResidentialOpen ? 'open' : ''}`} type="button" onClick={toggleResidential}>
+              {t('residentialLifts')} <span className="mobile-accordion-chevron" />
+            </button>
+            <div className={`mobile-accordion-content mobile-accordion-content-sub ${mobileResidentialOpen ? 'open' : ''}`}>
+              <div className="mobile-accordion-inner">
+                <div className="mobile-sub">
+                  {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+                </div>
+              </div>
             </div>
-            <div className="mobile-sub-title">{t('commercialLifts')}</div>
-            <div className="mobile-sub">
-              {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+
+            <button className={`mobile-accordion mobile-accordion-sub ${mobileCommercialOpen ? 'open' : ''}`} type="button" onClick={toggleCommercial}>
+              {t('commercialLifts')} <span className="mobile-accordion-chevron" />
+            </button>
+            <div className={`mobile-accordion-content mobile-accordion-content-sub ${mobileCommercialOpen ? 'open' : ''}`}>
+              <div className="mobile-accordion-inner">
+                <div className="mobile-sub">
+                  {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <button className={`mobile-accordion ${mobileCabinOpen ? 'open' : ''}`} type="button" onClick={() => setMobileCabinOpen((v) => !v)}>
+        <button className={`mobile-accordion ${mobileCabinOpen ? 'open' : ''}`} type="button" onClick={toggleCabin}>
           {t('cabinDesign')} <span className="mobile-accordion-chevron" />
         </button>
         <div className={`mobile-accordion-content ${mobileCabinOpen ? 'open' : ''}`}>

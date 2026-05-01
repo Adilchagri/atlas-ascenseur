@@ -255,17 +255,31 @@ nav.scrolled {
   transform: rotate(-135deg) translateY(-1px);
 }
 .mobile-accordion-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  transition: grid-template-rows 0.28s ease;
-  will-change: grid-template-rows;
+  display: none;
+  overflow: visible;
 }
 .mobile-accordion-inner {
-  min-height: 0;
+  min-height: auto;
 }
 .mobile-accordion-content.open {
-  grid-template-rows: 1fr;
+  display: block;
+}
+.mobile-accordion-sub {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  padding: 12px 0;
+  margin-top: 8px;
+}
+.mobile-accordion-content-sub .mobile-sub {
+  padding-left: 14px;
+  border-left: 1px solid rgba(232,201,122,0.2);
+  margin-left: 6px;
+}
+.mobile-accordion-content-sub .mobile-sub a {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  padding: 10px 0;
 }
 .whatsapp-fab {
   position: fixed;
