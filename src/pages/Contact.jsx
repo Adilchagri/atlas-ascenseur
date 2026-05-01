@@ -18,7 +18,7 @@ export default function Contact() {
             <h4>{isFr ? 'Adresse' : 'Address'}</h4>
             <p>23 Rue 2, Lot Les Arenes 2<br />Etage, Suite 10, Racine<br />Casablanca, Morocco</p>
             <h4>{isFr ? 'Téléphone' : 'Phone'}</h4>
-            <p>+212 6 08 88 30 30<br />+212 5 22 23 19 73</p>
+            <p>+212 666323055</p>
             <h4>Email</h4>
             <p>contact@atlasascenseurs.ma</p>
             <h4>{isFr ? 'Couverture' : 'Coverage'}</h4>
@@ -32,7 +32,7 @@ export default function Contact() {
               <Field label={isFr ? 'Nom' : 'Last Name'} placeholder={isFr ? 'Votre nom' : 'Your last name'} />
             </div>
             <div className="form-row">
-              <Field label={isFr ? 'Téléphone' : 'Phone'} type="tel" placeholder="+212 6 00 00 00 00" />
+              <Field label={isFr ? 'Téléphone' : 'Phone'} type="tel" placeholder="+212 666323055" />
               <Field label="Email" type="email" placeholder="your@email.com" />
             </div>
             <Select label={isFr ? 'Ville' : 'City'} options={isFr ? ['Choisir votre ville', 'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Agadir', 'Fes', 'Autre'] : ['Select your city', 'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Agadir', 'Fes', 'Other']} />
@@ -69,3 +69,4 @@ function Select({ label, options }) {
     </div>
   );
 }
+

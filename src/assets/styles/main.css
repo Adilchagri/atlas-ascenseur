@@ -45,7 +45,10 @@ button, input, select, textarea { font: inherit; }
 
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 22px;
   height: 72px; padding: 0 48px;
   transition: all 0.4s ease;
   border-bottom: 1px solid transparent;
@@ -58,7 +61,13 @@ nav.scrolled {
 }
 .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
 .nav-logo img { height: 68px; width: auto; filter: brightness(1.1); }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  list-style: none;
+}
 .nav-links > li { position: relative; }
 .nav-links > li::after {
   content: '';
@@ -155,6 +164,7 @@ nav.scrolled {
 .hamburger {
   display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
   border: none; background: transparent;
+  margin-left: auto;
 }
 .hamburger span { display: block; width: 22px; height: 1px; background: var(--text); transition: all 0.3s; }
 .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -165,6 +175,9 @@ nav.scrolled {
   background: var(--black-2); overflow-y: auto; z-index: 999; padding: 36px 28px;
   flex-direction: column; opacity: 0; transform: translateY(-12px);
   visibility: hidden; pointer-events: none; transition: opacity 0.24s ease, transform 0.24s ease;
+  max-height: calc(100dvh - 72px);
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.open { opacity: 1; transform: translateY(0); visibility: visible; pointer-events: auto; }
 .mobile-menu a, .mobile-menu > span {
@@ -242,12 +255,17 @@ nav.scrolled {
   transform: rotate(-135deg) translateY(-1px);
 }
 .mobile-accordion-content {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
-  transition: max-height 0.25s ease;
+  transition: grid-template-rows 0.28s ease;
+  will-change: grid-template-rows;
+}
+.mobile-accordion-inner {
+  min-height: 0;
 }
 .mobile-accordion-content.open {
-  max-height: 520px;
+  grid-template-rows: 1fr;
 }
 .whatsapp-fab {
   position: fixed;
@@ -974,7 +992,12 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   }
   .whatsapp-fab svg { width: 24px; height: 24px; }
   .hamburger { display: flex; }
-  nav { padding: 0 24px; }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 0 24px;
+  }
   .section { padding: 60px 24px; }
   .page-hero { padding: 48px 24px; }
   .hero-content { padding: 0 28px; max-width: 100%; }

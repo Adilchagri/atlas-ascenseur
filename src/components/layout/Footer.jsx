@@ -32,8 +32,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>{t('footerContact')}</h4>
           <a>Casablanca - Rue 2, Racine</a>
-          <a>+212 6 08 88 30 30</a>
-          <a>+212 5 22 23 19 73</a>
+          <a>+212 666323055</a>
           <a>contact@atlasascenseurs.ma</a>
         </div>
       </div>

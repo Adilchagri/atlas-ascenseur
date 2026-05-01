@@ -7,7 +7,7 @@ export default function Navbar() {
   const { language, setLanguage, t } = useUI();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileElevatorsOpen, setMobileElevatorsOpen] = useState(true);
+  const [mobileElevatorsOpen, setMobileElevatorsOpen] = useState(false);
   const [mobileCabinOpen, setMobileCabinOpen] = useState(false);
 
   useEffect(() => {
@@ -91,13 +91,15 @@ export default function Navbar() {
           {t('ourElevators')} <span className="mobile-accordion-chevron" />
         </button>
         <div className={`mobile-accordion-content ${mobileElevatorsOpen ? 'open' : ''}`}>
-          <div className="mobile-sub-title">{t('residentialLifts')}</div>
-          <div className="mobile-sub">
-            {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
-          </div>
-          <div className="mobile-sub-title">{t('commercialLifts')}</div>
-          <div className="mobile-sub">
-            {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+          <div className="mobile-accordion-inner">
+            <div className="mobile-sub-title">{t('residentialLifts')}</div>
+            <div className="mobile-sub">
+              {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+            </div>
+            <div className="mobile-sub-title">{t('commercialLifts')}</div>
+            <div className="mobile-sub">
+              {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+            </div>
           </div>
         </div>
 
@@ -105,8 +107,10 @@ export default function Navbar() {
           {t('cabinDesign')} <span className="mobile-accordion-chevron" />
         </button>
         <div className={`mobile-accordion-content ${mobileCabinOpen ? 'open' : ''}`}>
-          <div className="mobile-sub">
-            {cabinMenuLinks.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+          <div className="mobile-accordion-inner">
+            <div className="mobile-sub">
+              {cabinMenuLinks.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+            </div>
           </div>
         </div>
 
