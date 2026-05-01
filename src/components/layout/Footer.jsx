@@ -1,34 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useUI } from '../../context/UIContext.jsx';
 
 export default function Footer() {
+  const { t } = useUI();
   return (
     <footer id="main-footer">
       <div className="footer-top">
         <div className="footer-brand">
           <Link className="footer-brand-name" to="/">Atlas <em>Ascenseurs</em></Link>
-          <p>Combining proven engineering, refined design, and local expertise, Atlas Ascenseurs delivers reliable elevator solutions across Morocco.</p>
+          <p>{t('footerBrandDesc')}</p>
         </div>
         <div className="footer-col">
-          <h4>Quick Links</h4>
-          <Link to="/about">About Us</Link>
-          <Link to="/elevators">Our Elevators</Link>
+          <h4>{t('footerQuickLinks')}</h4>
+          <Link to="/about">{t('aboutUs')}</Link>
+          <Link to="/elevators">{t('ourElevators')}</Link>
           <Link to="/configurator">3D Personalization</Link>
-          <Link to="/service">Service & Maintenance</Link>
-          <Link to="/projects">Our Projects</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/service">{t('serviceMaintenance')}</Link>
+          <Link to="/projects">{t('ourProjects')}</Link>
+          <Link to="/contact">{t('footerContact')}</Link>
         </div>
         <div className="footer-col">
-          <h4>Our Elevators</h4>
-          <Link to="/elevators">Residential Lifts</Link>
-          <Link to="/elevators">Commercial Lifts</Link>
+          <h4>{t('footerOurElevators')}</h4>
+          <Link to="/elevators">{t('residentialLifts')}</Link>
+          <Link to="/elevators">{t('commercialLifts')}</Link>
           <Link to="/elevators">Circular Elevators</Link>
           <Link to="/elevators">Hospital Lifts</Link>
           <Link to="/elevators">Cargo Lifts</Link>
-          <Link to="/elevators">Escalators</Link>
-          <Link to="/configurator">Cabin Configurator</Link>
+          <Link to="/elevators">{t('escalators')}</Link>
+          <Link to="/configurator">{t('cabinConfigurator')}</Link>
         </div>
         <div className="footer-col">
-          <h4>Contact</h4>
+          <h4>{t('footerContact')}</h4>
           <a>Casablanca - Rue 2, Racine</a>
           <a>+212 6 08 88 30 30</a>
           <a>+212 5 22 23 19 73</a>
@@ -36,9 +38,9 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>(c) 2026 Atlas Ascenseurs - Premium Elevators Morocco. All Rights Reserved.</p>
-        <p className="footer-tagline">Designed in detail. Installed with confidence.</p>
-        <p className="legal-copy">Privacy Policy - Terms & Conditions</p>
+        <p>{t('footerRights')}</p>
+        <p className="footer-tagline">{t('footerTagline')}</p>
+        <p className="legal-copy">{t('footerLegal')}</p>
       </div>
     </footer>
   );

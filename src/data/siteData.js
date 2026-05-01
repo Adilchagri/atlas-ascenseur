@@ -1,5 +1,6 @@
 import logo from '../assets/images/logos/atlas ascenseur.png';
 import heroImage from '../assets/images/hero/elevator-hero.svg';
+import homeBackgroundImage from '../assets/images/hero/home_bqckgound.png';
 import astoriaImage from '../assets/images/elevators/astoria.svg';
 import circularImage from '../assets/images/elevators/circular.svg';
 import exteriorImage from '../assets/images/elevators/exterior.svg';
@@ -12,74 +13,58 @@ import circularProject from '../assets/images/projects/circular-elevator.svg';
 import outdoorProject from '../assets/images/projects/outdoor-elevator.svg';
 import marinaProject from '../assets/images/projects/marina-agadir.svg';
 import golfProject from '../assets/images/projects/amalkis-golf.svg';
+import imgHeroElevatorLuxury from '../assets/images/library/hero-elevator-luxury.jpg';
+import imgElevatorAstoriaInterior from '../assets/images/library/elevator-astoria-interior.jpg';
+import imgElevatorCircularGlass from '../assets/images/library/elevator-circular-glass.jpg';
+import imgElevatorExteriorTower from '../assets/images/library/elevator-exterior-tower.jpg';
+import imgElevatorCommercialLobby from '../assets/images/library/elevator-commercial-lobby.jpg';
+import imgElevatorHospitalCargo from '../assets/images/library/elevator-hospital-cargo.jpg';
+import imgElevatorEscalatorWalkway from '../assets/images/library/elevator-escalator-walkway.jpg';
+import imgProjectVillaLift from '../assets/images/library/project-villa-lift.jpg';
+import imgProjectVeterinaryClinic from '../assets/images/library/project-veterinary-clinic.jpg';
+import imgProjectMarinaHospitality from '../assets/images/library/project-marina-hospitality.jpg';
+import imgProjectGolfResort from '../assets/images/library/project-golf-resort.jpg';
+import imgPageContactOffice from '../assets/images/library/page-contact-office.jpg';
+import imgPageFaqConsultation from '../assets/images/library/page-faq-consultation.jpg';
+import imgElevatorCarLift from '../assets/images/library/elevator-car-lift.jpg';
+import imgElevatorCargoWarehouse from '../assets/images/library/elevator-cargo-warehouse.jpg';
+import imgElevatorDumbwaiterService from '../assets/images/library/elevator-dumbwaiter-service.jpg';
+import imgServiceEmergencySupport from '../assets/images/library/service-emergency-support.jpg';
+import imgServiceModernizationUpgrade from '../assets/images/library/service-modernization-upgrade.jpg';
+import imgServiceInspectionCertification from '../assets/images/library/service-inspection-certification.jpg';
 
-const withFallback = (src, fallback) => ({ src, fallback });
+const withFallback = (src, fallback) => fallback || src;
 
 export const imagePaths = {
   logos: {
-    main: withFallback(
-      logo,
-      'https://dummyimage.com/440x160/080808/c9a84c&text=Atlas+Ascenseurs',
-    ),
+    main: logo,
   },
   hero: {
-    main: withFallback(
-      heroImage,
-      'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=80',
-    ),
+    main: withFallback(heroImage, homeBackgroundImage),
   },
   elevators: {
-    astoria: withFallback(
-      astoriaImage,
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-    ),
-    circular: withFallback(
-      circularImage,
-      'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80',
-    ),
-    exterior: withFallback(
-      exteriorImage,
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    ),
-    commercial: withFallback(
-      commercialImage,
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80',
-    ),
-    hospitalCargo: withFallback(
-      hospitalCargoImage,
-      'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80',
-    ),
-    escalator: withFallback(
-      escalatorImage,
-      'https://images.unsplash.com/photo-1567954970774-58d6aa6c50dc?auto=format&fit=crop&w=1200&q=80',
-    ),
+    astoria: withFallback(astoriaImage, imgElevatorAstoriaInterior),
+    circular: withFallback(circularImage, imgElevatorCircularGlass),
+    exterior: withFallback(exteriorImage, imgElevatorExteriorTower),
+    commercial: withFallback(commercialImage, imgElevatorCommercialLobby),
+    hospitalCargo: withFallback(hospitalCargoImage, imgElevatorHospitalCargo),
+    escalator: withFallback(escalatorImage, imgElevatorEscalatorWalkway),
   },
   projects: {
-    villa: withFallback(
-      villaProject,
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    ),
-    veterinary: withFallback(
-      vetProject,
-      'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
-    ),
-    circular: withFallback(
-      circularProject,
-      'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80',
-    ),
-    outdoor: withFallback(
-      outdoorProject,
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    ),
-    marina: withFallback(
-      marinaProject,
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-    ),
-    golf: withFallback(
-      golfProject,
-      'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=80',
-    ),
+    villa: withFallback(villaProject, imgProjectVillaLift),
+    veterinary: withFallback(vetProject, imgProjectVeterinaryClinic),
+    circular: withFallback(circularProject, imgElevatorCircularGlass),
+    outdoor: withFallback(outdoorProject, imgElevatorExteriorTower),
+    marina: withFallback(marinaProject, imgProjectMarinaHospitality),
+    golf: withFallback(golfProject, imgProjectGolfResort),
   },
+};
+
+export const pageImages = {
+  about: imgElevatorExteriorTower,
+  service: imgElevatorAstoriaInterior,
+  contact: imgPageContactOffice,
+  faq: imgPageFaqConsultation,
 };
 
 export const navLinks = [
@@ -91,6 +76,28 @@ export const navLinks = [
 
 export const residentialLinks = ['Circular Elevators', 'Exterior Elevators', 'Astoria Range', 'Como Range'];
 export const commercialLinks = ['Hospital Lifts', 'Car Lifts', 'Escalators / Walkways', 'Como Commercial', 'Cargo Lifts', 'Dumbwaiter Lifts'];
+export const elevatorMenuLinks = {
+  residential: [
+    { label: 'Circular Elevators', to: '/elevators/circular-elevators' },
+    { label: 'Exterior Elevators', to: '/elevators/exterior-elevators' },
+    { label: 'Astoria Range', to: '/elevators/astoria-range' },
+    { label: 'Como Range', to: '/elevators/como-range' },
+  ],
+  commercial: [
+    { label: 'Hospital Lifts', to: '/elevators/hospital-lifts' },
+    { label: 'Car Lifts', to: '/elevators/car-lifts' },
+    { label: 'Escalators / Walkways', to: '/elevators/escalators-walkways' },
+    { label: 'Como Commercial', to: '/elevators/como-commercial' },
+    { label: 'Cargo Lifts', to: '/elevators/cargo-lifts' },
+    { label: 'Dumbwaiter Lifts', to: '/elevators/dumbwaiter-lifts' },
+  ],
+};
+
+export const cabinMenuLinks = [
+  { label: 'Cabin Design', to: '/cabin-design' },
+  { label: 'Inspiration Gallery', to: '/inspiration-gallery' },
+  { label: 'Door Collections', to: '/door-collections' },
+];
 
 export const stats = [
   { value: '70', suffix: '+', label: 'Years of History' },
@@ -132,21 +139,21 @@ export const elevatorCards = [
 ];
 
 export const residentialElevators = [
-  ['A', 'Astoria Range', 'Elegant indoor home elevators for villas, townhouses, and apartments. The Astoria concept uses a self-supporting aluminum tower, refined cabin finishes, compact installation logic, and a premium residential look without heavy structural work.'],
-  ['C', 'COMO Residential', 'A flexible residential lift family for moderate daily use. Hydraulic and electric drive options optimize shaft space, creating larger cabins even in compact homes while keeping the ride smooth, quiet, and reliable.'],
-  ['O', 'Circular Elevators', 'Panoramic circular lifts designed as architectural centerpieces. Clear, smoked, or frosted glass, stainless steel or coated structures, custom flooring, railings, and lighting help the elevator become part of the interior design.'],
-  ['X', 'Exterior Elevators', 'Outdoor lifts for terraces, gardens, split-level homes, and hillside properties. Weather-ready shaft structures, glass options, and compact footprints make accessibility possible without compromising the architecture.'],
-  ['P', 'Panoramic & Glass Cabins', 'Glass cabin and panoramic lift options bring light, visibility, and a strong design presence to homes, hospitality projects, and premium commercial interiors.'],
-  ['D', 'Doors & Cabin Finishes', 'Automatic single swing doors, automatic double swing doors, manual handle doors, metallic finishes, wood tones, bright modern colors, flooring, lighting, and control panels can be combined into a made-to-measure cabin.'],
+  ['A', 'Astoria Range', 'Elegant indoor home elevators for villas, townhouses, and apartments. The Astoria concept uses a self-supporting aluminum tower, refined cabin finishes, compact installation logic, and a premium residential look without heavy structural work.', imagePaths.elevators.astoria],
+  ['C', 'COMO Residential', 'A flexible residential lift family for moderate daily use. Hydraulic and electric drive options optimize shaft space, creating larger cabins even in compact homes while keeping the ride smooth, quiet, and reliable.', imagePaths.elevators.commercial],
+  ['O', 'Circular Elevators', 'Panoramic circular lifts designed as architectural centerpieces. Clear, smoked, or frosted glass, stainless steel or coated structures, custom flooring, railings, and lighting help the elevator become part of the interior design.', imagePaths.elevators.circular],
+  ['X', 'Exterior Elevators', 'Outdoor lifts for terraces, gardens, split-level homes, and hillside properties. Weather-ready shaft structures, glass options, and compact footprints make accessibility possible without compromising the architecture.', imagePaths.elevators.exterior],
+  ['P', 'Panoramic & Glass Cabins', 'Glass cabin and panoramic lift options bring light, visibility, and a strong design presence to homes, hospitality projects, and premium commercial interiors.', imagePaths.projects.circular],
+  ['D', 'Doors & Cabin Finishes', 'Automatic single swing doors, automatic double swing doors, manual handle doors, metallic finishes, wood tones, bright modern colors, flooring, lighting, and control panels can be combined into a made-to-measure cabin.', imagePaths.projects.villa],
 ];
 
 export const commercialElevators = [
-  ['B', 'COMO Commercial', 'Gearless all-electric passenger elevators for offices, hotels, public buildings, and commercial properties. Modular shaft design, refined cabin options, UPS emergency release, and configurable load capacities support demanding daily use.'],
-  ['E', 'Escalators & Walkways', 'Continuous movement solutions for malls, airports, stations, supermarkets, and public infrastructure. Robust truss construction, anti-slip surfaces, anti-corrosion materials, and advanced safety systems create smooth high-volume flow.'],
-  ['V', 'Car Lifts', 'Vehicle lifts for private garages, showrooms, parking facilities, and service buildings. Configurations can support light, heavy, and very heavy vehicles with automatic doors, protective bump rails, and adaptable speeds.'],
-  ['F', 'Cargo Lifts', 'Machine-room-less freight elevators for warehouses, factories, retail back-of-house areas, and industrial buildings. Heavy-load models, regenerative energy options, stand-by systems, and quiet gearless technology improve logistics performance.'],
-  ['H', 'Hospital Lifts', 'Healthcare elevators for patients, visitors, beds, and medical staff. Wide cabins, smooth travel, hygienic surfaces, traffic-ready gearless systems, and speeds from 1 m/s up to 2.5 m/s support demanding hospital circulation.'],
-  ['S', 'Dumbwaiter Lifts', 'Compact service lifts for restaurants, hotels, clinics, villas, and back-office operations. They move meals, laundry, documents, and supplies efficiently between floors while reducing staff travel and energy use.'],
+  ['B', 'COMO Commercial', 'Gearless all-electric passenger elevators for offices, hotels, public buildings, and commercial properties. Modular shaft design, refined cabin options, UPS emergency release, and configurable load capacities support demanding daily use.', imagePaths.elevators.commercial],
+  ['E', 'Escalators & Walkways', 'Continuous movement solutions for malls, airports, stations, supermarkets, and public infrastructure. Robust truss construction, anti-slip surfaces, anti-corrosion materials, and advanced safety systems create smooth high-volume flow.', imagePaths.elevators.escalator],
+  ['V', 'Car Lifts', 'Vehicle lifts for private garages, showrooms, parking facilities, and service buildings. Configurations can support light, heavy, and very heavy vehicles with automatic doors, protective bump rails, and adaptable speeds.', imgElevatorCarLift],
+  ['F', 'Cargo Lifts', 'Machine-room-less freight elevators for warehouses, factories, retail back-of-house areas, and industrial buildings. Heavy-load models, regenerative energy options, stand-by systems, and quiet gearless technology improve logistics performance.', imgElevatorCargoWarehouse],
+  ['H', 'Hospital Lifts', 'Healthcare elevators for patients, visitors, beds, and medical staff. Wide cabins, smooth travel, hygienic surfaces, traffic-ready gearless systems, and speeds from 1 m/s up to 2.5 m/s support demanding hospital circulation.', imagePaths.elevators.hospitalCargo],
+  ['S', 'Dumbwaiter Lifts', 'Compact service lifts for restaurants, hotels, clinics, villas, and back-office operations. They move meals, laundry, documents, and supplies efficiently between floors while reducing staff travel and energy use.', imgElevatorDumbwaiterService],
 ];
 
 export const projects = [
@@ -159,10 +166,10 @@ export const projects = [
 ];
 
 export const services = [
-  ['01', 'Preventive Maintenance', 'Scheduled inspection and servicing to prevent breakdowns before they happen. Our technicians conduct systematic checks on all mechanical, electrical, and safety components.', 'Monthly - Quarterly - Annual plans available'],
-  ['02', '24/7 Emergency Support', 'Round-the-clock availability for urgent breakdowns and technical incidents. Our response team is deployed rapidly across all cities we serve.', 'Nationwide coverage - Priority response'],
-  ['03', 'Modernization & Upgrades', 'Breathe new life into aging elevator systems. We upgrade controls, cabins, and mechanical components to current safety and performance standards - without full replacement.', 'Cost-effective - Minimal downtime'],
-  ['04', 'Inspections & Certification', 'Official safety inspections and compliance certification in accordance with Euro-Moroccan norms. We handle all documentation and regulatory requirements on your behalf.', 'Full compliance guaranteed'],
+  ['01', 'Preventive Maintenance', 'Scheduled inspection and servicing to prevent breakdowns before they happen. Our technicians conduct systematic checks on all mechanical, electrical, and safety components.', 'Monthly - Quarterly - Annual plans available', imgElevatorAstoriaInterior],
+  ['02', '24/7 Emergency Support', 'Round-the-clock availability for urgent breakdowns and technical incidents. Our response team is deployed rapidly across all cities we serve.', 'Nationwide coverage - Priority response', imgServiceEmergencySupport],
+  ['03', 'Modernization & Upgrades', 'Breathe new life into aging elevator systems. We upgrade controls, cabins, and mechanical components to current safety and performance standards - without full replacement.', 'Cost-effective - Minimal downtime', imgServiceModernizationUpgrade],
+  ['04', 'Inspections & Certification', 'Official safety inspections and compliance certification in accordance with Euro-Moroccan norms. We handle all documentation and regulatory requirements on your behalf.', 'Full compliance guaranteed', imgServiceInspectionCertification],
 ];
 
 export const faqs = [

@@ -25,9 +25,10 @@ export function ElevatorCard({ tag, title, desc, image }) {
   );
 }
 
-export function ProductCard({ icon, title, text }) {
+export function ProductCard({ icon, title, text, image }) {
   return (
     <article className="elev-page-card">
+      {image && <div className="elev-page-cover" style={{ backgroundImage: `url(${image})` }} />}
       <div className="elev-page-icon">{icon}</div>
       <h3>{title}</h3>
       <p>{text}</p>
@@ -62,9 +63,10 @@ export function ProjectCard({ category, title, desc, image, page = false }) {
   );
 }
 
-export function ServiceCard({ number, title, text, detail }) {
+export function ServiceCard({ number, title, text, detail, image }) {
   return (
     <article className="service-card">
+      {image && <div className="service-cover" style={{ backgroundImage: `url(${image})` }} />}
       <div className="service-num">{number}</div>
       <h3>{title}</h3>
       <p>{text}</p>

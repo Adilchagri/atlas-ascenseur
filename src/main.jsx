@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './assets/styles/main.css';
+import { UIProvider } from './context/UIContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <UIProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </UIProvider>
   </React.StrictMode>,
 );
