@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import PageHero from '../components/layout/PageHero.jsx';
 import { useUI } from '../context/UIContext.jsx';
 import logo from '../assets/images/logos/atlas ascenseur.png';
@@ -389,6 +390,7 @@ export default function Configurator() {
   const [saveLeadInfo, setSaveLeadInfo] = useState(false);
 
   const dragRef = useRef({ active: false, startX: 0, startY: 0, baseX: -6, baseY: -19 });
+  const firstLeadFieldRef = useRef(null);
 
   useEffect(() => {
     setWall(firstAllowed(walls, profile.walls));
@@ -515,6 +517,16 @@ export default function Configurator() {
     setLeadModalOpen(false);
     setSaveLeadInfo(false);
   };
+
+  useEffect(() => {
+    if (!leadModalOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => firstLeadFieldRef.current?.focus());
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [leadModalOpen]);
 
   const onPointerDown = (event) => {
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -679,7 +691,7 @@ export default function Configurator() {
         </div>
       </section>
 
-      {leadModalOpen && (
+      {leadModalOpen && createPortal(
         <div className="lead-modal-backdrop" role="presentation">
           <div className="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
             <button className="lead-modal-close" type="button" onClick={() => setLeadModalOpen(false)} aria-label={copy.cancel}>×</button>
@@ -689,7 +701,7 @@ export default function Configurator() {
             <p>{copy.modalText}</p>
             <form onSubmit={onLeadSubmit}>
               <div className="lead-form-row">
-                <LeadField label={copy.firstName} name="firstName" value={leadForm.firstName} onChange={onLeadChange} required />
+                <LeadField ref={firstLeadFieldRef} label={copy.firstName} name="firstName" value={leadForm.firstName} onChange={onLeadChange} required />
                 <LeadField label={copy.lastName} name="lastName" value={leadForm.lastName} onChange={onLeadChange} required />
               </div>
               <LeadField label={copy.phone} name="phone" type="tel" value={leadForm.phone} onChange={onLeadChange} required />
@@ -713,20 +725,21 @@ export default function Configurator() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
 }
 
-function LeadField({ label, name, type = 'text', value, onChange, required = false }) {
+const LeadField = forwardRef(function LeadField({ label, name, type = 'text', value, onChange, required = false }, ref) {
   return (
     <label className="lead-field">
       <span>{label}</span>
-      <input name={name} type={type} value={value} onChange={onChange} required={required} />
+      <input ref={ref} name={name} type={type} value={value} onChange={onChange} required={required} />
     </label>
   );
-}
+});
 
 function ConfigGroup({ id, title, children, open = false, onToggle, flush = false }) {
   return (

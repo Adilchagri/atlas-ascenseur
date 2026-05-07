@@ -354,19 +354,24 @@ nav.scrolled {
   transform: rotate(-135deg) translateY(-1px);
 }
 .mobile-accordion-content {
-  display: grid;
-  grid-template-rows: 0fr;
+  display: block;
+  max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: grid-template-rows var(--motion-medium) var(--ease-soft), opacity var(--motion-medium) var(--ease-soft);
+  visibility: hidden;
+  transition:
+    max-height var(--motion-medium) var(--ease-soft),
+    opacity var(--motion-fast) var(--ease-soft),
+    visibility 0s linear var(--motion-medium);
 }
 .mobile-accordion-inner {
-  min-height: auto;
-  overflow: hidden;
+  overflow: visible;
 }
 .mobile-accordion-content.open {
-  grid-template-rows: 1fr;
+  max-height: 760px;
   opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 .mobile-accordion-sub {
   font-size: 11px;
@@ -379,6 +384,9 @@ nav.scrolled {
   padding-left: 14px;
   border-left: 1px solid rgba(232,201,122,0.2);
   margin-left: 6px;
+}
+.mobile-accordion-content-sub.open {
+  max-height: 420px;
 }
 .mobile-accordion-content-sub .mobile-sub a {
   font-size: 12px;
@@ -731,12 +739,25 @@ nav.scrolled {
 .pillar ul { list-style: none; }
 .pillar ul li { font-size: 13px; color: var(--text-muted); padding: 5px 0; display: flex; gap: 10px; align-items: flex-start; }
 .pillar ul li::before { content: '-'; color: var(--gold); flex-shrink: 0; }
-.elev-page-grid, .proj-page-grid { grid-template-columns: repeat(3, 1fr); }
-.elev-page-card { padding: 44px 36px; cursor: pointer; position: relative; }
+.elev-page-grid, .proj-page-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.elev-page-grid {
+  gap: 18px;
+  background: transparent;
+  border: 0;
+}
+.elev-page-card {
+  padding: 0 0 30px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+  background:
+    linear-gradient(180deg, rgba(20,20,20,0.92), rgba(10,10,10,0.96));
+}
 .elev-page-cover {
-  width: calc(100% + 72px);
-  margin: -44px -36px 24px;
-  height: 170px;
+  width: 100%;
+  margin: 0 0 24px;
+  height: 230px;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--gold-border);
@@ -744,10 +765,25 @@ nav.scrolled {
 }
 .elev-page-card:hover .elev-page-cover,
 .service-card:hover .service-cover { transform: scale(1.035); filter: saturate(1.08) contrast(1.03); }
-.elev-page-icon { font-size: 36px; color: var(--gold); opacity: 0.5; margin-bottom: 24px; transition: opacity var(--motion-medium) var(--ease-soft), transform var(--motion-medium) var(--ease-soft); }
+.elev-page-icon {
+  font-size: 30px;
+  color: var(--gold);
+  opacity: 0.64;
+  margin: 0 30px 16px;
+  transition: opacity var(--motion-medium) var(--ease-soft), transform var(--motion-medium) var(--ease-soft);
+}
 .elev-page-card:hover .elev-page-icon { opacity: 1; transform: translateY(-3px); }
-.elev-page-card h3 { font-size: 24px; margin-bottom: 12px; }
-.elev-page-card p { font-size: 13px; line-height: 1.8; color: var(--text-muted); }
+.elev-page-card h3 {
+  font-size: 23px;
+  margin: 0 30px 12px;
+  line-height: 1.2;
+}
+.elev-page-card p {
+  font-size: 13px;
+  line-height: 1.78;
+  color: var(--text-muted);
+  margin: 0 30px;
+}
 .elev-divider {
   padding: 36px 0 20px; font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
   color: var(--gold); display: flex; align-items: center; gap: 18px;
@@ -2015,7 +2051,6 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .why-grid,
   .elevators-grid,
   .proj-page-grid,
-  .elev-page-grid,
   .service-grid,
   .cabin-guide,
   .cabin-grid,
@@ -2060,7 +2095,30 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
     font-size: 7px;
     letter-spacing: 1.4px;
   }
-  .elev-page-card, .service-card, .pillar { padding: 22px 12px; }
+  .elev-page-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .elev-page-card {
+    padding-bottom: 24px;
+  }
+  .elev-page-cover {
+    height: 220px;
+    margin-bottom: 18px;
+  }
+  .elev-page-card h3 {
+    font-size: 20px;
+    margin: 0 20px 10px;
+  }
+  .elev-page-card p {
+    font-size: 12px;
+    line-height: 1.65;
+    margin: 0 20px;
+  }
+  .elev-page-card .elev-page-icon {
+    margin: 0 20px 12px;
+  }
+  .service-card, .pillar { padding: 22px 12px; }
   .elev-page-icon {
     font-size: 24px;
     margin-bottom: 12px;
