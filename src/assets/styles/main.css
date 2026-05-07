@@ -267,9 +267,9 @@ nav.scrolled {
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 .mobile-menu {
-  display: flex; position: fixed; top: 72px; left: 6px; right: 6px; bottom: 0;
+  display: flex; position: fixed; top: 72px; left: 2px; right: 2px; bottom: 0;
   height: calc(100dvh - 72px);
-  background: var(--black-2); overflow-y: auto; z-index: 999; padding: 36px 30px;
+  background: var(--black-2); overflow-y: auto; z-index: 999; padding: 36px 28px;
   flex-direction: column; opacity: 0; transform: translateY(-14px) scale(0.992);
   visibility: hidden; pointer-events: none;
   transition:
@@ -2587,9 +2587,9 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .mobile-menu {
     top: 54px;
     height: calc(100dvh - 54px);
-    left: 6px;
-    right: 6px;
-    padding: 10px max(24px, env(safe-area-inset-right)) 58px max(24px, env(safe-area-inset-left));
+    left: 2px;
+    right: 2px;
+    padding: 10px max(22px, env(safe-area-inset-right)) 58px max(22px, env(safe-area-inset-left));
   }
 
   .mobile-menu-tools {
