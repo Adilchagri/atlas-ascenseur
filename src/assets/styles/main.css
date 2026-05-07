@@ -279,6 +279,8 @@ nav.scrolled {
     visibility 0s linear var(--motion-medium);
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 .mobile-menu.open { opacity: 1; transform: translateY(0) scale(1); visibility: visible; pointer-events: auto; transition-delay: 0s; }
 .mobile-menu a, .mobile-menu > span {
@@ -2470,7 +2472,7 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   }
 }
 
-@media (hover: none) and (pointer: coarse) and (max-width: 920px) {
+@media (max-width: 920px), (hover: none) and (pointer: coarse) {
   .nav-links,
   .nav-cta,
   .nav-tools {
@@ -2489,47 +2491,83 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   }
 }
 
-@media (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 520px) {
+@media (orientation: landscape) and (max-height: 680px) and (max-width: 1180px) {
   nav {
-    height: 64px;
-    padding: 0 max(20px, env(safe-area-inset-left)) 0 max(20px, env(safe-area-inset-right));
+    height: 54px;
+    padding: 0 max(18px, env(safe-area-inset-left)) 0 max(18px, env(safe-area-inset-right));
   }
 
   .nav-logo img {
-    height: 56px;
+    height: 48px;
   }
 
   .hamburger {
-    padding: 10px 4px;
+    padding: 12px 4px;
+  }
+
+  .hamburger span {
+    width: 20px;
   }
 
   .mobile-menu {
-    top: 64px;
-    height: calc(100dvh - 64px);
-    padding: 18px max(28px, env(safe-area-inset-right)) 72px max(28px, env(safe-area-inset-left));
+    top: 54px;
+    height: calc(100dvh - 54px);
+    padding: 10px max(22px, env(safe-area-inset-right)) 58px max(22px, env(safe-area-inset-left));
   }
 
   .mobile-menu-tools {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+  }
+
+  .ui-pill {
+    font-size: 9px;
+    padding: 5px 8px;
   }
 
   .mobile-menu a,
   .mobile-accordion {
-    font-size: 12px;
-    letter-spacing: 1.35px;
-    padding: 11px 0;
+    font-size: 10px;
+    letter-spacing: 1.1px;
+    line-height: 1.15;
+    padding: 7px 0;
+  }
+
+  .mobile-accordion-chevron {
+    width: 6px;
+    height: 6px;
   }
 
   .mobile-accordion-sub {
-    font-size: 10px;
-    letter-spacing: 1.8px;
-    margin-top: 4px;
-    padding: 10px 0;
+    font-size: 9px;
+    letter-spacing: 1.45px;
+    margin-top: 2px;
+    padding: 7px 0;
+  }
+
+  .mobile-accordion-content.open {
+    max-height: 520px;
+  }
+
+  .mobile-accordion-content-sub .mobile-sub {
+    padding-left: 10px;
+    margin-left: 4px;
   }
 
   .mobile-accordion-content-sub .mobile-sub a {
-    font-size: 11px;
-    padding: 8px 0;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 6px 0;
+  }
+
+  .whatsapp-fab {
+    width: 40px;
+    height: 40px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .whatsapp-fab svg {
+    width: 22px;
+    height: 22px;
   }
 }
 
