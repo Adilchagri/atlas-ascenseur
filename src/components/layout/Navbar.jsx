@@ -10,10 +10,7 @@ export default function Navbar() {
   const cabinMenuLinks = getCabinMenuLinks(language);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileElevatorsOpen, setMobileElevatorsOpen] = useState(false);
-  const [mobileCabinOpen, setMobileCabinOpen] = useState(false);
-  const [mobileResidentialOpen, setMobileResidentialOpen] = useState(false);
-  const [mobileCommercialOpen, setMobileCommercialOpen] = useState(false);
+  const [mobileView, setMobileView] = useState('main');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -29,54 +26,13 @@ export default function Navbar() {
 
   const closeMobile = () => {
     setMobileOpen(false);
-    setMobileElevatorsOpen(false);
-    setMobileCabinOpen(false);
-    setMobileResidentialOpen(false);
-    setMobileCommercialOpen(false);
+    setMobileView('main');
   };
 
-  const toggleElevators = () => {
-    setMobileElevatorsOpen((open) => {
-      const next = !open;
-      if (!next) {
-        setMobileResidentialOpen(false);
-        setMobileCommercialOpen(false);
-      } else {
-        setMobileCabinOpen(false);
-      }
-      return next;
-    });
-  };
-
-  const toggleCabin = () => {
-    setMobileCabinOpen((open) => {
-      const next = !open;
-      if (next) {
-        setMobileElevatorsOpen(false);
-        setMobileResidentialOpen(false);
-        setMobileCommercialOpen(false);
-      }
-      return next;
-    });
-  };
-
-  const toggleResidential = () => {
-    setMobileResidentialOpen((open) => {
-      const next = !open;
-      if (next) {
-        setMobileCommercialOpen(false);
-      }
-      return next;
-    });
-  };
-
-  const toggleCommercial = () => {
-    setMobileCommercialOpen((open) => {
-      const next = !open;
-      if (next) {
-        setMobileResidentialOpen(false);
-      }
-      return next;
+  const toggleMobile = () => {
+    setMobileOpen((open) => {
+      if (open) setMobileView('main');
+      return !open;
     });
   };
 
@@ -124,7 +80,7 @@ export default function Navbar() {
         </div>
         <Link className="nav-cta" to="/contact">{t('getQuote')}</Link>
 
-        <button className={`hamburger ${mobileOpen ? 'open' : ''}`} type="button" onClick={() => setMobileOpen((open) => !open)} aria-label={t('toggleMenu')} aria-expanded={mobileOpen}>
+        <button className={`hamburger ${mobileOpen ? 'open' : ''}`} type="button" onClick={toggleMobile} aria-label={t('toggleMenu')} aria-expanded={mobileOpen}>
           <span />
           <span />
           <span />
@@ -138,51 +94,50 @@ export default function Navbar() {
             <button className={`ui-pill ${language === 'fr' ? 'active' : ''}`} type="button" onClick={() => setLanguage('fr')}>FR</button>
           </div>
         </div>
-        <Link to="/about" onClick={closeMobile}>{t('about')}</Link>
-        <button className={`mobile-accordion ${mobileElevatorsOpen ? 'open' : ''}`} type="button" onClick={toggleElevators}>
-          {t('ourElevators')} <span className="mobile-accordion-chevron" />
-        </button>
-        <div className={`mobile-accordion-content ${mobileElevatorsOpen ? 'open' : ''}`}>
-          <div className="mobile-accordion-inner">
-            <button className={`mobile-accordion mobile-accordion-sub ${mobileResidentialOpen ? 'open' : ''}`} type="button" onClick={toggleResidential}>
-              {t('residentialLifts')} <span className="mobile-accordion-chevron" />
+        <div className="mobile-panel-stack">
+          <div className={`mobile-panel ${mobileView === 'main' ? 'active' : ''}`} aria-hidden={mobileView !== 'main'}>
+            <Link to="/about" onClick={closeMobile}>{t('about')}</Link>
+            <button className="mobile-menu-button" type="button" onClick={() => setMobileView('elevators')}>
+              {t('ourElevators')} <span className="mobile-menu-arrow" />
             </button>
-            <div className={`mobile-accordion-content mobile-accordion-content-sub ${mobileResidentialOpen ? 'open' : ''}`}>
-              <div className="mobile-accordion-inner">
-                <div className="mobile-sub">
-                  {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
-                </div>
-              </div>
-            </div>
+            <button className="mobile-menu-button" type="button" onClick={() => setMobileView('cabin')}>
+              {t('cabinDesign')} <span className="mobile-menu-arrow" />
+            </button>
+            <Link to="/configurator" onClick={closeMobile}>{t('personal3d')}</Link>
+            <Link to="/projects" onClick={closeMobile}>{t('ourProjects')}</Link>
+            <Link to="/service" onClick={closeMobile}>{t('serviceMaintenance')}</Link>
+            <Link to="/contact" onClick={closeMobile}>{t('contactUs')}</Link>
+          </div>
 
-            <button className={`mobile-accordion mobile-accordion-sub ${mobileCommercialOpen ? 'open' : ''}`} type="button" onClick={toggleCommercial}>
-              {t('commercialLifts')} <span className="mobile-accordion-chevron" />
+          <div className={`mobile-panel ${mobileView === 'elevators' ? 'active' : ''}`} aria-hidden={mobileView !== 'elevators'}>
+            <button className="mobile-panel-back" type="button" onClick={() => setMobileView('main')}>{language === 'fr' ? 'Retour' : 'Back'}</button>
+            <div className="mobile-panel-title">{t('ourElevators')}</div>
+            <button className="mobile-menu-button" type="button" onClick={() => setMobileView('residential')}>
+              {t('residentialLifts')} <span className="mobile-menu-arrow" />
             </button>
-            <div className={`mobile-accordion-content mobile-accordion-content-sub ${mobileCommercialOpen ? 'open' : ''}`}>
-              <div className="mobile-accordion-inner">
-                <div className="mobile-sub">
-                  {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
-                </div>
-              </div>
-            </div>
+            <button className="mobile-menu-button" type="button" onClick={() => setMobileView('commercial')}>
+              {t('commercialLifts')} <span className="mobile-menu-arrow" />
+            </button>
+          </div>
+
+          <div className={`mobile-panel ${mobileView === 'residential' ? 'active' : ''}`} aria-hidden={mobileView !== 'residential'}>
+            <button className="mobile-panel-back" type="button" onClick={() => setMobileView('elevators')}>{language === 'fr' ? 'Retour' : 'Back'}</button>
+            <div className="mobile-panel-title">{t('residentialLifts')}</div>
+            {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+          </div>
+
+          <div className={`mobile-panel ${mobileView === 'commercial' ? 'active' : ''}`} aria-hidden={mobileView !== 'commercial'}>
+            <button className="mobile-panel-back" type="button" onClick={() => setMobileView('elevators')}>{language === 'fr' ? 'Retour' : 'Back'}</button>
+            <div className="mobile-panel-title">{t('commercialLifts')}</div>
+            {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
+          </div>
+
+          <div className={`mobile-panel ${mobileView === 'cabin' ? 'active' : ''}`} aria-hidden={mobileView !== 'cabin'}>
+            <button className="mobile-panel-back" type="button" onClick={() => setMobileView('main')}>{language === 'fr' ? 'Retour' : 'Back'}</button>
+            <div className="mobile-panel-title">{t('cabinDesign')}</div>
+            {cabinMenuLinks.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
           </div>
         </div>
-
-        <button className={`mobile-accordion ${mobileCabinOpen ? 'open' : ''}`} type="button" onClick={toggleCabin}>
-          {t('cabinDesign')} <span className="mobile-accordion-chevron" />
-        </button>
-        <div className={`mobile-accordion-content ${mobileCabinOpen ? 'open' : ''}`}>
-          <div className="mobile-accordion-inner">
-            <div className="mobile-sub">
-              {cabinMenuLinks.map((item) => <Link key={item.label} to={item.to} onClick={closeMobile}>{item.label}</Link>)}
-            </div>
-          </div>
-        </div>
-
-        <Link to="/configurator" onClick={closeMobile}>{t('personal3d')}</Link>
-        <Link to="/projects" onClick={closeMobile}>{t('ourProjects')}</Link>
-        <Link to="/service" onClick={closeMobile}>{t('serviceMaintenance')}</Link>
-        <Link to="/contact" onClick={closeMobile}>{t('contactUs')}</Link>
       </div>
     </>
   );
