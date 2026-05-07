@@ -1,10 +1,12 @@
 import PageHero from '../components/layout/PageHero.jsx';
 import { ProductCard } from '../components/ui/Cards.jsx';
-import { commercialElevators, residentialElevators } from '../data/siteData.js';
+import { getCommercialElevators, getResidentialElevators } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 
 export default function Elevators() {
   const { language } = useUI();
+  const residentialElevators = getResidentialElevators(language);
+  const commercialElevators = getCommercialElevators(language);
   const content = language === 'fr'
     ? {
       current: 'Nos Ascenseurs',
@@ -15,7 +17,7 @@ export default function Elevators() {
       resDesc: 'Atlas Ascenseurs couvre les ascenseurs résidentiels, Astoria intérieur, COMO résidentiel, circulaires, extérieurs et panoramiques avec un accompagnement clair.',
       comDivider: 'Ascenseurs Commerciaux',
       comHeading: 'Conçus pour le <em>Trafic, la Sécurité et la Fiabilité.</em>',
-      comDesc: 'La gamme commerciale comprend COMO Commercial, escalators et trottoirs roulants, car lifts, cargo lifts, hospital lifts et dumbwaiter lifts.',
+      comDesc: 'La gamme commerciale comprend COMO Commercial, escalators et trottoirs roulants, monte-voitures, monte-charges, ascenseurs hospitaliers et monte-plats.',
     }
     : {
       current: 'Our Elevators',

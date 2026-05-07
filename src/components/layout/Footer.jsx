@@ -14,7 +14,7 @@ export default function Footer() {
           <h4>{t('footerQuickLinks')}</h4>
           <Link to="/about">{t('aboutUs')}</Link>
           <Link to="/elevators">{t('ourElevators')}</Link>
-          <Link to="/configurator">3D Personalization</Link>
+          <Link to="/configurator">{t('personal3d')}</Link>
           <Link to="/service">{t('serviceMaintenance')}</Link>
           <Link to="/projects">{t('ourProjects')}</Link>
           <Link to="/contact">{t('footerContact')}</Link>
@@ -23,9 +23,9 @@ export default function Footer() {
           <h4>{t('footerOurElevators')}</h4>
           <Link to="/elevators">{t('residentialLifts')}</Link>
           <Link to="/elevators">{t('commercialLifts')}</Link>
-          <Link to="/elevators">Circular Elevators</Link>
-          <Link to="/elevators">Hospital Lifts</Link>
-          <Link to="/elevators">Cargo Lifts</Link>
+          <Link to="/elevators">{t('circularElevators')}</Link>
+          <Link to="/elevators">{t('hospitalLifts')}</Link>
+          <Link to="/elevators">{t('cargoLifts')}</Link>
           <Link to="/elevators">{t('escalators')}</Link>
           <Link to="/configurator">{t('cabinConfigurator')}</Link>
         </div>

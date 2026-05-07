@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import Button from '../ui/Button.jsx';
-import { faqs, pageImages } from '../../data/siteData.js';
+import { getFaqs, pageImages } from '../../data/siteData.js';
 import { useUI } from '../../context/UIContext.jsx';
 
 export default function FaqSection() {
-  const { t } = useUI();
+  const { language, t } = useUI();
+  const faqs = getFaqs(language);
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <section className="section section-alt">
       <div className="faq-grid">
         <div>
-          <div className="eyebrow">FAQ</div>
+          <div className="eyebrow">{t('faqEyebrow')}</div>
           <h2 className="section-title">{t('commonQuestions')}</h2>
           <p className="section-desc">{t('everythingNeed')}</p>
           <div className="faq-visual" style={{ backgroundImage: `url(${pageImages.faq})` }} />

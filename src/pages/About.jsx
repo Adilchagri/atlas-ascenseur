@@ -8,8 +8,15 @@ const pillars = [
   ['03', 'Local Expertise', ['Present in 10+ Moroccan cities', 'Multilingual team (Arabic, French, English)', 'Fast response and local stock', 'National after-sales network']],
 ];
 
+const frPillars = [
+  ['01', 'Excellence d’Ingénierie', ['Composants fabriqués en Europe', 'Contrôle qualité strict à chaque étape', 'Conformité aux normes de sécurité euro-marocaines', 'Investissement continu en R&D']],
+  ['02', 'Design & Personnalisation', ['Intérieurs de cabine entièrement personnalisables', 'Large choix de collections de portes', 'Éclairage et finitions sur mesure', 'Équipe design dédiée en interne']],
+  ['03', 'Expertise Locale', ['Présence dans 10+ villes marocaines', 'Équipe multilingue (arabe, français, anglais)', 'Réponse rapide et stock local', 'Réseau national de service après-vente']],
+];
+
 export default function About() {
   const { language } = useUI();
+  const pillarItems = language === 'fr' ? frPillars : pillars;
   const content = language === 'fr'
     ? {
       current: 'À Propos',
@@ -57,7 +64,7 @@ export default function About() {
         <div className="eyebrow">{content.pillars}</div>
         <h2 className="section-title section-title-spaced" dangerouslySetInnerHTML={{ __html: content.pillarsHeading }} />
         <div className="pillars-grid">
-          {pillars.map(([number, title, items]) => (
+          {pillarItems.map(([number, title, items]) => (
             <article className="pillar" key={number}>
               <div className="pillar-num">{number}</div>
               <h3>{title}</h3>

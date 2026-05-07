@@ -1,10 +1,11 @@
 import PageHero from '../components/layout/PageHero.jsx';
 import { ServiceCard } from '../components/ui/Cards.jsx';
-import { services } from '../data/siteData.js';
+import { getServices } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 
 export default function Service() {
   const { language } = useUI();
+  const services = getServices(language);
   const content = language === 'fr'
     ? {
       current: 'Service & Maintenance',

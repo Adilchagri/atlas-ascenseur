@@ -1,10 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { cabinMenuLinks, elevatorMenuLinks, imagePaths, navLinks } from '../../data/siteData.js';
+import { getCabinMenuLinks, getElevatorMenuLinks, getNavLinks, imagePaths } from '../../data/siteData.js';
 import { useUI } from '../../context/UIContext.jsx';
 
 export default function Navbar() {
   const { language, setLanguage, t } = useUI();
+  const navLinks = getNavLinks(language);
+  const elevatorMenuLinks = getElevatorMenuLinks(language);
+  const cabinMenuLinks = getCabinMenuLinks(language);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileElevatorsOpen, setMobileElevatorsOpen] = useState(false);
@@ -121,7 +124,7 @@ export default function Navbar() {
         </div>
         <Link className="nav-cta" to="/contact">{t('getQuote')}</Link>
 
-        <button className={`hamburger ${mobileOpen ? 'open' : ''}`} type="button" onClick={() => setMobileOpen((open) => !open)} aria-label="Toggle menu" aria-expanded={mobileOpen}>
+        <button className={`hamburger ${mobileOpen ? 'open' : ''}`} type="button" onClick={() => setMobileOpen((open) => !open)} aria-label={t('toggleMenu')} aria-expanded={mobileOpen}>
           <span />
           <span />
           <span />
@@ -176,7 +179,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <Link to="/configurator" onClick={closeMobile}>3D Personalization</Link>
+        <Link to="/configurator" onClick={closeMobile}>{t('personal3d')}</Link>
         <Link to="/projects" onClick={closeMobile}>{t('ourProjects')}</Link>
         <Link to="/service" onClick={closeMobile}>{t('serviceMaintenance')}</Link>
         <Link to="/contact" onClick={closeMobile}>{t('contactUs')}</Link>

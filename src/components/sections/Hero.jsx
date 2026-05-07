@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
       <div className="hero-content">
         <div className="hero-label">{t('welcomeLabel')}</div>
-        <h1 className="hero-title hero-title-luxury">Luxury Elevators,<br /><em>Made Personal.</em></h1>
+        <h1 className="hero-title hero-title-luxury" dangerouslySetInnerHTML={{ __html: t('heroTitle') }} />
         <div className="hero-actions">
           <Button to="/contact">{t('getQuote')}</Button>
           <Button to="/elevators" variant="outline">{t('exploreMore')}</Button>

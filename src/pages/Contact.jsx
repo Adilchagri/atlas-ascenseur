@@ -16,13 +16,13 @@ export default function Contact() {
             <h2 className="section-title contact-title" dangerouslySetInnerHTML={{ __html: isFr ? 'Parlons de<br /><em>Votre Projet.</em>' : "Let's Discuss<br /><em>Your Project.</em>" }} />
             <div className="contact-visual" style={{ backgroundImage: `url(${pageImages.contact})` }} />
             <h4>{isFr ? 'Adresse' : 'Address'}</h4>
-            <p>23 Rue 2, Lot Les Arenes 2<br />Etage, Suite 10, Racine<br />Casablanca, Morocco</p>
+            <p>23 Rue 2, Lot Les Arenes 2<br />Etage, Suite 10, Racine<br />Casablanca, {isFr ? 'Maroc' : 'Morocco'}</p>
             <h4>{isFr ? 'Téléphone' : 'Phone'}</h4>
             <p>+212 666323055</p>
             <h4>Email</h4>
             <p>contact@atlasascenseurs.ma</p>
             <h4>{isFr ? 'Couverture' : 'Coverage'}</h4>
-            <p>Casablanca - Rabat - Marrakech<br />Tangier - Agadir - and all major cities</p>
+            <p>{isFr ? 'Casablanca - Rabat - Marrakech' : 'Casablanca - Rabat - Marrakech'}<br />{isFr ? 'Tanger - Agadir - et toutes les grandes villes' : 'Tangier - Agadir - and all major cities'}</p>
           </div>
           <form>
             <div className="eyebrow">{isFr ? 'Devis Gratuit' : 'Free Quote'}</div>
@@ -33,9 +33,9 @@ export default function Contact() {
             </div>
             <div className="form-row">
               <Field label={isFr ? 'Téléphone' : 'Phone'} type="tel" placeholder="+212 666323055" />
-              <Field label="Email" type="email" placeholder="your@email.com" />
+              <Field label="Email" type="email" placeholder={isFr ? 'votre@email.com' : 'your@email.com'} />
             </div>
-            <Select label={isFr ? 'Ville' : 'City'} options={isFr ? ['Choisir votre ville', 'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Agadir', 'Fes', 'Autre'] : ['Select your city', 'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Agadir', 'Fes', 'Other']} />
+            <Select label={isFr ? 'Ville' : 'City'} options={isFr ? ['Choisir votre ville', 'Casablanca', 'Rabat', 'Marrakech', 'Tanger', 'Agadir', 'Fès', 'Autre'] : ['Select your city', 'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Agadir', 'Fes', 'Other']} />
             <Select label={isFr ? 'Type de Projet' : 'Type of Project'} options={isFr ? ['Choisir le type de projet', 'Résidentiel - Nouvelle installation', 'Commercial - Nouvelle installation', 'Contrat de maintenance', 'Réparation / Modernisation', 'Autre'] : ['Select project type', 'Residential - New installation', 'Commercial - New installation', 'Maintenance contract', 'Repair / Modernization', 'Other']} />
             <div className="form-group">
               <label>{isFr ? 'Message' : 'Message'}</label>
@@ -69,4 +69,3 @@ function Select({ label, options }) {
     </div>
   );
 }
-

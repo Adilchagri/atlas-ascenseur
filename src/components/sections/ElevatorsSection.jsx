@@ -1,16 +1,17 @@
 import Button from '../ui/Button.jsx';
 import { ElevatorCard } from '../ui/Cards.jsx';
-import { elevatorCards } from '../../data/siteData.js';
+import { getElevatorCards } from '../../data/siteData.js';
 import { useUI } from '../../context/UIContext.jsx';
 
 export default function ElevatorsSection() {
-  const { t } = useUI();
+  const { language, t } = useUI();
+  const elevatorCards = getElevatorCards(language);
   return (
     <section className="section section-alt">
       <div className="elevators-header">
         <div>
           <div className="eyebrow">{t('ourRange')}</div>
-          <h2 className="section-title no-margin">Engineered for <em>Every</em> Space.</h2>
+          <h2 className="section-title no-margin" dangerouslySetInnerHTML={{ __html: t('elevatorsHeading') }} />
         </div>
         <Button to="/elevators" variant="outline">{t('viewAllElevators')}</Button>
       </div>

@@ -1,6 +1,10 @@
-import { stats } from '../../data/siteData.js';
+import { getStats } from '../../data/siteData.js';
+import { useUI } from '../../context/UIContext.jsx';
 
 export default function StatsBar() {
+  const { language } = useUI();
+  const stats = getStats(language);
+
   return (
     <div className="stats-bar">
       {stats.map((stat) => (

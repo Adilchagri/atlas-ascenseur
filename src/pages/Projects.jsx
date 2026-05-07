@@ -1,10 +1,11 @@
 import PageHero from '../components/layout/PageHero.jsx';
 import { ProjectCard } from '../components/ui/Cards.jsx';
-import { projects } from '../data/siteData.js';
+import { getProjects } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 
 export default function Projects() {
   const { language } = useUI();
+  const projects = getProjects(language);
   const content = language === 'fr'
     ? { current: 'Nos Projets', title: 'Nos', accent: 'Projets', eyebrow: 'Portfolio', heading: 'Installations à Travers le <em>Maroc.</em>' }
     : { current: 'Our Projects', title: 'Our', accent: 'Projects', eyebrow: 'Portfolio', heading: 'Installations Across <em>Morocco.</em>' };
