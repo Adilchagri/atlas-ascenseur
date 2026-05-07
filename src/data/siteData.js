@@ -7,12 +7,6 @@ import exteriorImage from '../assets/images/elevators/exterior.svg';
 import commercialImage from '../assets/images/elevators/commercial.svg';
 import hospitalCargoImage from '../assets/images/elevators/hospital-cargo.svg';
 import escalatorImage from '../assets/images/elevators/escalator.svg';
-import villaProject from '../assets/images/projects/villa-palmeraie.svg';
-import vetProject from '../assets/images/projects/atlas-veterinaire.svg';
-import circularProject from '../assets/images/projects/circular-elevator.svg';
-import outdoorProject from '../assets/images/projects/outdoor-elevator.svg';
-import marinaProject from '../assets/images/projects/marina-agadir.svg';
-import golfProject from '../assets/images/projects/amalkis-golf.svg';
 import imgHeroElevatorLuxury from '../assets/images/library/hero-elevator-luxury.jpg';
 import imgElevatorAstoriaInterior from '../assets/images/library/elevator-astoria-interior.jpg';
 import imgElevatorCircularGlass from '../assets/images/library/elevator-circular-glass.jpg';
@@ -20,10 +14,6 @@ import imgElevatorExteriorTower from '../assets/images/library/elevator-exterior
 import imgElevatorCommercialLobby from '../assets/images/library/elevator-commercial-lobby.jpg';
 import imgElevatorHospitalCargo from '../assets/images/library/elevator-hospital-cargo.jpg';
 import imgElevatorEscalatorWalkway from '../assets/images/library/elevator-escalator-walkway.jpg';
-import imgProjectVillaLift from '../assets/images/library/project-villa-lift.jpg';
-import imgProjectVeterinaryClinic from '../assets/images/library/project-veterinary-clinic.jpg';
-import imgProjectMarinaHospitality from '../assets/images/library/project-marina-hospitality.jpg';
-import imgProjectGolfResort from '../assets/images/library/project-golf-resort.jpg';
 import imgPageContactOffice from '../assets/images/library/page-contact-office.jpg';
 import imgPageFaqConsultation from '../assets/images/library/page-faq-consultation.jpg';
 import imgElevatorCarLift from '../assets/images/library/elevator-car-lift.jpg';
@@ -104,12 +94,12 @@ export const imagePaths = {
     inspiration: inspiration1,
   },
   projects: {
-    villa: withFallback(villaProject, imgProjectVillaLift),
-    veterinary: withFallback(vetProject, imgProjectVeterinaryClinic),
-    circular: withFallback(circularProject, imgElevatorCircularGlass),
-    outdoor: withFallback(outdoorProject, imgElevatorExteriorTower),
-    marina: withFallback(marinaProject, imgProjectMarinaHospitality),
-    golf: withFallback(golfProject, imgProjectGolfResort),
+    villa: astoriaRange3,
+    veterinary: comoRange4,
+    circular: circularLift3,
+    outdoor: circularLift5,
+    marina: comoRange2,
+    golf: astoriaRange5,
   },
 };
 
@@ -229,9 +219,9 @@ export const designGalleries = {
     imgElevatorAstoriaInterior,
     imgElevatorCircularGlass,
     imgElevatorCommercialLobby,
-    imgProjectVillaLift,
-    imgProjectMarinaHospitality,
-    imgProjectGolfResort,
+    astoriaRange3,
+    comoRange2,
+    circularLift5,
     imgElevatorExteriorTower,
     imgElevatorHospitalCargo,
     imgPageFaqConsultation,
@@ -241,7 +231,7 @@ export const designGalleries = {
 };
 
 export const libraryCabinImages = {
-  signature: imgProjectVillaLift,
+  signature: astoriaRange3,
   panoramic: imgElevatorCircularGlass,
   contemporary: imgElevatorAstoriaInterior,
   commercial: imgElevatorCommercialLobby,

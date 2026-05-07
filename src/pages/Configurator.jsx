@@ -200,6 +200,8 @@ const frConfiguratorText = {
   email: 'Email',
   cancel: 'Annuler',
   submitDownload: 'Télécharger le PDF',
+  saveConsent: 'J’accepte que mes informations et ma configuration soient enregistrées pour être recontacté par Atlas Ascenseurs.',
+  saveDecline: 'Laissez décoché pour télécharger le PDF sans enregistrer vos informations dans la feuille propriétaire.',
 };
 
 const enConfiguratorText = {
@@ -233,6 +235,8 @@ const enConfiguratorText = {
   email: 'Email',
   cancel: 'Cancel',
   submitDownload: 'Download PDF',
+  saveConsent: 'I agree that my information and configuration are saved so Atlas Ascenseurs can contact me.',
+  saveDecline: 'Leave unchecked to download the PDF without saving your information to the owner sheet.',
 };
 
 const frProfileText = {
@@ -355,6 +359,7 @@ function firstAllowed(collection, ids) {
 }
 
 const LEADS_ENDPOINT = import.meta.env.VITE_GOOGLE_SHEETS_ENDPOINT || '';
+const visibleConfigProfiles = configProfiles.filter((profile) => profile.id !== 'escalator');
 
 export default function Configurator() {
   const { language } = useUI();
@@ -381,6 +386,7 @@ export default function Configurator() {
     phone: '',
     email: '',
   });
+  const [saveLeadInfo, setSaveLeadInfo] = useState(false);
 
   const dragRef = useRef({ active: false, startX: 0, startY: 0, baseX: -6, baseY: -19 });
 
@@ -409,9 +415,13 @@ export default function Configurator() {
   const availableWalls = useMemo(() => walls.filter((item) => profile.walls.includes(item.id)), [profile.walls]);
   const availableFloors = useMemo(() => floors.filter((item) => profile.floors.includes(item.id)), [profile.floors]);
   const availableLights = useMemo(() => lights.filter((item) => profile.lights.includes(item.id)), [profile.lights]);
+  const leadFormComplete = useMemo(
+    () => Object.values(leadForm).every((value) => value.trim().length > 0),
+    [leadForm],
+  );
 
   const modelClass = useMemo(() => {
-    const classes = ['lift-3d'];
+    const classes = ['lift-3d', `lift-type-${profile.id}`];
     if (profile.id === 'circular') classes.push('circular');
     if (profile.id === 'exterior') classes.push('exterior');
     if (['cargo', 'car', 'escalator'].includes(profile.id)) classes.push('industrial');
@@ -481,11 +491,12 @@ export default function Configurator() {
     event.preventDefault();
     const payload = {
       ...leadForm,
+      saveToSheet: saveLeadInfo,
       submittedAt: new Date().toISOString(),
       configuration: summary,
     };
 
-    if (LEADS_ENDPOINT) {
+    if (saveLeadInfo && LEADS_ENDPOINT) {
       try {
         await fetch(LEADS_ENDPOINT, {
           method: 'POST',
@@ -496,12 +507,13 @@ export default function Configurator() {
       } catch {
         // Keep the PDF flow working even if the sheet endpoint is temporarily unavailable.
       }
-    } else {
+    } else if (saveLeadInfo) {
       console.warn('Google Sheets export is not configured. Add VITE_GOOGLE_SHEETS_ENDPOINT to .env.');
     }
 
     downloadConfigurationPdf({ lead: payload, summary, language, logoUrl: logo });
     setLeadModalOpen(false);
+    setSaveLeadInfo(false);
   };
 
   const onPointerDown = (event) => {
@@ -547,7 +559,7 @@ export default function Configurator() {
             <div className="config-panel">
               <ConfigGroup id="type" title={copy.liftType} open={openGroups.type} onToggle={toggleGroup}>
                 <div className="config-options">
-                  {configProfiles.map((item) => (
+                  {visibleConfigProfiles.map((item) => (
                     <Option key={item.id} active={profileId === item.id} onClick={() => setProfileId(item.id)}>
                       {localProfile(item, language).short}
                     </Option>
@@ -682,6 +694,19 @@ export default function Configurator() {
               </div>
               <LeadField label={copy.phone} name="phone" type="tel" value={leadForm.phone} onChange={onLeadChange} required />
               <LeadField label={copy.email} name="email" type="email" value={leadForm.email} onChange={onLeadChange} required />
+              {leadFormComplete && (
+                <label className="lead-consent">
+                  <input
+                    type="checkbox"
+                    checked={saveLeadInfo}
+                    onChange={(event) => setSaveLeadInfo(event.target.checked)}
+                  />
+                  <span>
+                    <strong>{copy.saveConsent}</strong>
+                    <small>{copy.saveDecline}</small>
+                  </span>
+                </label>
+              )}
               <div className="lead-modal-actions">
                 <button className="btn-outline" type="button" onClick={() => setLeadModalOpen(false)}>{copy.cancel}</button>
                 <button className="btn-gold" type="submit">{copy.submitDownload}</button>
