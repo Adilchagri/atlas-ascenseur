@@ -3,6 +3,21 @@ import { ProductCard } from '../components/ui/Cards.jsx';
 import { getCommercialElevators, getResidentialElevators } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 
+const elevatorRoutesByIcon = {
+  A: '/elevators/astoria-range',
+  C: '/elevators/como-range',
+  O: '/elevators/circular-elevators',
+  X: '/elevators/exterior-elevators',
+  P: '/elevators/circular-elevators',
+  D: '/door-collections',
+  B: '/elevators/como-commercial',
+  E: '/elevators/escalators-walkways',
+  V: '/elevators/car-lifts',
+  F: '/elevators/cargo-lifts',
+  H: '/elevators/hospital-lifts',
+  S: '/elevators/dumbwaiter-lifts',
+};
+
 export default function Elevators() {
   const { language } = useUI();
   const residentialElevators = getResidentialElevators(language);
@@ -39,14 +54,14 @@ export default function Elevators() {
         <h2 className="section-title tight-title" dangerouslySetInnerHTML={{ __html: content.resHeading }} />
         <p className="section-desc">{content.resDesc}</p>
         <div className="elev-page-grid">
-          {residentialElevators.map(([icon, title, text, image]) => <ProductCard key={title} icon={icon} title={title} text={text} image={image} />)}
+          {residentialElevators.map(([icon, title, text, image]) => <ProductCard key={title} icon={icon} title={title} text={text} image={image} to={elevatorRoutesByIcon[icon]} />)}
         </div>
 
         <div className="elev-divider">{content.comDivider}</div>
         <h2 className="section-title tight-title" dangerouslySetInnerHTML={{ __html: content.comHeading }} />
         <p className="section-desc">{content.comDesc}</p>
         <div className="elev-page-grid">
-          {commercialElevators.map(([icon, title, text, image]) => <ProductCard key={title} icon={icon} title={title} text={text} image={image} />)}
+          {commercialElevators.map(([icon, title, text, image]) => <ProductCard key={title} icon={icon} title={title} text={text} image={image} to={elevatorRoutesByIcon[icon]} />)}
         </div>
       </section>
     </>

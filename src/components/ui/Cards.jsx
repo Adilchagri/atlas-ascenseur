@@ -25,13 +25,34 @@ export function ElevatorCard({ tag, title, desc, image }) {
   );
 }
 
-export function ProductCard({ icon, title, text, image }) {
+export function ProductCard({ icon, title, text, image, to }) {
+  const content = (
+    <>
+      {image && (
+        <div className="elev-page-cover">
+          <img src={image} alt={title} />
+        </div>
+      )}
+      <div className="elev-page-body">
+        <div className="elev-page-icon">{icon}</div>
+        <h3>{title}</h3>
+        <p>{text}</p>
+        <span className="elev-page-arrow" aria-hidden="true" />
+      </div>
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link className="elev-page-card" to={to} aria-label={title}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <article className="elev-page-card">
-      {image && <div className="elev-page-cover" style={{ backgroundImage: `url(${image})` }} />}
-      <div className="elev-page-icon">{icon}</div>
-      <h3>{title}</h3>
-      <p>{text}</p>
+      {content}
     </article>
   );
 }
