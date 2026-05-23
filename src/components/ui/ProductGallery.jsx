@@ -4,7 +4,7 @@ import { useUI } from '../../context/UIContext.jsx';
 const INITIAL_COUNT = 6;
 const LOAD_STEP = 6;
 
-export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product Images', images = [], getLabel }) {
+export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product Images', images = [], getLabel, className = '' }) {
   const { t } = useUI();
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const visibleImages = images.slice(0, visibleCount);
@@ -18,7 +18,7 @@ export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product I
   if (!images.length) return null;
 
   return (
-    <div className="product-gallery">
+    <div className={`product-gallery ${className}`.trim()}>
       <div className="gallery-head">
         <div>
           <div className="eyebrow">{eyebrow}</div>

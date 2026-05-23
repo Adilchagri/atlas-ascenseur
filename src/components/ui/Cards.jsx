@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export function WhyCard({ number, title, text }) {
@@ -57,12 +58,28 @@ export function ProductCard({ icon, title, text, image, to }) {
   );
 }
 
-export function ProjectCard({ category, title, desc, image, page = false }) {
+export function ProjectCard({ category, title, desc, image, video, page = false }) {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const cardClass = page ? 'proj-page-card' : 'proj-card';
+  const mediaClass = page ? 'proj-page-bg' : 'proj-bg';
+  const canOpenVideo = page && video;
   const inner = (
     <>
       <div className={page ? 'proj-page-icon' : 'proj-placeholder'} />
-      <div className={page ? 'proj-page-bg' : 'proj-bg'} style={{ backgroundImage: `url(${image})` }} />
+      {video ? (
+        <video
+          className={mediaClass}
+          src={video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={title}
+        />
+      ) : (
+        <div className={mediaClass} style={{ backgroundImage: `url(${image})` }} />
+      )}
       <div className={page ? 'proj-page-overlay' : 'proj-overlay'}>
         <div className={page ? 'proj-page-info' : 'proj-info'}>
           <span>{category}</span>
@@ -74,7 +91,45 @@ export function ProjectCard({ category, title, desc, image, page = false }) {
   );
 
   if (page) {
-    return <article className={cardClass}>{inner}</article>;
+    return (
+      <>
+        <article
+          className={cardClass}
+          onClick={canOpenVideo ? () => setIsVideoOpen(true) : undefined}
+          role={canOpenVideo ? 'button' : undefined}
+          tabIndex={canOpenVideo ? 0 : undefined}
+          onKeyDown={canOpenVideo ? (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              setIsVideoOpen(true);
+            }
+          } : undefined}
+        >
+          {inner}
+        </article>
+        {canOpenVideo && isVideoOpen && (
+          <div
+            className="project-video-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <div className="project-video-frame" onClick={(event) => event.stopPropagation()}>
+              <button
+                className="project-video-close"
+                type="button"
+                aria-label="Close video"
+                onClick={() => setIsVideoOpen(false)}
+              >
+                x
+              </button>
+              <video src={video} controls autoPlay playsInline />
+            </div>
+          </div>
+        )}
+      </>
+    );
   }
 
   return (

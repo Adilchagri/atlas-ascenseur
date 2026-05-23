@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PageHero from '../components/layout/PageHero.jsx';
-import { commercialElevators, elevatorDetailGalleries, residentialElevators } from '../data/siteData.js';
+import { commercialElevators, comoCabins, elevatorDetailGalleries, residentialElevators } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 import ProductGallery from '../components/ui/ProductGallery.jsx';
 
@@ -10,6 +10,7 @@ const noGalleryPages = new Set([
   'Car Lifts',
   'Escalators & Walkways',
   'COMO Commercial',
+  'COMO Residential',
   'Cargo Lifts',
   'Dumbwaiter Lifts',
 ]);
@@ -168,6 +169,9 @@ export default function ElevatorDetail() {
   const notes = language === 'fr' ? frProductNotes : productNotes;
   const note = notes[itemTitle] ?? notes['COMO Residential'];
   const showGallery = !noGalleryPages.has(itemTitle);
+  const phoneTallGalleryPages = new Set(['Astoria Range', 'COMO Residential', 'Circular Elevators', 'Exterior Elevators']);
+  const usePhoneTallGallery = phoneTallGalleryPages.has(itemTitle);
+  const showComoCabins = itemTitle === 'COMO Residential';
   const pageTitle = page.title[language] ?? page.title.en;
   const pageAccent = page.accent[language] ?? page.accent.en;
 
@@ -204,11 +208,36 @@ export default function ElevatorDetail() {
           </div>
         </div>
 
+        {showComoCabins && (
+          <div className="como-cabin-section">
+            <div className="gallery-head">
+              <div>
+                <div className="eyebrow">{language === 'fr' ? 'Cabines COMO' : 'COMO Cabins'}</div>
+                <h2 className="section-title tight-title">{language === 'fr' ? 'Choisir une Cabine' : 'Choose a Cabin'}</h2>
+              </div>
+            </div>
+            <div className="como-cabin-grid">
+              {comoCabins.map((cabin) => (
+                <Link className="como-cabin-card" to={cabin.to} key={cabin.id}>
+                  <img src={cabin.image} alt={cabin.title} loading="lazy" />
+                  <div className="como-cabin-card-info">
+                    <h3>
+                      <span>{language === 'fr' ? 'Cabine' : 'Cabin'}</span>
+                      <strong>{cabin.id}</strong>
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
         {showGallery && (
           <ProductGallery
             eyebrow={language === 'fr' ? 'Galerie Produit' : 'Product Gallery'}
             title={language === 'fr' ? 'Images de la Gamme' : `${itemTitle} Gallery`}
             images={gallery}
+            className={usePhoneTallGallery ? 'product-gallery-phone-tall' : ''}
             getLabel={(index) => `${language === 'fr' ? 'Image Produit' : itemTitle} ${String(index + 1).padStart(2, '0')}`}
           />
         )}

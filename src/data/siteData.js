@@ -27,11 +27,6 @@ import astoriaRange2 from '../assets/images/astoria_range/Astoria-2.png';
 import astoriaRange3 from '../assets/images/astoria_range/Astoria-3.jpg';
 import astoriaRange4 from '../assets/images/astoria_range/Astoria-4.jpg';
 import astoriaRange5 from '../assets/images/astoria_range/Astoria-5-.jpeg';
-import comoRange1 from '../assets/images/como_range/1.jpg';
-import comoRange2 from '../assets/images/como_range/2.jpg';
-import comoRange3 from '../assets/images/como_range/3.jpg';
-import comoRange4 from '../assets/images/como_range/4.jpg';
-import comoRange5 from '../assets/images/como_range/5.jpg';
 import circularLift1 from '../assets/images/circular_elevators/1.jpeg';
 import circularLift2 from '../assets/images/circular_elevators/2.jpg';
 import circularLift3 from '../assets/images/circular_elevators/3.jpeg';
@@ -62,8 +57,19 @@ function galleryFrom(modules) {
     .map(([, src]) => src);
 }
 
+function galleriesByCabin(modules) {
+  return Object.entries(modules)
+    .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+    .reduce((groups, [path, src]) => {
+      const match = path.match(/como_range\/cabine([^/]+)\//);
+      if (!match) return groups;
+      const id = match[1];
+      return { ...groups, [id]: [...(groups[id] ?? []), src] };
+    }, {});
+}
+
 const astoriaGallery = galleryFrom(import.meta.glob('../assets/images/astoria_range/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
-const comoResidentialGallery = galleryFrom(import.meta.glob('../assets/images/como_range/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
+const comoCabinImages = galleriesByCabin(import.meta.glob('../assets/images/como_range/cabine*/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const circularGallery = galleryFrom(import.meta.glob('../assets/images/circular_elevators/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const exteriorGallery = galleryFrom(import.meta.glob('../assets/images/exterior_elevators/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const comoCommercialGallery = galleryFrom(import.meta.glob('../assets/images/Como_Commercial_Range/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
@@ -72,6 +78,38 @@ const carLiftGallery = galleryFrom(import.meta.glob('../assets/images/car-lifts/
 const cargoGallery = galleryFrom(import.meta.glob('../assets/images/Cargo Lifts/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const doorGallery = galleryFrom(import.meta.glob('../assets/images/Doors/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const inspirationGallery = galleryFrom(import.meta.glob('../assets/images/Inspiration Gallery/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
+const projectVideos = galleryFrom(import.meta.glob('../assets/images/videos_our_projects/*.mp4', { eager: true, import: 'default' }));
+
+const comoCabinSpecs = [
+  { id: '208', specs: [['Ceiling', 'C203 hairline stainless steel with LED ceiling light'], ['COP', 'COP43-00 dot matrix display with hairline stainless steel faceplate'], ['Cabin Walls', 'CAR208 hairline stainless steel'], ['Cabin Door', 'L01-00 hairline stainless steel']] },
+  { id: '215', specs: [['Ceiling', 'C216 mirror stainless steel with acrylic translucent panel'], ['COP', 'CP07 integrated control panel'], ['Cabin Walls', 'CAR215 with hairline stainless steel side walls, hairline stainless steel front wall, and mirror stainless steel back panels around a white wood-grain steel center panel'], ['Corner Panels', 'Mirror stainless steel'], ['Guardrail', 'Black titanium mirror stainless steel with black titanium screws'], ['Skirting', 'Hairline stainless steel'], ['Control Box Panel', 'Black titanium stainless steel with mirror stainless steel center'], ['Cabin Door', 'Hairline stainless steel'], ['Welcome Pedal', 'Yellow light illumination']] },
+  { id: '314', specs: [['Ceiling', 'White film-faced ceiling panel with rose gold aluminum alloy frame and LED strip lighting'], ['COP', 'COP12 long-rectangle fingerprint panel with rose gold stainless steel frame'], ['Cabin Walls', 'CAR314 with sandblasted stainless steel plated in rose gold, rose gold upper decoration strips, matching handrail strips, and mirror-finish stainless steel lower decoration strips'], ['Cabin Door', 'Mirror stainless steel plated in rose gold'], ['Flooring', 'Marble with brass strips']] },
+  { id: '315', specs: [['Ceiling', 'Beige film-fixed ceiling panel with champagne gold sand-bead stainless steel decorative frame, champagne gold film-facial frame, concealed lighting trough, and spotlights'], ['COP', 'COP12S black glass panel with segmented display'], ['Cabin Walls', 'FA02 wall, PA01 wall, side walls, and rear wall in mirror-finish stainless steel plated in rose gold with fine-faced champagne gold finish on the rear wall'], ['Cabin Door', 'Mirror-finish stainless steel plated in rose gold'], ['Baseboard', 'Stainless-steel baseboard plated in rose gold'], ['Flooring', 'Marble with brass strips']] },
+  { id: '316', specs: [['Ceiling', 'Sand-bead stainless steel with black titanium coating, concealed lighting trough, and spotlights'], ['COP', 'COP12 black glass panel with segmented display'], ['Cabin Walls', 'FA02 wall, PA01 wall, and side walls in mirror-finish stainless steel with black titanium sand-bead stainless-steel protective handrail; rear wall in black titanium sand-bead stainless steel with decorative mirror and sand-bead stainless-steel pattern'], ['Cabin Door', 'Mirror-finish stainless steel'], ['Baseboard', 'Sand-bead stainless steel with black titanium coating'], ['Handrail', 'Standard stainless-steel handrail with black titanium coating'], ['Flooring', 'Sintered stone']] },
+  { id: '317', specs: [['Ceiling', 'White film-fixed finish panel with concealed lighting trough and spotlights'], ['COP', 'COP12P gold glass panel with segmented display'], ['Cabin Walls', 'Light wood finish film-fixed texture panels on FA02 wall, PA01 wall, and side walls; rear wall with mirror panel, gold sand-bead stainless-steel panel, gold fine-faced panel, and carved mirror-finish decorative groove'], ['Cabin Door', 'Mirror-finish stainless steel'], ['Baseboard', 'Hairline-finish stainless steel coated in gold'], ['Handrail', 'Standard round stainless-steel handrail with gold coating and fine-faced texture'], ['Flooring', 'Sintered stone']] },
+  { id: '318', specs: [['Ceiling', 'Flat bead-finish fixed ceiling panel with champagne gold stainless-steel firm frame, concealed light trough, and spotlights'], ['COP', 'COP12 gold glass panel with segmented display'], ['Cabin Walls', 'Sand-bead stainless steel coated in champagne gold on FA02 wall, PA01 wall, side wall, and rear wall with marble-texture metal sheet decoration plate'], ['Cabin Door', 'Sand-bead stainless steel coated in champagne gold'], ['Baseboard', 'Sand-bead stainless steel coated in champagne gold'], ['Handrail', 'Standard round stainless-steel handrail in champagne-gold brushed finish with horizontal single-flat shape'], ['Flooring', 'Sintered stone']] },
+  { id: '319', specs: [['Ceiling', 'Rose gold metallic texture flat fixed ceiling panel with black titanium metallic texture firm frame, concealed light trough, and spotlights'], ['COP', 'COP12 black glass panel with segmented display'], ['Cabin Walls', 'Black titanium metallic texture on FA02 wall, PA01 wall, side wall, and rear wall with marble-texture metal sheet decoration plates on the side and rear walls'], ['Cabin Door', 'Black titanium metallic texture film finish'], ['Baseboard', 'Black titanium metallic texture film finish'], ['Handrail', 'Standard round stainless-steel handrail with black titanium metallic texture'], ['Flooring', 'Cloud gray PVC']] },
+  { id: '320', specs: [['Ceiling', 'Flat fixed ceiling panel with hairline stainless-steel frame, concealed light trough, and spotlights'], ['COP', 'COP12 black glass panel with segmented display'], ['Cabin Walls', 'Champagne gold hairline stainless steel on FA02 wall, PA01 wall, side wall, and rear wall with imitation wood-grain decorative panels and flower-shaped rear decoration'], ['Cabin Door', 'Hairline stainless steel coated in champagne gold'], ['Baseboard', 'Hairline stainless steel coated in champagne gold'], ['Handrail', 'Standard round stainless-steel handrail in champagne-gold brushed finish'], ['Flooring', 'Marble']] },
+  { id: '321', specs: [['Ceiling', 'Mirrored stainless steel with alloy mirror and spotlights'], ['COP', 'COP12 black glass panel with segmented display'], ['Cabin Walls', 'Mirror stainless steel coated in black titanium on FA02 wall, sand-bead stainless steel coated in black titanium with alloy decorative plates on PA01 and side walls, and patterned black titanium sand-bead stainless steel on the rear wall'], ['Cabin Door', 'Mirror stainless steel coated in black titanium'], ['Baseboard', 'Sand-bead stainless steel coated in black titanium'], ['Handrail', 'Standard round stainless-steel handrail in mirror black titanium'], ['Flooring', 'Sintered stone']] },
+  { id: '413', specs: [['Ceiling', 'C119 white spray-painted steel plate with champagne gold edge and LED lighting'], ['COP', 'CP120 LED single-panel display with mirror stainless steel frame'], ['Cabin Walls', 'CAR13 with champagne gold-plated hairline stainless steel side walls, champagne gold-plated mirror stainless steel front wall, and beige mirror-finish integrated steel center panel on the back wall'], ['Guardrail', 'Champagne gold mirror stainless steel'], ['Skirting', 'Champagne gold hairline stainless steel'], ['Cabin Door', 'Champagne gold hairline stainless steel'], ['Welcome Pedal', 'Yellow light illumination']] },
+  { id: '415', specs: [['Ceiling', 'C230 mirror stainless steel with LED light strip'], ['COP', 'COP12B black glass panel with dot matrix display'], ['Cabin Walls', 'Hairline stainless steel front wall, golden oak wood and wood-grain metal plate side walls, and rear wall with mirror stainless steel side panels plus golden oak wood-grain metal decoration plate'], ['Cabin Door', 'Hairline stainless steel'], ['Flooring', 'F108 moonlight beige PVC']] },
+  { id: '416', specs: [['Ceiling', 'C121 ripple mirror stainless steel plated in champagne gold with LED light strip'], ['COP', 'CP121 matrix display with stainless steel frame'], ['Cabin Walls', 'CAR416 with sandblasted stainless steel plated in champagne gold on side walls and a back wall with sintered stone center plate plus champagne gold mirror stainless steel side panels'], ['Guardrail', 'Champagne gold mirror stainless steel'], ['Skirting', 'Champagne gold hairline stainless steel'], ['Cabin Door', 'Hairline stainless steel'], ['Flooring', 'F103 PVC']] },
+  { id: '505', specs: [['Ceiling', 'CS11 center honeycomb aluminum panel with aluminum alloy frame and LED strip lighting'], ['COP', 'COP10 LED single-panel display with black powder stainless steel frame'], ['Cabin Walls', 'CAR503 with black titanium mirror stainless steel upper panels, rose gold aluminum alloy middle frame, wood-pattern steel lower panels, and wood-pattern steel side and rear panels'], ['Cabin Door', 'D07 aluminum alloy plated with black titanium and wood-pattern fingerprint finish'], ['Flooring', 'PD37 marble'], ['Welcome Pedal', 'Yellow light illumination']] },
+  { id: '506', specs: [['Ceiling', 'CS11 center honeycomb aluminum panel with aluminum alloy frame and LED strip lighting'], ['COP', 'COP10 LED single-panel display with black powder stainless steel frame'], ['Cabin Walls', 'CAR506 with rose gold mirror stainless steel upper panels, rose gold aluminum alloy middle frame, wood-pattern steel lower panels, black titanium pattern stainless steel side walls, and mirror stainless steel rear wall with curve pattern'], ['Cabin Door', 'L15 standard hairline stainless steel in white gold'], ['Flooring', 'PD37 marble'], ['Welcome Pedal', 'Yellow light illumination']] },
+  { id: '90-02', specs: [['Ceiling', 'C212 mirror stainless steel plated in rose gold with ultra-thin ceiling light protruding 10mm'], ['COP', 'COP43-04 hairline stainless steel plated in rose gold'], ['Cabin Walls', 'CW03-35 with mirror stainless steel plated in rose gold on front and rear walls and hairline stainless steel plated in rose gold on side walls'], ['Cabin Door', 'L01-08 mirror stainless steel plated in rose gold'], ['Flooring', 'F02-06 marble medallion']] },
+];
+
+export const comoCabins = comoCabinSpecs.map((cabin) => ({
+  ...cabin,
+  title: `Cabin ${cabin.id}`,
+  slug: `cabine-${cabin.id}`,
+  to: `/elevators/como-range/cabine-${cabin.id}`,
+  images: comoCabinImages[cabin.id] ?? [],
+  image: comoCabinImages[cabin.id]?.[0],
+}));
+
+const comoResidentialGallery = comoCabins.flatMap((cabin) => cabin.images);
+const primaryComoCabinImage = comoCabins.find((cabin) => cabin.image)?.image ?? imgElevatorAstoriaInterior;
 
 export const imagePaths = {
   logos: {
@@ -82,7 +120,7 @@ export const imagePaths = {
   },
   elevators: {
     astoria: astoriaRange1,
-    comoResidential: comoRange1,
+    comoResidential: primaryComoCabinImage,
     circular: circularLift1,
     exterior: exteriorLift1,
     commercial: comoCommercialPassenger,
@@ -95,10 +133,10 @@ export const imagePaths = {
   },
   projects: {
     villa: astoriaRange3,
-    veterinary: comoRange4,
+    veterinary: comoCabins[3]?.image ?? primaryComoCabinImage,
     circular: circularLift3,
     outdoor: circularLift5,
-    marina: comoRange2,
+    marina: comoCabins[1]?.image ?? primaryComoCabinImage,
     golf: astoriaRange5,
   },
 };
@@ -220,7 +258,7 @@ export const designGalleries = {
     imgElevatorCircularGlass,
     imgElevatorCommercialLobby,
     astoriaRange3,
-    comoRange2,
+    comoCabins[1]?.image ?? primaryComoCabinImage,
     circularLift5,
     imgElevatorExteriorTower,
     imgElevatorHospitalCargo,
@@ -241,12 +279,12 @@ export const libraryCabinImages = {
 };
 
 export const projects = [
-  { category: 'Residential - Marrakech', title: 'Villa Palmeraie', desc: 'Custom residential elevator for a luxury villa in the Palmeraie district.', image: imagePaths.projects.villa },
-  { category: 'Commercial - Casablanca', title: 'Atlas Veterinaire', desc: 'Medical-grade lift installation for a veterinary clinic in Casablanca.', image: imagePaths.projects.veterinary },
-  { category: 'Residential - Rabat', title: 'Circular Elevator', desc: 'Panoramic circular lift for a modern residence in the diplomatic quarter of Rabat.', image: imagePaths.projects.circular },
-  { category: 'Outdoor - Tangier', title: 'Outdoor Elevator', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', image: imagePaths.projects.outdoor },
-  { category: 'Hospitality - Agadir', title: 'Marina Agadir', desc: 'Commercial elevator suite for a marina-front hotel complex in Agadir.', image: imagePaths.projects.marina },
-  { category: 'Hospitality - Marrakech', title: 'Amalkis Golf Resort', desc: 'Multi-unit elevator installation for a premium golf resort in Marrakech.', image: imagePaths.projects.golf },
+  { category: 'Residential - Marrakech', title: 'Palmeraie Marrakech', desc: 'Custom residential elevator for a luxury villa in the Palmeraie district.', video: projectVideos[0], image: imagePaths.projects.villa },
+  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[1], image: imagePaths.projects.veterinary },
+  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: projectVideos[2], image: imagePaths.projects.circular },
+  { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: projectVideos[3], image: imagePaths.projects.outdoor },
+  { category: 'Hospitality - Agadir', title: 'Taghazout Agadir', desc: 'Commercial elevator suite for a coastal hospitality project in Agadir.', video: projectVideos[0], image: imagePaths.projects.marina },
+  { category: 'Hospitality - Marrakech', title: 'Hivernage Marrakech', desc: 'Multi-unit elevator installation for a premium hospitality project in Marrakech.', video: projectVideos[1], image: imagePaths.projects.golf },
 ];
 
 export const services = [
@@ -352,12 +390,12 @@ export const frCommercialElevators = [
 ];
 
 export const frProjects = [
-  { category: 'Résidentiel - Marrakech', title: 'Villa Palmeraie', desc: 'Ascenseur résidentiel sur mesure pour une villa de luxe dans le quartier de la Palmeraie.', image: imagePaths.projects.villa },
-  { category: 'Commercial - Casablanca', title: 'Atlas Vétérinaire', desc: 'Installation d’un ascenseur adapté à une clinique vétérinaire à Casablanca.', image: imagePaths.projects.veterinary },
-  { category: 'Résidentiel - Rabat', title: 'Ascenseur Circulaire', desc: 'Ascenseur panoramique circulaire pour une résidence moderne dans le quartier diplomatique de Rabat.', image: imagePaths.projects.circular },
-  { category: 'Extérieur - Tanger', title: 'Ascenseur Extérieur', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', image: imagePaths.projects.outdoor },
-  { category: 'Hôtellerie - Agadir', title: 'Marina Agadir', desc: 'Suite d’ascenseurs commerciaux pour un complexe hôtelier en front de marina à Agadir.', image: imagePaths.projects.marina },
-  { category: 'Hôtellerie - Marrakech', title: 'Amalkis Golf Resort', desc: 'Installation multi-ascenseurs pour un resort de golf premium à Marrakech.', image: imagePaths.projects.golf },
+  { category: 'Résidentiel - Marrakech', title: 'Palmeraie Marrakech', desc: 'Ascenseur résidentiel sur mesure pour une villa de luxe dans le quartier de la Palmeraie.', video: projectVideos[0], image: imagePaths.projects.villa },
+  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[1], image: imagePaths.projects.veterinary },
+  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: projectVideos[2], image: imagePaths.projects.circular },
+  { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: projectVideos[3], image: imagePaths.projects.outdoor },
+  { category: 'Hôtellerie - Agadir', title: 'Taghazout Agadir', desc: 'Suite d’ascenseurs commerciaux pour un projet hôtelier en bord de mer à Agadir.', video: projectVideos[0], image: imagePaths.projects.marina },
+  { category: 'Hôtellerie - Marrakech', title: 'Hivernage Marrakech', desc: 'Installation multi-ascenseurs pour un projet hôtelier premium à Marrakech.', video: projectVideos[1], image: imagePaths.projects.golf },
 ];
 
 export const frServices = [

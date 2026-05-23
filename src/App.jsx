@@ -10,6 +10,7 @@ import Contact from './pages/Contact.jsx';
 import Configurator from './pages/Configurator.jsx';
 import ElevatorDetail from './pages/ElevatorDetail.jsx';
 import CabinDesignPage from './pages/CabinDesignPage.jsx';
+import ComoCabinDetail from './pages/ComoCabinDetail.jsx';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/elevators/exterior-elevators" element={<ElevatorDetail />} />
           <Route path="/elevators/astoria-range" element={<ElevatorDetail />} />
           <Route path="/elevators/como-range" element={<ElevatorDetail />} />
+          <Route path="/elevators/como-range/:cabinSlug" element={<ComoCabinDetail />} />
           <Route path="/elevators/hospital-lifts" element={<ElevatorDetail />} />
           <Route path="/elevators/car-lifts" element={<ElevatorDetail />} />
           <Route path="/elevators/escalators-walkways" element={<ElevatorDetail />} />
