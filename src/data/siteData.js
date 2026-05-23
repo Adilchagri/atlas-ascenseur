@@ -281,9 +281,11 @@ export const libraryCabinImages = {
 
 export const projects = [
   { category: 'Residential - Marrakech', title: 'Palmeraie Marrakech', desc: 'Custom residential elevator for a luxury villa in the Palmeraie district.', video: projectVideos[0], image: imagePaths.projects.villa },
-  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[1], image: imagePaths.projects.veterinary },
-  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: projectVideos[2], image: imagePaths.projects.circular },
-  { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: projectVideos[3], image: imagePaths.projects.outdoor },
+  { category: 'Residential - Casablanca', title: 'Ain Diab Casablanca', desc: 'Private lift installation for a coastal residence with refined cabin finishes and compact access.', video: projectVideos[1], image: imagePaths.projects.marina },
+  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
+  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: projectVideos[3], image: imagePaths.projects.circular },
+  { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: projectVideos[4], image: imagePaths.projects.outdoor },
+  { category: 'Hospitality - Agadir', title: 'Taghazout Agadir', desc: 'Elegant vertical access for a hospitality project near the Atlantic coast.', video: projectVideos[5], image: imagePaths.projects.golf },
 ];
 
 export const services = [
@@ -390,9 +392,11 @@ export const frCommercialElevators = [
 
 export const frProjects = [
   { category: 'Résidentiel - Marrakech', title: 'Palmeraie Marrakech', desc: 'Ascenseur résidentiel sur mesure pour une villa de luxe dans le quartier de la Palmeraie.', video: projectVideos[0], image: imagePaths.projects.villa },
-  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[1], image: imagePaths.projects.veterinary },
-  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: projectVideos[2], image: imagePaths.projects.circular },
-  { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: projectVideos[3], image: imagePaths.projects.outdoor },
+  { category: 'Résidentiel - Casablanca', title: 'Ain Diab Casablanca', desc: 'Installation d’un ascenseur privé pour une résidence côtière avec finitions raffinées et accès compact.', video: projectVideos[1], image: imagePaths.projects.marina },
+  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
+  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: projectVideos[3], image: imagePaths.projects.circular },
+  { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: projectVideos[4], image: imagePaths.projects.outdoor },
+  { category: 'Hôtellerie - Agadir', title: 'Taghazout Agadir', desc: 'Accès vertical élégant pour un projet hôtelier proche de la côte Atlantique.', video: projectVideos[5], image: imagePaths.projects.golf },
 ];
 
 export const frServices = [
