@@ -188,7 +188,9 @@ export default function ElevatorDetail() {
               {note.points.map((point) => <li key={point}>{point}</li>)}
             </ul>
           </div>
-          <div className={`product-presentation-image ${itemTitle === 'COMO Commercial' ? 'product-presentation-image-clean' : ''}`}>
+          <div
+            className={`product-presentation-image ${itemTitle === 'COMO Commercial' ? 'product-presentation-image-clean' : ''} ${itemTitle === 'COMO Residential' ? 'product-presentation-image-como' : ''}`}
+          >
             <img src={itemImage} alt={itemTitle} />
           </div>
         </div>

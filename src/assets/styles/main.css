@@ -1942,6 +1942,18 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   object-fit: cover;
   object-position: center;
 }
+.product-presentation-image-como {
+  width: min(100%, 500px);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1374 / 1600;
+  justify-self: center;
+  padding: 0;
+  background: var(--black-3);
+}
+.product-presentation-image-como img {
+  object-fit: cover;
+}
 .como-cabin-section {
   margin-top: 78px;
 }
@@ -2344,6 +2356,10 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   }
   .product-presentation { grid-template-columns: 1fr; }
   .product-presentation-image { height: 460px; min-height: 360px; }
+  .product-presentation-image-como {
+    height: auto;
+    min-height: 0;
+  }
   .como-cabin-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .product-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .config-shell { grid-template-columns: 1fr; }
@@ -2610,6 +2626,12 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .cabin-guide-step { padding: 12px 10px; font-size: 10px; }
   .product-presentation { padding: 22px; gap: 24px; }
   .product-presentation-image { height: 320px; min-height: 260px; padding: 10px; }
+  .product-presentation-image-como {
+    width: min(100%, 390px);
+    height: auto;
+    min-height: 0;
+    padding: 0;
+  }
   .cabin-detail-info {
     margin-top: 18px;
   }

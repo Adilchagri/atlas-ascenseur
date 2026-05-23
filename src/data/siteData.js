@@ -48,6 +48,7 @@ import doorManual from '../assets/images/Doors/manuel-door-576x1024.jpg';
 import inspiration1 from '../assets/images/Inspiration Gallery/1.jpg';
 import inspiration2 from '../assets/images/Inspiration Gallery/2.jpg';
 import inspiration3 from '../assets/images/Inspiration Gallery/3.jpg';
+import comoRangeWelcomeImage from '../assets/images/como_range/como-range_picture_welcome-page.jpeg';
 
 const withFallback = (src, fallback) => fallback || src;
 
@@ -120,7 +121,7 @@ export const imagePaths = {
   },
   elevators: {
     astoria: astoriaRange1,
-    comoResidential: primaryComoCabinImage,
+    comoResidential: comoRangeWelcomeImage,
     circular: circularLift1,
     exterior: exteriorLift1,
     commercial: comoCommercialPassenger,
