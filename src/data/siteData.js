@@ -284,8 +284,6 @@ export const projects = [
   { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[1], image: imagePaths.projects.veterinary },
   { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: projectVideos[2], image: imagePaths.projects.circular },
   { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: projectVideos[3], image: imagePaths.projects.outdoor },
-  { category: 'Hospitality - Agadir', title: 'Taghazout Agadir', desc: 'Commercial elevator suite for a coastal hospitality project in Agadir.', video: projectVideos[0], image: imagePaths.projects.marina },
-  { category: 'Hospitality - Marrakech', title: 'Hivernage Marrakech', desc: 'Multi-unit elevator installation for a premium hospitality project in Marrakech.', video: projectVideos[1], image: imagePaths.projects.golf },
 ];
 
 export const services = [
@@ -395,8 +393,6 @@ export const frProjects = [
   { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[1], image: imagePaths.projects.veterinary },
   { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: projectVideos[2], image: imagePaths.projects.circular },
   { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: projectVideos[3], image: imagePaths.projects.outdoor },
-  { category: 'Hôtellerie - Agadir', title: 'Taghazout Agadir', desc: 'Suite d’ascenseurs commerciaux pour un projet hôtelier en bord de mer à Agadir.', video: projectVideos[0], image: imagePaths.projects.marina },
-  { category: 'Hôtellerie - Marrakech', title: 'Hivernage Marrakech', desc: 'Installation multi-ascenseurs pour un projet hôtelier premium à Marrakech.', video: projectVideos[1], image: imagePaths.projects.golf },
 ];
 
 export const frServices = [
