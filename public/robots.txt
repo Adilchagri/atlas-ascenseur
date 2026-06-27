@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://atlasascenseurs.ma/sitemap.xml
+Sitemap: https://www.atlasascenseurs.com/sitemap.xml

@@ -11,7 +11,7 @@ import {
 } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 
-const SITE_URL = 'https://atlasascenseurs.ma';
+const SITE_URL = 'https://www.atlasascenseurs.com';
 const SITE_NAME = 'Atlas Ascenseurs';
 const DEFAULT_IMAGE = pageImages.luxuryBanner || imagePaths.logos.main;
 const BUSINESS_PHONE = '+212666323055';
