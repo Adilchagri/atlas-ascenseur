@@ -189,7 +189,7 @@ export default function ElevatorDetail() {
             </ul>
           </div>
           <div
-            className={`product-presentation-image ${itemTitle === 'COMO Commercial' ? 'product-presentation-image-clean' : ''} ${itemTitle === 'COMO Residential' ? 'product-presentation-image-como' : ''}`}
+            className={`product-presentation-image ${itemTitle === 'COMO Commercial' ? 'product-presentation-image-clean' : ''} ${itemTitle === 'COMO Residential' ? 'product-presentation-image-como' : ''} ${itemTitle === 'Exterior Elevators' ? 'product-presentation-image-exterior' : ''}`}
           >
             <img src={itemImage} alt={itemTitle} />
           </div>

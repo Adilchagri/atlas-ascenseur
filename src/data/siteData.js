@@ -37,6 +37,7 @@ import exteriorLift2 from '../assets/images/exterior_elevators/2.jpeg';
 import exteriorLift3 from '../assets/images/exterior_elevators/3.jpeg';
 import exteriorLift4 from '../assets/images/exterior_elevators/4.jpeg';
 import exteriorLift5 from '../assets/images/exterior_elevators/5.jpeg';
+import exteriorMainImage from '../assets/images/exterior_elevators/new_pic_for_main-page_exterior_elvatore.jpg';
 import comoCommercialPassenger from '../assets/images/Como_Commercial_Range/passenger.jpg';
 import escalatorCover from '../assets/images/escalators/cover.jpg';
 import escalatorDetail from '../assets/images/escalators/1742962114078.jpeg';
@@ -123,7 +124,7 @@ export const imagePaths = {
     astoria: astoriaRange1,
     comoResidential: comoRangeWelcomeImage,
     circular: circularLift1,
-    exterior: exteriorLift1,
+    exterior: exteriorMainImage,
     commercial: comoCommercialPassenger,
     hospitalCargo: withFallback(hospitalCargoImage, imgElevatorHospitalCargo),
     escalator: escalatorCover,
