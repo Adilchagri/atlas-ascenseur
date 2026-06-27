@@ -226,6 +226,17 @@ nav.scrolled {
   transform: translateX(-50%) translateY(0) scale(1);
   transition-delay: 0s;
 }
+.nav-links > li.dropdown-dismissed:hover .dropdown,
+.nav-links > li.dropdown-dismissed:focus-within .dropdown {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(8px) scale(0.975);
+}
+.nav-links > li.dropdown-dismissed:hover .nav-chevron,
+.nav-links > li.dropdown-dismissed:focus-within .nav-chevron {
+  transform: rotate(45deg) translateY(-1px);
+}
 .nav-links > li:focus-within .nav-chevron { transform: rotate(-135deg) translateY(-1px); }
 .dropdown-col h4 {
   font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
@@ -845,6 +856,10 @@ nav.scrolled {
 .pillar ul li::before { content: '-'; color: var(--gold); flex-shrink: 0; }
 .elev-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .proj-page-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.proj-page-grid {
+  background: transparent;
+  border: 0;
+}
 .elev-page-grid {
   gap: 24px;
   background: transparent;
@@ -2498,6 +2513,10 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .door-type-grid,
   .pillars-grid,
   .projects-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pillars-grid {
+    background: transparent;
+    border: 0;
+  }
   .projects-bento .proj-inner,
   .projects-bento .proj-card:first-child .proj-inner {
     padding-top: 72%;
@@ -2570,6 +2589,14 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
     top: 12px;
   }
   .service-card, .pillar { padding: 22px 12px; }
+  .service-card {
+    overflow: hidden;
+  }
+  .service-cover {
+    width: calc(100% + 24px);
+    height: 112px;
+    margin: -22px -12px 18px;
+  }
   .elev-page-icon {
     font-size: 24px;
     margin-bottom: 12px;

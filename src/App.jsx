@@ -11,6 +11,7 @@ import Configurator from './pages/Configurator.jsx';
 import ElevatorDetail from './pages/ElevatorDetail.jsx';
 import CabinDesignPage from './pages/CabinDesignPage.jsx';
 import ComoCabinDetail from './pages/ComoCabinDetail.jsx';
+import SEO from './components/SEO.jsx';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ export default function App() {
 
   return (
     <Layout>
+      <SEO />
       <ScrollToTop />
       <div className={`route-loader ${routeLoading ? 'active' : ''}`} aria-hidden="true">
         <span />

@@ -31,26 +31,26 @@ const elevatorPages = {
 const productNotes = {
   'Astoria Range': {
     label: 'Residential design lift',
-    headline: 'Compact, refined, and made for private interiors.',
-    body: 'A villa-ready indoor elevator with a self-supporting structure, quiet travel, premium cabin finishes, and low-impact installation for homes that need comfort without heavy construction.',
+    headline: 'A panoramic elevator designed for contemporary villas.',
+    body: 'Self-supporting aluminum and glass structure, bespoke design, quiet operation, and premium finishes.',
     points: ['Compact shaft sizing', 'Smooth and quiet operation', 'Custom cabin, lighting, and doors', 'Indoor residential installation'],
   },
   'COMO Residential': {
     label: 'Custom-made residential elevator',
-    headline: 'A flexible COMO solution for villas, apartments, and multi-level homes.',
-    body: 'Inspired by Halifax COMO guidance, this range is ideal for moderate usage needs. Hydraulic and electric drive options optimize shaft space, while customizable cabins help the lift blend into the architecture.',
+    headline: 'Residential comfort reimagined for modern villas.',
+    body: 'COMO combines design, personalization, and architectural integration in an elegant, compact, and quiet solution.',
     points: ['Hydraulic or electric drive logic', 'Space-optimized cabin dimensions', 'Factory-finished cabin packages', 'Wall, floor, lighting, and shaft upgrades'],
   },
   'Circular Elevators': {
     label: 'Architectural lift',
-    headline: 'A panoramic centerpiece for luxury spaces.',
-    body: 'Circular and glass lifts turn vertical movement into a design feature, using transparent shafts, slim structures, and custom finishes for villas, hotels, and premium interiors.',
+    headline: 'A circular panoramic elevator designed as an architectural centerpiece.',
+    body: 'Glass structures, sculptural design, and bespoke finishes come together in a panoramic experience created for the most prestigious residential spaces.',
     points: ['Panoramic glass effect', 'Custom railings and flooring', 'Statement architecture', 'High visibility and light'],
   },
   'Exterior Elevators': {
     label: 'Outdoor access',
-    headline: 'Accessibility added cleanly to exterior spaces.',
-    body: 'Exterior elevators support terraces, gardens, split-level properties, and hillside homes with weather-ready structures and compact footprints.',
+    headline: 'An outdoor solution designed to combine accessibility and design.',
+    body: 'Our exterior elevators integrate harmoniously with villas and contemporary buildings through an elegant, durable, and compact structure.',
     points: ['Weather-ready shaft', 'Anti-corrosion materials', 'Terrace and garden access', 'Compact outdoor footprint'],
   },
   'COMO Commercial': {
@@ -94,26 +94,26 @@ const productNotes = {
 const frProductNotes = {
   'Astoria Range': {
     label: 'Ascenseur résidentiel design',
-    headline: 'Compact, raffiné et pensé pour les intérieurs privés.',
-    body: 'Un ascenseur intérieur prêt pour les villas, avec structure autoportante, trajet silencieux, finitions premium et installation à faible impact.',
+    headline: 'L’ascenseur panoramique pensé pour les villas contemporaines.',
+    body: 'Structure autoportante en aluminium et verre, design sur mesure, fonctionnement silencieux et finitions premium.',
     points: ['Gaine compacte', 'Fonctionnement doux et silencieux', 'Cabine, éclairage et portes personnalisés', 'Installation résidentielle intérieure'],
   },
   'COMO Residential': {
     label: 'Ascenseur résidentiel sur mesure',
-    headline: 'Une solution COMO flexible pour villas, appartements et maisons à plusieurs niveaux.',
-    body: 'Idéale pour un usage modéré, cette gamme propose des options hydrauliques et électriques pour optimiser l’espace et intégrer la cabine à l’architecture.',
+    headline: 'Le confort résidentiel repensé pour les villas modernes.',
+    body: 'COMO associe design, personnalisation et intégration architecturale dans une solution élégante, compacte et silencieuse.',
     points: ['Motorisation hydraulique ou électrique', 'Dimensions optimisées', 'Packages cabine finis en usine', 'Murs, sols, éclairage et gaine personnalisables'],
   },
   'Circular Elevators': {
     label: 'Ascenseur architectural',
-    headline: 'Une pièce panoramique centrale pour les espaces de luxe.',
-    body: 'Les ascenseurs circulaires et vitrés transforment le déplacement vertical en élément design grâce aux gaines transparentes, structures fines et finitions sur mesure.',
+    headline: 'L’ascenseur panoramique circulaire conçu comme une pièce maîtresse architecturale.',
+    body: 'Structures vitrées, design sculptural et finitions sur mesure réunis dans une expérience panoramique pensée pour les espaces résidentiels les plus prestigieux.',
     points: ['Effet verre panoramique', 'Mains courantes et sols personnalisés', 'Présence architecturale', 'Lumière et visibilité'],
   },
   'Exterior Elevators': {
     label: 'Accès extérieur',
-    headline: 'Ajouter l’accessibilité proprement aux espaces extérieurs.',
-    body: 'Les ascenseurs extérieurs servent terrasses, jardins, propriétés en pente et maisons à niveaux décalés avec structures résistantes et emprise compacte.',
+    headline: 'Une solution extérieure pensée pour conjuguer accessibilité et design.',
+    body: 'Nos ascenseurs extérieurs s’intègrent harmonieusement aux villas et bâtiments contemporains grâce à une structure élégante, résistante et peu encombrante.',
     points: ['Gaine résistante aux intempéries', 'Matériaux anticorrosion', 'Accès terrasse et jardin', 'Empreinte extérieure compacte'],
   },
   'COMO Commercial': {

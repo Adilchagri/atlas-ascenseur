@@ -285,7 +285,6 @@ export const projects = [
   { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
   { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: projectVideos[3], image: imagePaths.projects.circular },
   { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: projectVideos[4], image: imagePaths.projects.outdoor },
-  { category: 'Hospitality - Agadir', title: 'Taghazout Agadir', desc: 'Elegant vertical access for a hospitality project near the Atlantic coast.', video: projectVideos[5], image: imagePaths.projects.golf },
 ];
 
 export const services = [
@@ -396,7 +395,6 @@ export const frProjects = [
   { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
   { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: projectVideos[3], image: imagePaths.projects.circular },
   { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: projectVideos[4], image: imagePaths.projects.outdoor },
-  { category: 'Hôtellerie - Agadir', title: 'Taghazout Agadir', desc: 'Accès vertical élégant pour un projet hôtelier proche de la côte Atlantique.', video: projectVideos[5], image: imagePaths.projects.golf },
 ];
 
 export const frServices = [

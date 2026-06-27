@@ -11,6 +11,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileView, setMobileView] = useState('main');
+  const [dismissedDropdown, setDismissedDropdown] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -29,6 +30,10 @@ export default function Navbar() {
     setMobileView('main');
   };
 
+  const closeDesktopDropdown = (id) => {
+    setDismissedDropdown(id);
+  };
+
   const toggleMobile = () => {
     setMobileOpen((open) => {
       if (open) setMobileView('main');
@@ -45,25 +50,31 @@ export default function Navbar() {
 
         <ul className="nav-links">
           <li><NavLink to="/about">{t('about')}</NavLink></li>
-          <li>
+          <li
+            className={dismissedDropdown === 'elevators' ? 'dropdown-dismissed' : ''}
+            onMouseLeave={() => setDismissedDropdown(null)}
+          >
             <span>{t('ourElevators')} <span className="nav-chevron" /></span>
             <div className="dropdown">
               <div className="dropdown-col">
                 <h4>{t('residentialLifts')}</h4>
-                {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to}>{item.label}</Link>)}
+                {elevatorMenuLinks.residential.map((item) => <Link key={item.label} to={item.to} onClick={() => closeDesktopDropdown('elevators')}>{item.label}</Link>)}
               </div>
               <div className="dropdown-col">
                 <h4>{t('commercialLifts')}</h4>
-                {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to}>{item.label}</Link>)}
+                {elevatorMenuLinks.commercial.map((item) => <Link key={item.label} to={item.to} onClick={() => closeDesktopDropdown('elevators')}>{item.label}</Link>)}
               </div>
             </div>
           </li>
-          <li>
+          <li
+            className={dismissedDropdown === 'cabin' ? 'dropdown-dismissed' : ''}
+            onMouseLeave={() => setDismissedDropdown(null)}
+          >
             <span>{t('cabinDesign')} <span className="nav-chevron" /></span>
             <div className="dropdown dropdown-small">
               <div className="dropdown-col">
                 <h4>{t('personalization')}</h4>
-                {cabinMenuLinks.map((item) => <Link key={item.label} to={item.to}>{item.label}</Link>)}
+                {cabinMenuLinks.map((item) => <Link key={item.label} to={item.to} onClick={() => closeDesktopDropdown('cabin')}>{item.label}</Link>)}
               </div>
             </div>
           </li>
