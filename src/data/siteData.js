@@ -191,23 +191,23 @@ export const stats = [
 
 export const whyCards = [
   {
-    number: '01',
+    number: '🛠️',
     title: 'Full Service',
     text: 'From the first design consultation to installation, certification, maintenance, and emergency support, Atlas Ascenseurs stays responsible for the complete elevator lifecycle.',
   },
   {
-    number: '02',
+    number: '⚡',
     title: 'Quick Installation',
     text: 'Modular shaft systems and factory-finished cabins reduce site work, shorten installation time, and keep homes, hotels, clinics, and offices moving.',
   },
   {
-    number: '03',
+    number: '🛡️',
     title: 'Safety First',
     text: 'Every proposed lift is specified around strict Euro-Moroccan safety expectations, reliable components, protective systems, and clean user operation.',
   },
   {
-    number: '04',
-    title: '70+ Years of Expertise',
+    number: '⚙️',
+    title: 'Engineering Excellence',
     text: 'Built on proven product families and deep technical know-how, Atlas Ascenseurs keeps the engineering expertise while improving the client experience.',
   },
 ];
@@ -342,23 +342,23 @@ export const frStats = [
 
 export const frWhyCards = [
   {
-    number: '01',
+    number: '🛠️',
     title: 'Service Complet',
     text: 'De la première consultation à l’installation, la certification, la maintenance et le support d’urgence, Atlas Ascenseurs prend en charge tout le cycle de vie de l’ascenseur.',
   },
   {
-    number: '02',
+    number: '⚡',
     title: 'Installation Rapide',
     text: 'Les structures modulaires et les cabines finies en usine réduisent les travaux sur site et raccourcissent les délais d’installation.',
   },
   {
-    number: '03',
+    number: '🛡️',
     title: 'Sécurité Avant Tout',
     text: 'Chaque ascenseur est défini autour d’exigences strictes de sécurité euro-marocaines, de composants fiables et de systèmes de protection clairs.',
   },
   {
-    number: '04',
-    title: '70+ Ans d’Expertise',
+    number: '⚙️',
+    title: 'Engineering Excellence',
     text: 'Porté par des gammes éprouvées et un savoir-faire technique solide, Atlas Ascenseurs conserve l’exigence d’ingénierie tout en améliorant l’expérience client.',
   },
 ];
