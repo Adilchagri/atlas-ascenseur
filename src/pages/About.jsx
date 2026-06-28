@@ -47,13 +47,13 @@ export default function About() {
     <>
       <PageHero current={content.current} title={content.title} accent={content.accent} />
       <section className="section">
-        <div className="about-split">
+        <div className="about-split about-story-split">
           <div>
             <div className="eyebrow">{content.story}</div>
             <h2 className="section-title" dangerouslySetInnerHTML={{ __html: content.heading }} />
             <div className="about-visual" style={{ backgroundImage: `url(${pageImages.about})` }} />
           </div>
-          <div>
+          <div className="about-story-copy">
             <p>{content.p1}</p>
             <p>{content.p2}</p>
             <p>{content.p3}</p>
