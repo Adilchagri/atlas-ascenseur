@@ -16,9 +16,13 @@ export default function Contact() {
             <h2 className="section-title contact-title" dangerouslySetInnerHTML={{ __html: isFr ? 'Parlons de<br /><em>Votre Projet.</em>' : "Let's Discuss<br /><em>Your Project.</em>" }} />
             <div className="contact-visual" style={{ backgroundImage: `url(${pageImages.contact})` }} />
             <h4>{isFr ? 'Adresse' : 'Address'}</h4>
-            <p>23 Rue 2, Lot Les Arenes 2<br />Etage, Suite 10, Racine<br />Casablanca, {isFr ? 'Maroc' : 'Morocco'}</p>
+            <p>
+              {isFr
+                ? 'twin center, angle boulevard zerktouni et al massira, 5ème et 6ème étages, casabanca, 20100'
+                : 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors, casabanca, 20100'}
+            </p>
             <h4>{isFr ? 'Téléphone' : 'Phone'}</h4>
-            <p>+212 666323055</p>
+            <p>+212 6 XX XX XX XX</p>
             <h4>Email</h4>
             <p>contact@atlasascenseurs.ma</p>
             <h4>{isFr ? 'Couverture' : 'Coverage'}</h4>
@@ -32,7 +36,7 @@ export default function Contact() {
               <Field label={isFr ? 'Nom' : 'Last Name'} placeholder={isFr ? 'Votre nom' : 'Your last name'} />
             </div>
             <div className="form-row">
-              <Field label={isFr ? 'Téléphone' : 'Phone'} type="tel" placeholder="+212 666323055" />
+              <Field label={isFr ? 'Téléphone' : 'Phone'} type="tel" placeholder="+212 6 XX XX XX XX" />
               <Field label="Email" type="email" placeholder={isFr ? 'votre@email.com' : 'your@email.com'} />
             </div>
             <Select label={isFr ? 'Ville' : 'City'} options={isFr ? ['Choisir votre ville', 'Casablanca', 'Rabat', 'Marrakech', 'Tanger', 'Agadir', 'Fès', 'Autre'] : ['Select your city', 'Casablanca', 'Rabat', 'Marrakech', 'Tangier', 'Agadir', 'Fes', 'Other']} />

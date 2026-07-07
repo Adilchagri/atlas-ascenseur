@@ -14,13 +14,13 @@ import { useUI } from '../context/UIContext.jsx';
 const SITE_URL = 'https://www.atlasascenseurs.com';
 const SITE_NAME = 'Atlas Ascenseurs';
 const DEFAULT_IMAGE = pageImages.luxuryBanner || imagePaths.logos.main;
-const BUSINESS_PHONE = '+212666323055';
+const BUSINESS_PHONE = '+212 6 XX XX XX XX';
 const BUSINESS_EMAIL = 'contact@atlasascenseurs.ma';
 const BUSINESS_ADDRESS = {
-  streetAddress: '23 Rue 2, Lot Les Arenes 2, Etage, Suite 10, Racine',
-  addressLocality: 'Casablanca',
+  streetAddress: 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors',
+  addressLocality: 'casabanca',
   addressRegion: 'Casablanca-Settat',
-  postalCode: '20250',
+  postalCode: '20100',
   addressCountry: 'MA',
 };
 
@@ -531,6 +531,9 @@ export default function SEO() {
       address: {
         '@type': 'PostalAddress',
         ...BUSINESS_ADDRESS,
+        streetAddress: language === 'fr'
+          ? 'twin center, angle boulevard zerktouni et al massira, 5ème et 6ème étages'
+          : 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors',
       },
       contactPoint: {
         '@type': 'ContactPoint',

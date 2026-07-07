@@ -851,7 +851,7 @@ async function downloadConfigurationPdf({ lead, summary, language, logoUrl }) {
   ctx.fillStyle = '#8d8576';
   ctx.font = '14px Arial, sans-serif';
   ctx.fillText(`Generated ${new Date().toLocaleString()}`, 70, 1090);
-  ctx.fillText('contact@atlasascenseurs.ma  |  +212 666323055', 70, 1118);
+  ctx.fillText('contact@atlasascenseurs.ma  |  +212 6 XX XX XX XX', 70, 1118);
 
   canvas.toBlob(async (blob) => {
     if (!blob) return;

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useUI } from '../../context/UIContext.jsx';
 
 export default function Footer() {
-  const { t } = useUI();
+  const { t, language } = useUI();
   return (
     <footer id="main-footer">
       <div className="footer-top">
@@ -31,8 +31,12 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>{t('footerContact')}</h4>
-          <a>Casablanca - Rue 2, Racine</a>
-          <a>+212 666323055</a>
+          <a>
+            {language === 'fr'
+              ? 'twin center, angle boulevard zerktouni et al massira, 5ème et 6ème étages, casabanca, 20100'
+              : 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors, casabanca, 20100'}
+          </a>
+          <a>+212 6 XX XX XX XX</a>
           <a>contact@atlasascenseurs.ma</a>
         </div>
       </div>
