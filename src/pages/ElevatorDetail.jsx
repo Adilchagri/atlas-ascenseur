@@ -4,6 +4,9 @@ import PageHero from '../components/layout/PageHero.jsx';
 import { atlasCoreGallery, commercialElevators, comoCabins, elevatorDetailGalleries, residentialElevators } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 import ProductGallery from '../components/ui/ProductGallery.jsx';
+import atlasCoreCataloguePdf from '../assets/pdfs-for-brochures/atlas-core-catalogue.pdf';
+import atlasPanoramaHydraulicPdf from '../assets/pdfs-for-brochures/Atlas Panorama-Hydrauliquee.pdf';
+import atlasPanoramaPdf from '../assets/pdfs-for-brochures/Atlas Panorama.pdf';
 
 const noGalleryPages = new Set([
   'Hospital Lifts',
@@ -202,11 +205,11 @@ const atlasCoreComparison = {
 };
 
 const atlasCoreDownloads = [
-  { label: 'Brochure', note: 'Temporary version' },
+  { label: 'Download Catalogue', note: 'Discover the Atlas Core range details', file: atlasCoreCataloguePdf },
 ];
 
 const frAtlasCoreDownloads = [
-  { label: 'Brochure', note: 'Version temporaire' },
+  { label: 'Télécharger le Catalogue', note: 'Découvrez les détails de la gamme Atlas Core', file: atlasCoreCataloguePdf },
 ];
 
 const atlasCoreFaqs = [
@@ -252,11 +255,13 @@ const atlasPanoramaReasons = [
 ];
 
 const atlasPanoramaDownloads = [
-  { label: 'Brochure', note: 'Temporary version' },
+  { label: 'Discover Panorama Brochure', note: 'Standard Panorama Edition', file: atlasPanoramaPdf },
+  { label: 'Discover Hydraulic Brochure', note: 'Hydraulic System Details', file: atlasPanoramaHydraulicPdf },
 ];
 
 const frAtlasPanoramaDownloads = [
-  { label: 'Brochure', note: 'Version temporaire' },
+  { label: 'Découvrir la Brochure Panorama', note: 'Édition Panorama Standard', file: atlasPanoramaPdf },
+  { label: 'Découvrir la Brochure Hydraulique', note: 'Détails du Système Hydraulique', file: atlasPanoramaHydraulicPdf },
 ];
 
 const atlasPanoramaFaqs = [
@@ -347,11 +352,20 @@ function AtlasPanoramaSections({ language }) {
             <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Panorama' : 'Atlas Panorama Documents'}</h2>
           </div>
         </div>
-        <div className="atlas-core-download-grid">
+        <div className="centered-download-grid">
           {downloads.map((item) => (
-            <a className="atlas-core-download" href="/contact" key={item.label}>
-              <span>{item.label}</span>
-              <small>{item.note}</small>
+            <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
+              <div className="download-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </div>
+              <div className="download-text">
+                <span>{item.label}</span>
+                <small>{item.note}</small>
+              </div>
             </a>
           ))}
         </div>
@@ -420,11 +434,20 @@ function AtlasCoreSections({ language }) {
       <section className="atlas-core-block">
         <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
         <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Core' : 'Atlas Core Documents'}</h2>
-        <div className="atlas-core-download-grid">
+        <div className="centered-download-grid">
           {downloads.map((item) => (
-            <a className="atlas-core-download" href="/contact" key={item.label}>
-              <span>{item.label}</span>
-              <small>{item.note}</small>
+            <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
+              <div className="download-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </div>
+              <div className="download-text">
+                <span>{item.label}</span>
+                <small>{item.note}</small>
+              </div>
             </a>
           ))}
         </div>
