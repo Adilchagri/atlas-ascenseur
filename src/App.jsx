@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Layout from './components/layout/Layout.jsx';
 import Home from './pages/Home.jsx';
@@ -47,9 +47,12 @@ export default function App() {
           <Route path="/elevators" element={<Elevators />} />
           <Route path="/elevators/circular-elevators" element={<ElevatorDetail />} />
           <Route path="/elevators/exterior-elevators" element={<ElevatorDetail />} />
-          <Route path="/elevators/astoria-range" element={<ElevatorDetail />} />
-          <Route path="/elevators/como-range" element={<ElevatorDetail />} />
-          <Route path="/elevators/como-range/:cabinSlug" element={<ComoCabinDetail />} />
+          <Route path="/elevators/astoria-range" element={<Navigate to="/villa-glass-elevators-morocco" replace />} />
+          <Route path="/villa-glass-elevators-morocco" element={<ElevatorDetail />} />
+          <Route path="/residential-elevators-morocco" element={<ElevatorDetail />} />
+          <Route path="/residential-elevators-morocco/:cabinSlug" element={<ComoCabinDetail />} />
+          <Route path="/elevators/como-range" element={<Navigate to="/residential-elevators-morocco" replace />} />
+          <Route path="/elevators/como-range/:cabinSlug" element={<Navigate to="/residential-elevators-morocco" replace />} />
           <Route path="/elevators/hospital-lifts" element={<ElevatorDetail />} />
           <Route path="/elevators/car-lifts" element={<ElevatorDetail />} />
           <Route path="/elevators/escalators-walkways" element={<ElevatorDetail />} />

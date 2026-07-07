@@ -4,8 +4,8 @@ import { getCommercialElevators, getResidentialElevators } from '../data/siteDat
 import { useUI } from '../context/UIContext.jsx';
 
 const elevatorRoutesByIcon = {
-  A: '/elevators/astoria-range',
-  C: '/elevators/como-range',
+  A: '/villa-glass-elevators-morocco',
+  C: '/residential-elevators-morocco',
   O: '/elevators/circular-elevators',
   X: '/elevators/exterior-elevators',
   P: '/elevators/circular-elevators',
@@ -29,7 +29,7 @@ export default function Elevators() {
       accent: 'Gamme',
       resEyebrow: 'Ascenseurs Résidentiels',
       resHeading: 'Gamme Résidentielle, Raffinée pour <em>Atlas.</em>',
-      resDesc: 'Atlas Ascenseurs couvre les ascenseurs résidentiels, Astoria intérieur, COMO résidentiel, circulaires, extérieurs et panoramiques avec un accompagnement clair.',
+      resDesc: 'Atlas Ascenseurs couvre les ascenseurs résidentiels, Atlas Panorama, COMO résidentiel, circulaires, extérieurs et panoramiques avec un accompagnement clair.',
       comDivider: 'Ascenseurs Commerciaux',
       comHeading: 'Conçus pour le <em>Trafic, la Sécurité et la Fiabilité.</em>',
       comDesc: 'La gamme commerciale comprend COMO Commercial, escalators et trottoirs roulants, monte-voitures, monte-charges, ascenseurs hospitaliers et monte-plats.',
@@ -40,7 +40,7 @@ export default function Elevators() {
       accent: 'Elevator Range',
       resEyebrow: 'Residential Lifts',
       resHeading: 'Residential Range, Refined for <em>Atlas.</em>',
-      resDesc: 'Atlas Ascenseurs covers residential lifts, Astoria indoor elevators, COMO residential, circular elevators, exterior lifts, and panoramic solutions with clear product guidance aligned with the Atlas Ascenseurs identity.',
+      resDesc: 'Atlas Ascenseurs covers residential lifts, Atlas Panorama panoramic elevators, COMO residential, circular elevators, exterior lifts, and panoramic solutions with clear product guidance aligned with the Atlas Ascenseurs identity.',
       comDivider: 'Commercial Lifts',
       comHeading: 'Built for <em>Traffic, Safety, and Uptime.</em>',
       comDesc: 'The commercial range includes COMO Commercial, escalators and walkways, car lifts, cargo lifts, hospital lifts, and dumbwaiter lifts, presented with direct guidance for traffic, safety, and uptime.',

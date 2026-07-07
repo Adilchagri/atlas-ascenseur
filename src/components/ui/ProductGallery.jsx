@@ -4,7 +4,7 @@ import { useUI } from '../../context/UIContext.jsx';
 const INITIAL_COUNT = 6;
 const LOAD_STEP = 6;
 
-export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product Images', images = [], getLabel, className = '' }) {
+export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product Images', images = [], getLabel, getAlt, className = '' }) {
   const { t } = useUI();
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const visibleImages = images.slice(0, visibleCount);
@@ -32,7 +32,7 @@ export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product I
             className="product-gallery-item"
             key={`${image}-${index}`}
           >
-            <img src={image} alt={getLabel ? getLabel(index, image) : `Atlas finish ${index + 1}`} loading="lazy" />
+            <img src={image} alt={getAlt ? getAlt(index, image) : (getLabel ? getLabel(index, image) : `Atlas finish ${index + 1}`)} loading="lazy" />
             <div className="gallery-item-info">
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h3>{getLabel ? getLabel(index, image) : 'Atlas finish'}</h3>

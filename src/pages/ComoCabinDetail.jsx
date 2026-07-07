@@ -20,7 +20,7 @@ export default function ComoCabinDetail() {
   return (
     <>
       <PageHero
-        current={language === 'fr' ? 'COMO Résidentiel' : 'COMO Residential'}
+        current="Atlas Core"
         title={language === 'fr' ? 'Cabine' : 'Cabin'}
         accent={cabin.id}
       />
@@ -80,8 +80,8 @@ export default function ComoCabinDetail() {
                   </div>
                 ))}
               </div>
-              <Link className="btn-outline cabin-back-link" to="/elevators/como-range">
-                {language === 'fr' ? 'Retour aux cabines COMO' : 'Back to COMO cabins'}
+              <Link className="btn-outline cabin-back-link" to="/residential-elevators-morocco">
+                {language === 'fr' ? 'Retour aux cabines Atlas Core' : 'Back to Atlas Core cabins'}
               </Link>
             </div>
           </div>

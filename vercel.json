@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/elevators/astoria-range",
+      "destination": "/villa-glass-elevators-morocco",
+      "permanent": true
+    },
+    {
+      "source": "/elevators/como-range",
+      "destination": "/residential-elevators-morocco",
+      "permanent": true
+    },
+    {
+      "source": "/elevators/como-range/:path*",
+      "destination": "/residential-elevators-morocco",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

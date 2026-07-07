@@ -30,8 +30,8 @@ const lights = [
 const configProfiles = [
   {
     id: 'astoria',
-    name: 'Astoria Home Lift',
-    short: 'Astoria',
+    name: 'Atlas Panorama',
+    short: 'Atlas Panorama',
     useCase: 'Villas, townhouses, and premium apartments.',
     load: ['320 kg', '400 kg', '450 kg'],
     speed: ['0.6 m/s', '1.0 m/s'],
@@ -44,9 +44,9 @@ const configProfiles = [
   },
   {
     id: 'como-residential',
-    name: 'COMO Residential',
-    short: 'COMO Home',
-    useCase: 'Compact homes, multi-story villas, and accessible apartments.',
+    name: 'Atlas Core',
+    short: 'Atlas Core',
+    useCase: 'Villas, residential buildings, offices, hotels, clinics, and concrete-shaft projects.',
     load: ['320 kg', '400 kg', '500 kg'],
     speed: ['0.6 m/s', '1.0 m/s'],
     doors: ['Automatic Single Swing', 'Automatic Double Swing'],
@@ -242,16 +242,16 @@ const enConfiguratorText = {
 
 const frProfileText = {
   astoria: {
-    name: 'Ascenseur Résidentiel Astoria',
-    short: 'Astoria',
+    name: 'Ascenseur Résidentiel Atlas Panorama',
+    short: 'Atlas Panorama',
     useCase: 'Villas, maisons de ville et appartements premium.',
     features: ['Gaine compacte', 'Trajet silencieux', 'Cabine premium'],
   },
   'como-residential': {
-    name: 'COMO Résidentiel',
-    short: 'COMO Maison',
-    useCase: 'Maisons compactes, villas à plusieurs niveaux et appartements accessibles.',
-    features: ['Espace optimisé', 'Hydraulique/Électrique', 'Veille énergétique'],
+    name: 'Atlas Core',
+    short: 'Atlas Core',
+    useCase: 'Villas, immeubles résidentiels, bureaux, hôtels, cliniques et projets en gaine béton.',
+    features: ['Gaine béton', 'Fonctionnement silencieux', 'Veille énergétique'],
   },
   circular: {
     name: 'Panoramique Circulaire',

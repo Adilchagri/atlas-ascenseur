@@ -22,11 +22,9 @@ import imgElevatorDumbwaiterService from '../assets/images/library/elevator-dumb
 import imgServiceEmergencySupport from '../assets/images/library/service-emergency-support.jpg';
 import imgServiceModernizationUpgrade from '../assets/images/library/service-modernization-upgrade.jpg';
 import imgServiceInspectionCertification from '../assets/images/library/service-inspection-certification.jpg';
-import astoriaRange1 from '../assets/images/astoria_range/Astoria-1-.jpeg';
-import astoriaRange2 from '../assets/images/astoria_range/Astoria-2.png';
-import astoriaRange3 from '../assets/images/astoria_range/Astoria-3.jpg';
-import astoriaRange4 from '../assets/images/astoria_range/Astoria-4.jpg';
-import astoriaRange5 from '../assets/images/astoria_range/Astoria-5-.jpeg';
+import astoriaRange1 from '../assets/images/astoria_range/glass-villa-elevator-rabat.jpeg';
+import astoriaRange3 from '../assets/images/astoria_range/glass-home-lift-marrakech.jpg';
+import astoriaRange5 from '../assets/images/astoria_range/luxury-villa-elevator-tangier.jpeg';
 import circularLift1 from '../assets/images/circular_elevators/1.jpeg';
 import circularLift2 from '../assets/images/circular_elevators/2.jpg';
 import circularLift3 from '../assets/images/circular_elevators/3.jpeg';
@@ -50,6 +48,11 @@ import inspiration1 from '../assets/images/Inspiration Gallery/1.jpg';
 import inspiration2 from '../assets/images/Inspiration Gallery/2.jpg';
 import inspiration3 from '../assets/images/Inspiration Gallery/3.jpg';
 import comoRangeWelcomeImage from '../assets/images/como_range/como-range_picture_welcome-page.jpeg';
+import atlasCoreRabat from '../assets/images/atlas-core/residential-elevator-rabat.jpg';
+import atlasCoreCasablanca from '../assets/images/atlas-core/villa-elevator-casablanca.jpg';
+import atlasCoreBuilding from '../assets/images/atlas-core/apartment-building-elevator-morocco.jpg';
+import atlasCoreMarrakech from '../assets/images/atlas-core/premium-residential-lift-marrakech.jpg';
+import atlasCoreShaft from '../assets/images/atlas-core/concrete-shaft-elevator-atlas-core.jpg';
 
 const withFallback = (src, fallback) => fallback || src;
 
@@ -78,7 +81,10 @@ const comoCommercialGallery = galleryFrom(import.meta.glob('../assets/images/Com
 const escalatorGallery = galleryFrom(import.meta.glob('../assets/images/escalators/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const carLiftGallery = galleryFrom(import.meta.glob('../assets/images/car-lifts/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const cargoGallery = galleryFrom(import.meta.glob('../assets/images/Cargo Lifts/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
-const doorGallery = galleryFrom(import.meta.glob('../assets/images/Doors/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
+const doorGallery = Object.entries(import.meta.glob('../assets/images/Doors/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }))
+  .filter(([path]) => !path.includes('swing') && !path.includes('manuel'))
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+  .map(([, src]) => src);
 const inspirationGallery = galleryFrom(import.meta.glob('../assets/images/Inspiration Gallery/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const projectVideos = galleryFrom(import.meta.glob('../assets/images/videos_our_projects/*.mp4', { eager: true, import: 'default' }));
 
@@ -105,12 +111,38 @@ export const comoCabins = comoCabinSpecs.map((cabin) => ({
   ...cabin,
   title: `Cabin ${cabin.id}`,
   slug: `cabine-${cabin.id}`,
-  to: `/elevators/como-range/cabine-${cabin.id}`,
+  to: `/residential-elevators-morocco/cabine-${cabin.id}`,
   images: comoCabinImages[cabin.id] ?? [],
   image: comoCabinImages[cabin.id]?.[0],
 }));
 
-const comoResidentialGallery = comoCabins.flatMap((cabin) => cabin.images);
+export const atlasCoreGallery = [
+  {
+    src: atlasCoreRabat,
+    alt: 'Ascenseur résidentiel Atlas Core installé en gaine béton à Rabat',
+    label: 'Residential Elevator Rabat',
+  },
+  {
+    src: atlasCoreCasablanca,
+    alt: 'Ascenseur de villa Atlas Core avec cabine personnalisable à Casablanca',
+    label: 'Villa Elevator Casablanca',
+  },
+  {
+    src: atlasCoreBuilding,
+    alt: 'Ascenseur Atlas Core pour immeuble résidentiel au Maroc',
+    label: 'Apartment Building Elevator Morocco',
+  },
+  {
+    src: atlasCoreMarrakech,
+    alt: 'Ascenseur résidentiel premium Atlas Core pour villa à Marrakech',
+    label: 'Premium Residential Lift Marrakech',
+  },
+  {
+    src: atlasCoreShaft,
+    alt: 'Ascenseur Atlas Core conçu pour une installation en gaine béton',
+    label: 'Concrete Shaft Elevator Atlas Core',
+  },
+];
 const primaryComoCabinImage = comoCabins.find((cabin) => cabin.image)?.image ?? imgElevatorAstoriaInterior;
 
 export const imagePaths = {
@@ -157,14 +189,14 @@ export const navLinks = [
   { label: 'Our Projects', to: '/projects' },
 ];
 
-export const residentialLinks = ['Circular Elevators', 'Exterior Elevators', 'Astoria Range', 'Como Range'];
+export const residentialLinks = ['Circular Elevators', 'Exterior Elevators', 'Astoria Range', 'Atlas Core'];
 export const commercialLinks = ['Hospital Lifts', 'Car Lifts', 'Escalators / Walkways', 'Como Commercial', 'Cargo Lifts', 'Dumbwaiter Lifts'];
 export const elevatorMenuLinks = {
   residential: [
     { label: 'Circular Elevators', to: '/elevators/circular-elevators' },
     { label: 'Exterior Elevators', to: '/elevators/exterior-elevators' },
-    { label: 'Astoria Range', to: '/elevators/astoria-range' },
-    { label: 'Como Range', to: '/elevators/como-range' },
+    { label: 'Atlas Panorama', to: '/villa-glass-elevators-morocco' },
+    { label: 'Atlas Core', to: '/residential-elevators-morocco' },
   ],
   commercial: [
     { label: 'Hospital Lifts', to: '/elevators/hospital-lifts' },
@@ -213,7 +245,7 @@ export const whyCards = [
 ];
 
 export const elevatorCards = [
-  { tag: 'Residential', title: 'Astoria Range', desc: 'Elegant indoor elevators for private villas and apartments. Fully customizable cabin, lighting, and finishes.', image: imagePaths.elevators.astoria },
+  { tag: 'Residential', title: 'Atlas Panorama', desc: 'Premium panoramic glass elevators for modern villas. Bespoke design, silent operation, and high-end customizations.', image: imagePaths.elevators.astoria },
   { tag: 'Residential', title: 'Circular Elevators', desc: 'A statement piece for any home. Panoramic, architectural, and unmistakably refined.', image: imagePaths.elevators.circular },
   { tag: 'Residential', title: 'Exterior Elevators', desc: 'Weatherproof and beautifully designed for outdoor installations, gardens, and terraces.', image: imagePaths.elevators.exterior },
   { tag: 'Commercial', title: 'Como Commercial', desc: 'High-traffic performance elevators built for offices, hotels, and commercial buildings.', image: imagePaths.elevators.commercial },
@@ -222,8 +254,8 @@ export const elevatorCards = [
 ];
 
 export const residentialElevators = [
-  ['A', 'Astoria Range', 'Elegant indoor home elevators for villas, townhouses, and apartments. The Astoria concept uses a self-supporting aluminum tower, refined cabin finishes, compact installation logic, and a premium residential look without heavy structural work.', imagePaths.elevators.astoria],
-  ['C', 'COMO Residential', 'A flexible residential lift family for moderate daily use. Inspired by the COMO range, hydraulic and electric drive options optimize shaft space, creating larger cabins even in compact homes while keeping the ride smooth, quiet, and reliable.', imagePaths.elevators.comoResidential],
+  ['A', 'Atlas Panorama', 'Atlas Panorama is our premium range of panoramic glass elevators designed for modern villas in Morocco. Offering a glazed shaft, elegant styling, and extensive customization, it provides an exquisite residential addition with silent, safe, and comfortable operation.', imagePaths.elevators.astoria],
+  ['C', 'Atlas Core', 'Premium residential elevators for concrete shaft installations in villas, residential buildings, offices, hotels, clinics, and commercial buildings across Morocco.', imagePaths.elevators.comoResidential],
   ['O', 'Circular Elevators', 'Panoramic circular lifts designed as architectural centerpieces. Clear, smoked, or frosted glass, stainless steel or coated structures, custom flooring, railings, and lighting help the elevator become part of the interior design.', imagePaths.elevators.circular],
   ['X', 'Exterior Elevators', 'Outdoor lifts for terraces, gardens, split-level homes, and hillside properties. Weather-ready shaft structures, glass options, and compact footprints make accessibility possible without compromising the architecture.', imagePaths.elevators.exterior],
   ['P', 'Panoramic & Glass Cabins', 'Glass cabin and panoramic lift options bring light, visibility, and a strong design presence to homes, hospitality projects, and premium commercial interiors.', imagePaths.projects.circular],
@@ -240,8 +272,8 @@ export const commercialElevators = [
 ];
 
 export const elevatorDetailGalleries = {
-  'Astoria Range': astoriaGallery,
-  'COMO Residential': comoResidentialGallery,
+  'Atlas Panorama': astoriaGallery,
+  'Atlas Core': atlasCoreGallery.map((item) => item.src),
   'Circular Elevators': circularGallery,
   'Exterior Elevators': exteriorGallery,
   'Panoramic & Glass Cabins': circularGallery,
@@ -314,8 +346,8 @@ export const frElevatorMenuLinks = {
   residential: [
     { label: 'Ascenseurs Circulaires', to: '/elevators/circular-elevators' },
     { label: 'Ascenseurs Extérieurs', to: '/elevators/exterior-elevators' },
-    { label: 'Gamme Astoria', to: '/elevators/astoria-range' },
-    { label: 'Gamme COMO', to: '/elevators/como-range' },
+    { label: 'Atlas Panorama', to: '/villa-glass-elevators-morocco' },
+    { label: 'Atlas Core', to: '/residential-elevators-morocco' },
   ],
   commercial: [
     { label: 'Ascenseurs Hospitaliers', to: '/elevators/hospital-lifts' },
@@ -364,7 +396,7 @@ export const frWhyCards = [
 ];
 
 export const frElevatorCards = [
-  { tag: 'Résidentiel', title: 'Gamme Astoria', desc: 'Ascenseurs intérieurs élégants pour villas et appartements. Cabine, éclairage et finitions entièrement personnalisables.', image: imagePaths.elevators.astoria },
+  { tag: 'Résidentiel', title: 'Atlas Panorama', desc: 'Ascenseurs panoramiques en verre de prestige pour villas modernes au Maroc. Fonctionnement silencieux et finitions haut de gamme.', image: imagePaths.elevators.astoria },
   { tag: 'Résidentiel', title: 'Ascenseurs Circulaires', desc: 'Une pièce architecturale forte pour la maison. Panoramique, raffinée et immédiatement reconnaissable.', image: imagePaths.elevators.circular },
   { tag: 'Résidentiel', title: 'Ascenseurs Extérieurs', desc: 'Solutions extérieures résistantes aux intempéries pour jardins, terrasses et accès en façade.', image: imagePaths.elevators.exterior },
   { tag: 'Commercial', title: 'COMO Commercial', desc: 'Ascenseurs haute performance pour bureaux, hôtels et bâtiments à fort trafic.', image: imagePaths.elevators.commercial },
@@ -373,8 +405,8 @@ export const frElevatorCards = [
 ];
 
 export const frResidentialElevators = [
-  ['A', 'Gamme Astoria', 'Ascenseur résidentiel intérieur pour villas, maisons et appartements. Le concept Astoria utilise une structure autoportante en aluminium, des finitions raffinées, une installation compacte et un aspect premium sans gros travaux structurels.', imagePaths.elevators.astoria],
-  ['C', 'COMO Résidentiel', 'Une solution résidentielle flexible pour un usage quotidien modéré. Les options hydrauliques et électriques optimisent l’espace de gaine et permettent une cabine plus généreuse même dans les maisons compactes.', imagePaths.elevators.comoResidential],
+  ['A', 'Atlas Panorama', 'Atlas Panorama est notre gamme d’ascenseurs panoramiques haut de gamme conçue pour les villas modernes au Maroc. Grâce à sa gaine vitrée, son design élégant et ses nombreuses possibilités de personnalisation, elle apporte une véritable valeur ajoutée.', imagePaths.elevators.astoria],
+  ['C', 'Atlas Core', 'Ascenseurs résidentiels premium pour installations en gaine béton dans villas, immeubles résidentiels, bureaux, hôtels, cliniques et bâtiments commerciaux au Maroc.', imagePaths.elevators.comoResidential],
   ['O', 'Ascenseurs Circulaires', 'Ascenseurs panoramiques circulaires conçus comme des pièces architecturales. Verre clair, fumé ou dépoli, structures en acier inoxydable ou laquées, sols, mains courantes et éclairage personnalisables.', imagePaths.elevators.circular],
   ['X', 'Ascenseurs Extérieurs', 'Ascenseurs extérieurs pour terrasses, jardins, maisons à niveaux décalés et propriétés en pente. Structures résistantes aux intempéries, options vitrées et empreinte compacte.', imagePaths.elevators.exterior],
   ['P', 'Cabines Panoramiques & Vitrées', 'Les cabines vitrées et panoramiques apportent lumière, visibilité et présence design aux maisons, hôtels et intérieurs commerciaux premium.', imagePaths.projects.circular],

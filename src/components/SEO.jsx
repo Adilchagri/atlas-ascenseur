@@ -118,24 +118,24 @@ const routeSeo = {
       description: 'Ascenseurs extérieurs élégants, résistants et peu encombrants pour conjuguer accessibilité et design.',
     },
   },
-  '/elevators/astoria-range': {
+  '/villa-glass-elevators-morocco': {
     en: {
-      title: 'Astoria Home Lifts & Villa Elevators in Morocco',
-      description: 'Astoria home lifts and villa elevators in Morocco with panoramic aluminum and glass structure, quiet operation, and premium finishes.',
+      title: 'Panoramic Glass Elevators for Villas in Morocco | Atlas Panorama',
+      description: 'Discover Atlas Panorama, our premium range of panoramic glass elevators for modern villas in Morocco with glazed shafts, elegant styling, and silent operation.',
     },
     fr: {
-      title: 'Gamme Astoria - Home Lift & Ascenseur Villa Maroc',
-      description: 'Ascenseurs panoramiques Astoria pour villas au Maroc: home lift premium, structure aluminium et verre, fonctionnement silencieux et finitions haut de gamme.',
+      title: 'Ascenseurs Panoramiques pour Villas au Maroc | Atlas Panorama',
+      description: 'Découvrez Atlas Panorama, notre gamme d’ascenseurs panoramiques haut de gamme pour villas modernes au Maroc : gaine vitrée, design élégant et fonctionnement silencieux.',
     },
   },
-  '/elevators/como-range': {
+  '/residential-elevators-morocco': {
     en: {
-      title: 'COMO Residential Elevators & Home Lifts Morocco',
-      description: 'COMO residential elevators and home lifts in Morocco combine design, personalization, compact dimensions, and quiet architectural integration.',
+      title: 'Residential Elevators for Villas & Buildings in Morocco | Atlas Core',
+      description: 'Atlas Core residential elevators in Morocco are premium concrete shaft lifts for villas, residential buildings, offices, hotels, clinics, and commercial buildings.',
     },
     fr: {
-      title: 'COMO Résidentiel - Ascenseur Privatif & Home Lift Maroc',
-      description: 'COMO associe ascenseur privatif, home lift Maroc, design, personnalisation et intégration architecturale dans une solution compacte et silencieuse.',
+      title: 'Ascenseurs Résidentiels pour Villas & Immeubles au Maroc | Atlas Core',
+      description: 'Atlas Core est une gamme d’ascenseurs résidentiels premium en gaine béton pour villas, immeubles résidentiels et bâtiments professionnels au Maroc.',
     },
   },
   '/elevators/hospital-lifts': {
@@ -279,13 +279,13 @@ const routeKeywords = {
     en: ['residential elevators Morocco', 'villa lifts Morocco', 'home lifts Morocco', 'private elevator Morocco'],
     fr: ['ascenseurs résidentiels Maroc', 'ascenseur villa Maroc', 'home lift Maroc', 'ascenseur privatif Maroc'],
   },
-  '/elevators/astoria-range': {
-    en: ['Astoria home lift', 'villa elevator Morocco', 'panoramic home lift Morocco'],
-    fr: ['Gamme Astoria', 'home lift Maroc', 'ascenseur villa Maroc', 'ascenseur panoramique villa'],
+  '/villa-glass-elevators-morocco': {
+    en: ['Atlas Panorama', 'villa elevator Morocco', 'panoramic glass elevator Morocco'],
+    fr: ['Atlas Panorama', 'home lift Maroc', 'ascenseur villa Maroc', 'ascenseur panoramique villa'],
   },
-  '/elevators/como-range': {
-    en: ['COMO residential elevator', 'home lift Morocco', 'private elevator Morocco'],
-    fr: ['COMO résidentiel', 'home lift Maroc', 'ascenseur privatif Maroc', 'ascenseur résidentiel Maroc'],
+  '/residential-elevators-morocco': {
+    en: ['Atlas Core', 'residential elevators Morocco', 'villa elevator Morocco', 'concrete shaft elevator Morocco'],
+    fr: ['Atlas Core', 'ascenseurs résidentiels Maroc', 'ascenseur villa Maroc', 'ascenseur gaine béton Maroc'],
   },
   '/elevators/exterior-elevators': {
     en: ['exterior elevator Morocco', 'outdoor lift Morocco', 'villa elevator Morocco'],
@@ -307,8 +307,8 @@ const routeLabels = {
   '/elevators': { en: 'Elevators', fr: 'Ascenseurs' },
   '/elevators/circular-elevators': { en: 'Circular Elevators', fr: 'Ascenseurs Circulaires' },
   '/elevators/exterior-elevators': { en: 'Exterior Elevators', fr: 'Ascenseurs Extérieurs' },
-  '/elevators/astoria-range': { en: 'Astoria Range', fr: 'Gamme Astoria' },
-  '/elevators/como-range': { en: 'COMO Residential', fr: 'COMO Résidentiel' },
+  '/villa-glass-elevators-morocco': { en: 'Atlas Panorama', fr: 'Atlas Panorama' },
+  '/residential-elevators-morocco': { en: 'Atlas Core', fr: 'Atlas Core' },
   '/elevators/hospital-lifts': { en: 'Hospital Lifts', fr: 'Ascenseurs Hospitaliers' },
   '/elevators/car-lifts': { en: 'Car Lifts', fr: 'Monte-Voitures' },
   '/elevators/escalators-walkways': { en: 'Escalators and Walkways', fr: 'Escalators et Trottoirs Roulants' },
@@ -393,14 +393,14 @@ function getKeywords(pathname, language) {
 
 function getSeo(pathname, language) {
   const normalized = cleanPath(pathname);
-  const route = routeSeo[normalized] || (normalized.startsWith('/elevators/como-range/cabine-') ? {
+  const route = routeSeo[normalized] || (normalized.startsWith('/residential-elevators-morocco/cabine-') ? {
     en: {
-      title: 'COMO Cabin Details - Atlas Ascenseurs',
-      description: 'Explore COMO elevator cabin finishes, ceiling, panels, control, door, handrail, flooring, and design details.',
+      title: 'Atlas Core Cabin Details - Atlas Ascenseurs',
+      description: 'Explore Atlas Core elevator cabin finishes, ceiling, panels, control, door, handrail, flooring, and design details.',
     },
     fr: {
-      title: 'Détails Cabine COMO - Atlas Ascenseurs',
-      description: 'Découvrez les finitions de cabine COMO: plafond, panneaux, commande, porte, main courante, sol et détails design.',
+      title: 'Détails Cabine Atlas Core - Atlas Ascenseurs',
+      description: 'Découvrez les finitions de cabine Atlas Core: plafond, panneaux, commande, porte, main courante, sol et détails design.',
     },
   } : null);
   return route?.[language] || defaultSeo[language] || defaultSeo.en;
@@ -408,8 +408,8 @@ function getSeo(pathname, language) {
 
 function getLabel(pathname, language) {
   const normalized = cleanPath(pathname);
-  if (normalized.startsWith('/elevators/como-range/cabine-')) {
-    return language === 'fr' ? 'Détails Cabine COMO' : 'COMO Cabin Details';
+  if (normalized.startsWith('/residential-elevators-morocco/cabine-')) {
+    return language === 'fr' ? 'Détails Cabine Atlas Core' : 'Atlas Core Cabin Details';
   }
   return routeLabels[normalized]?.[language] || routeLabels[normalized]?.en || SITE_NAME;
 }
@@ -442,8 +442,8 @@ function getRouteImage(pathname) {
   if (normalized === '/service') return pageImages.service;
   if (normalized === '/about') return pageImages.about;
   if (normalized === '/elevators') return imagePaths.elevators.comoResidential;
-  if (normalized === '/elevators/astoria-range') return imagePaths.elevators.astoria;
-  if (normalized === '/elevators/como-range') return imagePaths.elevators.comoResidential;
+  if (normalized === '/villa-glass-elevators-morocco') return imagePaths.elevators.astoria;
+  if (normalized === '/residential-elevators-morocco') return imagePaths.elevators.comoResidential;
   if (normalized === '/elevators/circular-elevators') return imagePaths.elevators.circular;
   if (normalized === '/elevators/exterior-elevators') return imagePaths.elevators.exterior;
   if (normalized === '/elevators/hospital-lifts') return imagePaths.elevators.hospitalCargo;
@@ -452,7 +452,7 @@ function getRouteImage(pathname) {
   if (normalized === '/elevators/como-commercial') return imagePaths.elevators.commercial;
   if (normalized === '/elevators/cargo-lifts') return imagePaths.elevators.cargo;
   if (normalized === '/elevators/dumbwaiter-lifts') return imagePaths.elevators.cargo;
-  if (normalized.startsWith('/elevators/como-range/cabine-')) {
+  if (normalized.startsWith('/residential-elevators-morocco/cabine-')) {
     return comoCabins.find((cabin) => normalized.endsWith(cabin.slug))?.image || imagePaths.elevators.comoResidential;
   }
   return DEFAULT_IMAGE;

@@ -828,6 +828,14 @@ nav.scrolled {
   font-weight: 400; color: var(--white); line-height: 1.1;
 }
 .page-hero-title em { font-style: italic; color: var(--gold); }
+.page-hero-subtitle {
+  margin-top: 16px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .about-split > div:last-child {
   padding-top: 142px;
@@ -2339,6 +2347,10 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   display: block;
   transition: transform var(--motion-medium) var(--ease-soft);
 }
+.product-gallery-phone-tall .product-gallery-item img {
+  object-fit: cover;
+  object-position: center;
+}
 .product-gallery-item::before {
   content: '';
   position: absolute;
@@ -2398,6 +2410,234 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   text-align: center;
   margin-top: 34px;
 }
+.atlas-core-block {
+  margin-top: 78px;
+}
+.atlas-core-icon-grid,
+.atlas-core-card-grid,
+.atlas-core-download-grid,
+.atlas-core-testimonial-grid {
+  display: grid;
+  gap: 14px;
+}
+.atlas-core-icon-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.atlas-core-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.atlas-core-download-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.atlas-core-testimonial-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.atlas-core-icon-card,
+.atlas-core-benefit-card,
+.atlas-core-download,
+.atlas-core-testimonial {
+  border: 1px solid var(--gold-border);
+  background:
+    linear-gradient(135deg, rgba(20,20,20,0.9), rgba(8,8,8,0.96)),
+    radial-gradient(circle at 100% 0%, rgba(201,168,76,0.1), transparent 36%);
+}
+.atlas-core-icon-card {
+  min-height: 150px;
+  padding: 20px 14px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.atlas-core-icon-card span {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(232,201,122,0.42);
+  color: var(--gold-light);
+  display: grid;
+  place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+.atlas-core-icon-card h3,
+.atlas-core-benefit-card,
+.atlas-core-download span,
+.atlas-core-testimonial strong {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+.atlas-core-benefit-card {
+  min-height: 104px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.atlas-core-benefit-card::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  margin-right: 12px;
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+}
+.panorama-benefit-card::before {
+  display: none !important;
+}
+.panorama-benefit-card .benefit-card-icon {
+  font-size: 20px;
+  margin-right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.atlas-core-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--gold-border);
+  background: var(--black-2);
+}
+.atlas-core-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+.atlas-core-table th,
+.atlas-core-table td {
+  border-bottom: 1px solid rgba(201,168,76,0.16);
+  border-right: 1px solid rgba(201,168,76,0.12);
+  padding: 18px;
+  text-align: left;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  vertical-align: top;
+}
+.atlas-core-table th {
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(201,168,76,0.08);
+}
+.atlas-core-table td:first-child {
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  .atlas-core-table-wrap {
+    background: transparent;
+    border: none;
+    overflow-x: visible;
+  }
+  .atlas-core-table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .atlas-core-table thead {
+    display: none;
+  }
+  .atlas-core-table tbody {
+    display: block;
+    width: 100%;
+  }
+  .atlas-core-table tr {
+    display: block;
+    width: 100%;
+    background: var(--black-2);
+    border: 1px solid var(--gold-border);
+    margin-bottom: 24px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .atlas-core-table td {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border: none !important;
+    text-align: left;
+  }
+  .atlas-core-table td:first-child {
+    font-size: 15px;
+    color: var(--gold) !important;
+    border-bottom: 1px solid rgba(201,168,76,0.18) !important;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+  .atlas-core-table td:nth-child(2)::before {
+    content: "Atlas Panorama";
+    display: block;
+    font-size: 10px;
+    color: var(--gold-light);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .atlas-core-table td:nth-child(3)::before {
+    content: "Atlas Core";
+    display: block;
+    font-size: 10px;
+    color: var(--gold-light);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+}
+.atlas-core-download {
+  min-height: 126px;
+  padding: 20px;
+  text-decoration: none;
+  display: grid;
+  align-content: space-between;
+  transition: transform var(--motion-medium) var(--ease-soft), border-color var(--motion-medium) var(--ease-soft);
+}
+.atlas-core-download:hover {
+  transform: translateY(-5px);
+  border-color: rgba(232,201,122,0.52);
+}
+.atlas-core-download small {
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.atlas-core-faq {
+  max-width: none;
+  border: 1px solid var(--gold-border);
+  background: rgba(255,255,255,0.02);
+  padding: 8px 22px;
+}
+.atlas-core-testimonial {
+  min-height: 220px;
+  padding: 22px;
+  position: relative;
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+}
+.atlas-core-testimonial span {
+  width: max-content;
+  border: 1px solid rgba(232,201,122,0.24);
+  color: var(--gold-light);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 8px;
+}
+.atlas-core-testimonial p {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.atlas-core-testimonial.whatsapp {
+  border-radius: 8px 8px 8px 2px;
+}
+.atlas-core-testimonial.facebook {
+  border-radius: 8px;
+}
 .cabin-mobile-description {
   display: none;
 }
@@ -2440,6 +2680,10 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
     min-height: 0;
   }
   .como-cabin-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .atlas-core-icon-grid,
+  .atlas-core-card-grid,
+  .atlas-core-download-grid,
+  .atlas-core-testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .product-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .config-shell { grid-template-columns: 1fr; }
   .config-stage { min-height: 560px; }
@@ -2772,7 +3016,17 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .product-feature-list,
   .product-summary-band,
   .como-cabin-grid,
+  .atlas-core-icon-grid,
+  .atlas-core-card-grid,
+  .atlas-core-download-grid,
+  .atlas-core-testimonial-grid,
   .product-gallery-grid { grid-template-columns: 1fr; }
+  .atlas-core-block { margin-top: 56px; }
+  .atlas-core-icon-card,
+  .atlas-core-benefit-card,
+  .atlas-core-download,
+  .atlas-core-testimonial { min-height: 0; }
+  .atlas-core-faq { padding: 4px 14px; }
   .como-cabin-card { min-height: calc(100svh - 118px); }
   .gallery-head { display: block; }
   .gallery-count { display: inline-block; margin-bottom: 16px; }
