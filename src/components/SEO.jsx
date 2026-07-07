@@ -34,6 +34,8 @@ const coreKeywords = {
   en: [
     'Atlas Ascenseurs',
     'elevator Morocco',
+    'elevator company in Morocco',
+    'best elevator company Morocco',
     'residential elevator Morocco',
     'villa elevator Morocco',
     'home lift Morocco',
@@ -41,18 +43,31 @@ const coreKeywords = {
     'elevator installation Casablanca',
     'elevator maintenance Casablanca',
     'elevator company Casablanca',
+    'home lift supplier Morocco',
+    'elevator installation Morocco',
+    'elevator maintenance Morocco',
   ],
   fr: [
     'Atlas Ascenseurs',
     'ascenseur Maroc',
+    'entreprise d\'ascenseurs au maroc',
+    'société d\'ascenseurs au maroc',
+    'entreprise d\'ascenseurs casablanca',
+    'société d\'ascenseurs casablanca',
+    'fournisseur d\'ascenseurs maroc',
     'ascenseur résidentiel Maroc',
-    'ascenseur villa Maroc',
+    'ascenseur de villa Maroc',
+    'ascenseur de maison maroc',
+    'ascenseur panoramique maroc',
     'home lift Maroc',
     'ascenseur privatif Maroc',
     'prix ascenseur villa Maroc',
     'installation ascenseur Casablanca',
     'entretien ascenseur Casablanca',
     'ascenseuriste Casablanca',
+    'installation ascenseur maroc',
+    'entretien ascenseur maroc',
+    'maintenance ascenseur maroc',
   ],
 };
 
@@ -62,8 +77,8 @@ const defaultSeo = {
     description: 'Atlas Ascenseurs designs, installs, modernizes, and maintains premium residential and commercial elevator solutions across Morocco.',
   },
   fr: {
-    title: 'Atlas Ascenseurs - Ascenseurs Premium au Maroc',
-    description: 'Atlas Ascenseurs conçoit, installe, modernise et maintient des solutions d’ascenseurs résidentiels et commerciaux premium à travers le Maroc.',
+    title: 'Atlas Ascenseurs - Entreprise d’ascenseurs au Maroc',
+    description: 'Atlas Ascenseurs est votre entreprise d’ascenseurs au Maroc, spécialisée dans la conception, l’installation, la maintenance et la modernisation d’ascenseurs.',
   },
 };
 
@@ -74,8 +89,8 @@ const routeSeo = {
       description: 'Atlas Ascenseurs designs, installs, modernizes, and maintains residential elevators, villa lifts, home lifts, and commercial elevators across Morocco.',
     },
     fr: {
-      title: 'Atlas Ascenseurs - Ascenseur Maroc, Home Lift & Maintenance',
-      description: 'Atlas Ascenseurs conçoit, installe et entretient des ascenseurs résidentiels, ascenseurs de villa, home lifts et solutions commerciales au Maroc.',
+      title: 'Atlas Ascenseurs - Entreprise d’ascenseurs au Maroc',
+      description: 'Atlas Ascenseurs est une entreprise d’ascenseurs au Maroc. Nous concevons, installons, modernisons et entretenons des ascenseurs résidentiels, ascenseurs de villa et monte-charges.',
     },
   },
   '/about': {
