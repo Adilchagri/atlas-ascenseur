@@ -345,31 +345,6 @@ function AtlasPanoramaSections({ language }) {
         </div>
       </section>
 
-      <section className="atlas-core-block">
-        <div className="gallery-head">
-          <div>
-            <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
-            <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Panorama' : 'Atlas Panorama Documents'}</h2>
-          </div>
-        </div>
-        <div className="centered-download-grid">
-          {downloads.map((item) => (
-            <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
-              <div className="download-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </div>
-              <div className="download-text">
-                <span>{item.label}</span>
-                <small>{item.note}</small>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
@@ -431,27 +406,6 @@ function AtlasCoreSections({ language }) {
         </div>
       </section>
 
-      <section className="atlas-core-block">
-        <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
-        <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Core' : 'Atlas Core Documents'}</h2>
-        <div className="centered-download-grid">
-          {downloads.map((item) => (
-            <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
-              <div className="download-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </div>
-              <div className="download-text">
-                <span>{item.label}</span>
-                <small>{item.note}</small>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
@@ -576,6 +530,62 @@ export default function ElevatorDetail() {
               return undefined;
             }}
           />
+        )}
+
+        {showAtlasCoreSections && (
+          <section className="atlas-core-block">
+            <div className="gallery-head">
+              <div>
+                <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
+                <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Core' : 'Atlas Core Documents'}</h2>
+              </div>
+            </div>
+            <div className="centered-download-grid">
+              {(language === 'fr' ? frAtlasCoreDownloads : atlasCoreDownloads).map((item) => (
+                <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
+                  <div className="download-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </div>
+                  <div className="download-text">
+                    <span>{item.label}</span>
+                    <small>{item.note}</small>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {showAtlasPanoramaSections && (
+          <section className="atlas-core-block">
+            <div className="gallery-head">
+              <div>
+                <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
+                <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Panorama' : 'Atlas Panorama Documents'}</h2>
+              </div>
+            </div>
+            <div className="centered-download-grid">
+              {(language === 'fr' ? frAtlasPanoramaDownloads : atlasPanoramaDownloads).map((item) => (
+                <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
+                  <div className="download-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </div>
+                  <div className="download-text">
+                    <span>{item.label}</span>
+                    <small>{item.note}</small>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
         )}
 
         {showAtlasCoreSections && (
