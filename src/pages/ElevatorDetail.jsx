@@ -246,7 +246,7 @@ const atlasCoreTestimonials = [
 
 const atlasPanoramaReasons = [
   { en: 'Panoramic glass design', fr: 'Design panoramique en verre', icon: '🔍' },
-  { en: 'Silent operation', fr: 'Fonctionnement silencieux', icon: '🤫' },
+  { en: 'Silent operation', fr: 'Fonctionnement silencieux', icon: '🔇' },
   { en: 'Cabin personalization', fr: 'Personnalisation de la cabine', icon: '🛠️' },
   { en: 'Low energy consumption', fr: 'Faible consommation d’énergie', icon: '⚡' },
   { en: 'Compact footprint', fr: 'Installation compacte', icon: '📦' },
