@@ -4,11 +4,11 @@ import { useUI } from '../../context/UIContext.jsx';
 const INITIAL_COUNT = 6;
 const LOAD_STEP = 6;
 
-export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product Images', images = [], getLabel, getAlt, className = '' }) {
+export default function ProductGallery({ eyebrow = 'Gallery', title = 'Product Images', images = [], getLabel, getAlt, className = '', showAll = false }) {
   const { t } = useUI();
-  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
-  const visibleImages = images.slice(0, visibleCount);
-  const hasMore = visibleCount < images.length;
+  const [visibleCount, setVisibleCount] = useState(showAll ? images.length : INITIAL_COUNT);
+  const visibleImages = images.slice(0, showAll ? images.length : visibleCount);
+  const hasMore = !showAll && (visibleCount < images.length);
 
   const countLabel = useMemo(() => {
     if (!images.length) return `0 ${t('images')}`;

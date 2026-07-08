@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react';
+import atlasCoreCompareImg from '../assets/images/photos-of-comparaisons/Atlas Core.png';
+import atlasPanoramaCompareImg from '../assets/images/photos-of-comparaisons/Atlas Panorama.png';
 import { Link, useLocation } from 'react-router-dom';
 import PageHero from '../components/layout/PageHero.jsx';
 import { atlasCoreGallery, commercialElevators, comoCabins, elevatorDetailGalleries, residentialElevators } from '../data/siteData.js';
@@ -169,22 +171,177 @@ const frProductNotes = {
 };
 
 const atlasCoreApplications = [
-  { icon: '🏡', en: 'Villas', fr: 'Villas' },
-  { icon: '🏢', en: 'Residential buildings', fr: 'Immeubles résidentiels' },
-  { icon: '💼', en: 'Offices', fr: 'Bureaux' },
-  { icon: '🏨', en: 'Hotels', fr: 'Hôtels' },
-  { icon: '🏥', en: 'Clinics', fr: 'Cliniques' },
-  { icon: '🏬', en: 'Commercial buildings', fr: 'Bâtiments commerciaux' },
+  { 
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ), 
+    en: 'Villas', 
+    fr: 'Villas' 
+  },
+  { 
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+        <line x1="9" y1="22" x2="9" y2="16" />
+        <line x1="15" y1="22" x2="15" y2="16" />
+        <line x1="9" y1="16" x2="15" y2="16" />
+        <path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01" />
+      </svg>
+    ), 
+    en: 'Residential buildings', 
+    fr: 'Immeubles résidentiels' 
+  },
+  { 
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      </svg>
+    ), 
+    en: 'Offices', 
+    fr: 'Bureaux' 
+  },
+  { 
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 21H2M18 21V10a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v11M12 11h.01" />
+        <path d="M10 14h4v7h-4z" />
+        <path d="M9 5l3-3 3 3" />
+      </svg>
+    ), 
+    en: 'Hotels', 
+    fr: 'Hôtels' 
+  },
+  { 
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 21H2M18 21V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v15" />
+        <path d="M10 10h4M12 8v4" />
+        <path d="M10 16h4v5h-4z" />
+      </svg>
+    ), 
+    en: 'Clinics', 
+    fr: 'Cliniques' 
+  },
+  { 
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21h18M3 7v14M21 7v14M16 21v-4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v4" />
+        <path d="M12 3L3 7h18l-9-4z" />
+      </svg>
+    ), 
+    en: 'Commercial buildings', 
+    fr: 'Bâtiments commerciaux' 
+  },
 ];
 
 const atlasCoreReasons = [
-  { en: 'Concrete shaft installation', fr: 'Installation en gaine béton' },
-  { en: 'Silent operation', fr: 'Fonctionnement silencieux' },
-  { en: 'Customizable cabins', fr: 'Cabines personnalisables' },
-  { en: 'Low energy consumption', fr: 'Faible consommation d’énergie' },
-  { en: 'High-end components', fr: 'Composants haut de gamme' },
-  { en: 'Compliant with standards', fr: 'Conforme aux normes' },
-  { en: 'Ideal for villas and buildings', fr: 'Idéal pour villas et immeubles' },
+  { 
+    titlePart1: { en: "Concrete shaft", fr: "Installation" },
+    titlePart2: { en: "installation", fr: "en gaine béton" },
+    desc: { en: "Designed for perfect and durable integration.", fr: "Conçu pour une intégration parfaite et durable." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Silent", fr: "Fonctionnement" },
+    titlePart2: { en: "operation", fr: "silencieux" },
+    desc: { en: "Advanced technology for absolute comfort.", fr: "Technologie avancée pour un confort absolu." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "High-end", fr: "Finitions" },
+    titlePart2: { en: "finishes", fr: "haut de gamme" },
+    desc: { en: "Noble materials and customizable design.", fr: "Matériaux nobles et design personnalisable." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 3h12l4 6-10 12L2 9z" />
+        <path d="M11 3 8 9l4 12 4-12-3-6" />
+        <path d="M2 9h20" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Low energy", fr: "Faible consommation" },
+    titlePart2: { en: "consumption", fr: "d'énergie" },
+    desc: { en: "Energy saving and respect for the environment.", fr: "Économie d'énergie et respect de l'environnement." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Quality", fr: "Composants" },
+    titlePart2: { en: "components", fr: "de qualité" },
+    desc: { en: "Reliable equipment tested to European standards.", fr: "Équipements fiables et testés selon les normes européennes." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7s0 6 8 10z" />
+        <polyline points="9 11 11 13 15 9" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Compliant with", fr: "Conforme aux normes" },
+    titlePart2: { en: "safety standards", fr: "de sécurité" },
+    desc: { en: "Compliance with the strictest European standards.", fr: "Respect des normes européennes les plus strictes." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7s0 6 8 10z" />
+        <polyline points="9 11 11 13 15 9" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Ideal for villas", fr: "Idéal pour villas" },
+    titlePart2: { en: "& buildings", fr: "& immeubles" },
+    desc: { en: "Adapted to all types of residential and professional buildings.", fr: "Adapté à tous types de bâtiments résidentiels et professionnels." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21h18" />
+        <path d="M19 21V9a2 2 0 0 0-2-2h-3a2 2 0 0 0-2 2v12" />
+        <path d="M9 21V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16" />
+        <path d="M14 11h2" />
+        <path d="M14 15h2" />
+        <path d="M4 7h2" />
+        <path d="M4 11h2" />
+        <path d="M4 15h2" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Total", fr: "Personnalisation" },
+    titlePart2: { en: "personalization", fr: "totale" },
+    desc: { en: "Custom cabins, doors, lighting, and finishes.", fr: "Cabines, portes, éclairages et finitions sur mesure." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="4" y1="21" x2="4" y2="14" />
+        <line x1="4" y1="10" x2="4" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="12" />
+        <line x1="12" y1="8" x2="12" y2="3" />
+        <line x1="20" y1="21" x2="20" y2="16" />
+        <line x1="20" y1="12" x2="20" y2="3" />
+        <line x1="1" y1="14" x2="7" y2="14" />
+        <line x1="9" y1="8" x2="15" y2="8" />
+        <line x1="17" y1="12" x2="23" y2="12" />
+      </svg>
+    ) 
+  },
 ];
 
 const atlasCoreComparison = {
@@ -245,168 +402,241 @@ const atlasCoreTestimonials = [
 ];
 
 const atlasPanoramaReasons = [
-  { en: 'Panoramic glass design', fr: 'Design panoramique en verre', icon: '🔍' },
-  { en: 'Silent operation', fr: 'Fonctionnement silencieux', icon: '🔇' },
-  { en: 'Cabin personalization', fr: 'Personnalisation de la cabine', icon: '🛠️' },
-  { en: 'Low energy consumption', fr: 'Faible consommation d’énergie', icon: '⚡' },
-  { en: 'Compact footprint', fr: 'Installation compacte', icon: '📦' },
-  { en: 'Certified safety compliance', fr: 'Sécurité conforme aux normes', icon: '🛡️' },
-  { en: 'Designed for Moroccan villas', fr: 'Conçu pour les villas marocaines', icon: '🏡' },
+  { 
+    titlePart1: { en: "Panoramic glass", fr: "Design" },
+    titlePart2: { en: "design", fr: "panoramique en verre" },
+    desc: { en: "Stunning glass structures that enhance architecture.", fr: "Structures en verre offrant une vue imprenable." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Silent", fr: "Fonctionnement" },
+    titlePart2: { en: "operation", fr: "silencieux" },
+    desc: { en: "Advanced technology for absolute comfort.", fr: "Technologie avancée pour un confort absolu." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        <line x1="23" y1="9" x2="17" y2="15" />
+        <line x1="17" y1="9" x2="23" y2="15" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Cabin", fr: "Personnalisation" },
+    titlePart2: { en: "personalization", fr: "de la cabine" },
+    desc: { en: "Tailor-made finishes and luxury materials.", fr: "Finitions sur mesure et matériaux de luxe." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Low energy", fr: "Faible consommation" },
+    titlePart2: { en: "consumption", fr: "d’énergie" },
+    desc: { en: "Energy saving and respect for the environment.", fr: "Économie d’énergie et respect de l’environnement." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Compact", fr: "Installation" },
+    titlePart2: { en: "footprint", fr: "compacte" },
+    desc: { en: "Optimized space for a minimal footprint.", fr: "Optimisation de l’espace au sol." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Certified safety", fr: "Sécurité conforme" },
+    titlePart2: { en: "compliance", fr: "aux normes" },
+    desc: { en: "Compliance with the strictest European standards.", fr: "Respect des normes européennes les plus strictes." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7s0 6 8 10z" />
+        <polyline points="9 11 11 13 15 9" />
+      </svg>
+    ) 
+  },
+  { 
+    titlePart1: { en: "Designed for", fr: "Conçu pour" },
+    titlePart2: { en: "Moroccan villas", fr: "les villas marocaines" },
+    desc: { en: "Adapted to the architectural standards of Moroccan villas.", fr: "Adapté aux exigences des demeures marocaines." },
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ) 
+  },
 ];
 
 const atlasPanoramaDownloads = [
-  { label: 'Discover Panorama Brochure', note: 'Standard Panorama Edition', file: atlasPanoramaPdf },
-  { label: 'Discover Hydraulic Brochure', note: 'Hydraulic System Details', file: atlasPanoramaHydraulicPdf },
+  { label: "Atlas Panorama Electric Brochure", note: "Electric Traction Edition", file: atlasPanoramaPdf },
+  { label: "Atlas Panorama Hydraulic Brochure", note: "Hydraulic System Edition", file: atlasPanoramaHydraulicPdf },
 ];
 
 const frAtlasPanoramaDownloads = [
-  { label: 'Découvrir la Brochure Panorama', note: 'Édition Panorama Standard', file: atlasPanoramaPdf },
-  { label: 'Découvrir la Brochure Hydraulique', note: 'Détails du Système Hydraulique', file: atlasPanoramaHydraulicPdf },
+  { label: "Brochure Électrique Atlas Panorama", note: "Édition Traction Électrique", file: atlasPanoramaPdf },
+  { label: "Brochure Hydraulique Atlas Panorama", note: "Édition Système Hydraulique", file: atlasPanoramaHydraulicPdf },
 ];
 
 const atlasPanoramaFaqs = [
-  ['What is the minimum shaft dimension required?', 'A minimum shaft dimension of 1.1 m is required for the installation of an Atlas Panorama elevator.'],
-  ['How long does the installation process take?', 'The complete project (custom manufacturing and installation) takes approximately 3 months to ensure a precise and compliant setup.'],
-  ['Can it be installed in an existing villa?', 'Yes, installing an Atlas Panorama glass lift in an existing villa is entirely possible after a positive technical site survey.'],
-  ['Is a machine room required?', 'No, Atlas Panorama elevators are designed Machine-Room-Less (MRL), maximizing living space and simplifying architectural integration.'],
-  ['What is the electrical consumption?', 'Thanks to state-of-the-art motorization, energy consumption is very low, comparable to a standard household appliance.'],
-  ['Can the cabin be personalized?', 'Yes, you can fully customize the cabin: glass finishes, structure colors, LED lighting, flooring, and control panel styles.'],
-  ['How does it work during a power outage?', 'The elevator features an automatic emergency battery rescue system (UPS) that safely brings the cabin to the nearest floor and opens the doors.'],
-  ['What warranty is included?', 'Our equipment comes with a full manufacturer warranty, which can be extended through our tailor-made maintenance contracts.'],
-  ['What maintenance is necessary?', 'Regular preventive maintenance is required to ensure long-term performance and safety. We offer scheduled visits and rapid support.'],
-  ['Are the elevators compliant with safety standards?', 'Absolutely. All Atlas Panorama elevators are fully certified and compliant with the latest safety and engineering standards.']
+  ["What is the minimum shaft dimension required?", "A minimum shaft dimension of 1.1 m is required for the installation of an Atlas Panorama elevator."],
+  ["How long does the installation process take?", "The complete project (custom manufacturing and installation) takes approximately 3 months to ensure a precise and compliant setup."],
+  ["Can it be installed in an existing villa?", "Yes, installing an Atlas Panorama glass lift in an existing villa is entirely possible after a positive technical site survey."],
+  ["Is a machine room required?", "No, Atlas Panorama elevators are designed Machine-Room-Less (MRL), maximizing living space and simplifying architectural integration."],
+  ["What is the electrical consumption?", "Thanks to state-of-the-art motorization, energy consumption is very low, comparable to a standard household appliance."],
+  ["Can the cabin be personalized?", "Yes, you can fully customize the cabin: glass finishes, structure colors, LED lighting, flooring, and control panel styles."],
+  ["How does it work during a power outage?", "The elevator features an automatic emergency battery rescue system (UPS) that safely brings the cabin to the nearest floor and opens the doors."],
+  ["What warranty is included?", "Our equipment comes with a full manufacturer warranty, which can be extended through our tailor-made maintenance contracts."],
+  ["What maintenance is necessary?", "Regular preventive maintenance is required to ensure long-term performance and safety. We offer scheduled visits and rapid support."],
+  ["Are the elevators compliant with safety standards?", "Absolutely. All Atlas Panorama elevators are fully certified and compliant with the latest safety and engineering standards."]
 ];
 
 const frAtlasPanoramaFaqs = [
-  ['Dimension minimale requise ?', 'Une dimension de gaine minimale de 1,1 m (largeur ou profondeur) est requise pour l\'installation d\'un ascenseur Atlas Panorama.'],
-  ['Quelle est la durée d\'installation ?', 'Le processus global (fabrication sur mesure et installation) prend environ 3 mois pour garantir une pose soignée et conforme.'],
-  ['Peut-on installer dans une villa existante ?', 'Oui, l\'intégration d\'un ascenseur panoramique Atlas Panorama est tout à fait possible dans une villa existante, sous réserve d\'une étude technique préalable.'],
-  ['Faut-il un local machine ?', 'Non, les ascenseurs Atlas Panorama sont conçus sans local machine (MRL), ce qui permet de maximiser l\'espace de vie et de simplifier l\'intégration architecturale.'],
-  ['Consommation électrique ?', 'Grâce à une motorisation de dernière génération, la consommation électrique est très faible, similaire à celle d\'un appareil électroménager standard.'],
-  ['Peut-on personnaliser la cabine ?', 'Oui, vous disposez d\'un large choix de personnalisation : types de parois vitrées, coloris de la structure, éclairages LED, sols et finitions des commandes.'],
-  ['Fonctionnement en cas de coupure de courant ?', 'L\'ascenseur est équipé d\'un système de secours automatique (UPS) qui ramène la cabine à l\'étage le plus proche et ouvre les portes en toute sécurité.'],
-  ['Quelle est la garantie ?', 'Nos équipements bénéficient d\'une garantie constructeur complète, extensible grâce à nos contrats d\'entretien personnalisés.'],
-  ['Quel entretien est nécessaire ?', 'Un entretien périodique est indispensable pour assurer la longévité et la sécurité. Nos contrats incluent des visites préventives régulières et un support réactif.'],
-  ['Les ascenseurs sont-ils conformes aux normes de sécurité ?', 'Absolument. Tous nos ascenseurs respectent rigoureusement les normes de sécurité en vigueur et sont dotés de composants certifiés.']
+  ["Dimension minimale requise ?", "Une dimension de gaine minimale de 1,1 m (largeur ou profondeur) est requise pour l'installation d'un ascenseur Atlas Panorama."],
+  ["Quelle est la durée d'installation ?", "Le processus global (fabrication sur mesure et installation) prend environ 3 mois pour garantir une pose soignée et conforme."],
+  ["Peut-on installer dans une villa existante ?", "Oui, l'intégration d'un ascenseur panoramique Atlas Panorama est tout à fait possible dans une villa existante, sous réserve d'une étude technique préalable."],
+  ["Faut-il un local machine ?", "Non, les ascenseurs Atlas Panorama sont conçus sans local machine (MRL), ce qui permet de maximiser l'espace de vie et de simplifier l'intégration architecturale."],
+  ["Consommation électrique ?", "Grâce à une motorisation de dernière génération, la consommation électrique est très faible, similaire à celle d'un appareil électroménager standard."],
+  ["Peut-on personnaliser la cabine ?", "Oui, vous disposez d'un large choix de personnalisation : types de parois vitrées, coloris de la structure, éclairages LED, sols et finitions des commandes."],
+  ["Fonctionnement en cas de coupure de courant ?", "L'ascenseur est équipé d'un système de secours automatique (UPS) qui ramène la cabine à l'étage le plus proche et ouvre les portes en toute sécurité."],
+  ["Quelle est la garantie ?", "Nos équipements bénéficient d'une garantie constructeur complète, extensible grâce à nos contrats d'entretien personnalisés."],
+  ["Quel entretien est nécessaire ?", "Un entretien périodique est indispensable pour assurer la longévité et la sécurité. Nos contrats incluent des visites préventives régulières et un support réactif."],
+  ["Les ascenseurs sont-ils conformes aux normes de sécurité ?", "Absolument. Tous nos ascenseurs respectent rigoureusement les normes de sécurité en vigueur et sont dotés de composants certifiés."]
 ];
 
 const atlasPanoramaTestimonials = [
-  { source: 'WhatsApp', name: 'Client villa - Marrakech', text: 'Le rendu avec la gaine vitrée est incroyable. L\'ascenseur est silencieux et s\'intègre parfaitement dans notre patio.' },
-  { source: 'Facebook', name: 'Architecte - Casablanca', text: 'Nous avons intégré la gamme Atlas Panorama sur plusieurs projets de villas contemporaines. Flexibilité technique et esthétique haut de gamme au rendez-vous.' },
-  { source: 'WhatsApp', name: 'Propriétaire - Rabat', text: 'Très satisfait de l\'installation de notre ascenseur en verre. L\'équipe d\'Atlas a été très professionnelle du début à la fin.' }
+  { source: "WhatsApp", name: "Client villa - Marrakech", text: "Le rendu avec la gaine vitrée est incroyable. L'ascenseur est silencieux et s'intègre parfaitement dans notre patio." },
+  { source: "Facebook", name: "Architecte - Casablanca", text: "Nous avons intégré la gamme Atlas Panorama sur plusieurs projets de villas contemporaines. Flexibilité technique et esthétique haut de gamme au rendez-vous." },
+  { source: "WhatsApp", name: "Propriétaire - Rabat", text: "Très satisfait de l'installation de notre ascenseur en verre. L'équipe d'Atlas a été très professionnelle du début à la fin." }
 ];
 
-function AtlasPanoramaSections({ language }) {
-  const reasonsTitle = language === 'fr' ? 'Pourquoi choisir Atlas Panorama ?' : 'Why choose Atlas Panorama?';
-  const downloads = language === 'fr' ? frAtlasPanoramaDownloads : atlasPanoramaDownloads;
+function PanoramaVsCoreComparison({ language }) {
   const comparisonRows = atlasCoreComparison[language] ?? atlasCoreComparison.en;
-
+  
   return (
-    <>
-      <section className="atlas-core-block">
-        <div className="gallery-head">
-          <div>
-            <div className="eyebrow">{language === 'fr' ? 'Avantages' : 'Benefits'}</div>
-            <h2 className="section-title tight-title">{reasonsTitle}</h2>
+    <section className="comparison-split-section">
+      <div className="comparison-container">
+        <div className="comparison-info-side">
+          <div className="eyebrow">{language === 'fr' ? 'Comparatif' : 'Comparison'}</div>
+          <h2>PANORAMA VS CORE</h2>
+          <p>{language === 'fr' ? 'Quel modèle est fait pour vous ?' : 'Which model is right for you?'}</p>
+
+        </div>
+        
+        <div className="comparison-table-side">
+          <div className="comparison-card">
+            {/* Header */}
+            <div className="comparison-card-header">
+              <div className="comparison-col-criterion-header"></div>
+              
+              <div className="comparison-col-product">
+                <img src={atlasPanoramaCompareImg} alt="Atlas Panorama" className="comparison-product-img" />
+                <div className="comparison-product-title-wrap">
+                  <h3>ATLAS PANORAMA</h3>
+                  <span>{language === 'fr' ? 'Ascenseur panoramique (gaine verre)' : 'Panoramic glass shaft elevator'}</span>
+                </div>
+              </div>
+              
+              <div className="comparison-col-product">
+                <img src={atlasCoreCompareImg} alt="Atlas Core" className="comparison-product-img" />
+                <div className="comparison-product-title-wrap">
+                  <h3>ATLAS CORE</h3>
+                  <span>{language === 'fr' ? 'Ascenseur en gaine béton' : 'Concrete shaft elevator'}</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Rows */}
+            <div className="comparison-card-body">
+              {comparisonRows.map(([criterion, panorama, core], index) => {
+                let criterionIcon;
+                if (index === 0) { // Installation
+                  criterionIcon = (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  );
+                } else if (index === 1) { // Project fit / Projet idéal
+                  criterionIcon = (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  );
+                } else if (index === 2) { // Visual identity / Identité visuelle
+                  criterionIcon = (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  );
+                } else if (index === 3) { // Customization / Personnalisation
+                  criterionIcon = (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="4" y1="21" x2="4" y2="14" /><line x1="4" y1="10" x2="4" y2="3" />
+                      <line x1="12" y1="21" x2="12" y2="12" /><line x1="12" y1="8" x2="12" y2="3" />
+                      <line x1="20" y1="21" x2="20" y2="16" /><line x1="20" y1="12" x2="20" y2="3" />
+                      <line x1="1" y1="14" x2="7" y2="14" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="17" y1="12" x2="23" y2="12" />
+                    </svg>
+                  );
+                } else { // Best choice / Meilleur choix
+                  criterionIcon = (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  );
+                }
+                
+                return (
+                  <div className="comparison-card-row" key={criterion}>
+                    <div className="comparison-col-criterion">
+                      <span className="comparison-criterion-icon">{criterionIcon}</span>
+                      <span>{criterion}</span>
+                    </div>
+                    <div className="comparison-col-val">{panorama}</div>
+                    <div className="comparison-col-val">{core}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div className="atlas-core-card-grid">
-          {atlasPanoramaReasons.map((item) => (
-            <article className="atlas-core-benefit-card panorama-benefit-card" key={item.en}>
-              <span className="benefit-card-icon">{item.icon}</span>
-              <span>{item[language] ?? item.en}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="atlas-core-block">
-        <div className="eyebrow">{language === 'fr' ? 'Comparatif' : 'Comparison'}</div>
-        <h2 className="section-title tight-title">Atlas Panorama vs Atlas Core</h2>
-        <div className="atlas-core-table-wrap">
-          <table className="atlas-core-table">
-            <thead>
-              <tr>
-                <th>{language === 'fr' ? 'Critère' : 'Criteria'}</th>
-                <th>Atlas Panorama</th>
-                <th>Atlas Core</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map(([criterion, panorama, core]) => (
-                <tr key={criterion}>
-                  <td>{criterion}</td>
-                  <td>{panorama}</td>
-                  <td>{core}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-    </>
+      </div>
+    </section>
   );
 }
 
 function AtlasCoreSections({ language }) {
-  const reasonsTitle = language === 'fr' ? 'Pourquoi choisir Atlas Core ?' : 'Why choose Atlas Core?';
-  const downloads = language === 'fr' ? frAtlasCoreDownloads : atlasCoreDownloads;
-  const comparisonRows = atlasCoreComparison[language] ?? atlasCoreComparison.en;
-
   return (
-    <>
-      <section className="atlas-core-block">
-        <div className="gallery-head">
-          <div>
-            <div className="eyebrow">{language === 'fr' ? 'Applications' : 'Applications'}</div>
-            <h2 className="section-title tight-title">{language === 'fr' ? 'Conçu pour plusieurs types de bâtiments' : 'Built for multiple building types'}</h2>
-          </div>
+    <section className="atlas-core-block text-center-luxury">
+      <div className="gallery-head">
+        <div>
+          <div className="eyebrow">{language === "fr" ? "Applications" : "Applications"}</div>
+          <h2 className="section-title tight-title">{language === "fr" ? "Conçu pour plusieurs types de bâtiments" : "Built for multiple building types"}</h2>
         </div>
-        <div className="atlas-core-icon-grid">
-          {atlasCoreApplications.map((item) => (
-            <article className="atlas-core-icon-card" key={item.en}>
-              <span>{item.icon}</span>
-              <h3>{item[language] ?? item.en}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="atlas-core-block">
-        <div className="eyebrow">{language === 'fr' ? 'Avantages' : 'Benefits'}</div>
-        <h2 className="section-title tight-title">{reasonsTitle}</h2>
-        <div className="atlas-core-card-grid">
-          {atlasCoreReasons.map((item) => <article className="atlas-core-benefit-card" key={item.en}>{item[language] ?? item.en}</article>)}
-        </div>
-      </section>
-
-      <section className="atlas-core-block">
-        <div className="eyebrow">{language === 'fr' ? 'Comparatif' : 'Comparison'}</div>
-        <h2 className="section-title tight-title">Atlas Panorama vs Atlas Core</h2>
-        <div className="atlas-core-table-wrap">
-          <table className="atlas-core-table">
-            <thead>
-              <tr>
-                <th>{language === 'fr' ? 'Critère' : 'Criteria'}</th>
-                <th>Atlas Panorama</th>
-                <th>Atlas Core</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map(([criterion, panorama, core]) => (
-                <tr key={criterion}>
-                  <td>{criterion}</td>
-                  <td>{panorama}</td>
-                  <td>{core}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-    </>
+      </div>
+      <div className="atlas-core-icon-grid">
+        {atlasCoreApplications.map((item) => (
+          <article className="atlas-core-icon-card" key={item.en}>
+            <span>{item.icon}</span>
+            <h3>{item[language] ?? item.en}</h3>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -414,69 +644,128 @@ export default function ElevatorDetail() {
   const { language } = useUI();
   const { pathname } = useLocation();
   const [openFaq, setOpenFaq] = useState(0);
-  const page = elevatorPages[pathname] ?? elevatorPages['/villa-glass-elevators-morocco'];
-
-  const item = useMemo(() => {
-    const pool = page.source === 'res' ? residentialElevators : commercialElevators;
-    return pool.find(([, title]) => title === page.key) ?? pool[0];
-  }, [page.key, page.source]);
+  const [showAllFaqs, setShowAllFaqs] = useState(false);
+  const page = elevatorPages[pathname] ?? elevatorPages["/villa-glass-elevators-morocco"];
+  
+  const pageKey = page?.key ?? "Atlas Core";
+  const notes = language === "fr" ? frProductNotes : productNotes;
+  const note = notes[pageKey] ?? notes["Atlas Core"];
+  const item = residentialElevators.find((e) => e[1] === pageKey) ?? commercialElevators.find((e) => e[1] === pageKey) ?? residentialElevators[0];
 
   const [, itemTitle, itemText, itemImage] = item;
   const gallery = elevatorDetailGalleries[itemTitle] ?? [itemImage];
-  const notes = language === 'fr' ? frProductNotes : productNotes;
-  const note = notes[itemTitle] ?? notes['Atlas Core'];
   const showGallery = !noGalleryPages.has(itemTitle);
-  const phoneTallGalleryPages = new Set(['Atlas Panorama', 'Atlas Core', 'Circular Elevators', 'Exterior Elevators']);
+  const phoneTallGalleryPages = new Set(["Atlas Panorama", "Atlas Core", "Circular Elevators", "Exterior Elevators"]);
   const usePhoneTallGallery = phoneTallGalleryPages.has(itemTitle);
-  const showAtlasCoreSections = itemTitle === 'Atlas Core';
-  const showAtlasPanoramaSections = itemTitle === 'Atlas Panorama';
+  const showAtlasCoreSections = itemTitle === "Atlas Core";
+  const showAtlasPanoramaSections = itemTitle === "Atlas Panorama";
   const pageTitle = page.title[language] ?? page.title.en;
   const pageAccent = page.accent[language] ?? page.accent.en;
 
   return (
-    <>
-      <PageHero current={language === 'fr' ? 'Nos Ascenseurs' : 'Our Elevators'} title={pageTitle} accent={pageAccent} separateAccent={showAtlasCoreSections || showAtlasPanoramaSections} />
+    <div className={(showAtlasCoreSections || showAtlasPanoramaSections) ? "elevator-luxury-layout" : ""}>
+      {(showAtlasCoreSections || showAtlasPanoramaSections) ? (
+        <>
+          <section className="elevator-luxury-hero">
+            <div 
+              className="elevator-luxury-hero-bg" 
+              style={{ backgroundImage: `url(${itemImage})` }}
+            />
+            <div className="elevator-luxury-hero-overlay"></div>
+            <div className="elevator-luxury-hero-content">
+              <h1>
+                {pageTitle.replace(pageAccent, "").trim()}
+                <em>{pageAccent}</em>
+              </h1>
+              <p>{note.body}</p>
+              <div className="elevator-luxury-hero-actions">
+                <Link to="/contact" className="btn-gold">
+                  {language === "fr" ? "Demander un devis" : "Request a quote"}
+                </Link>
+                <a href="#documents" className="btn-outline-icon">
+                  {language === "fr" ? "Voir la brochure" : "View Brochure"}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section className="elevator-why-choose-bar">
+            <div className="why-choose-header">
+              <div className="eyebrow">{language === "fr" ? "Avantages" : "Benefits"}</div>
+              <h2>
+                {itemTitle === "Atlas Core" 
+                  ? (language === "fr" ? "Pourquoi choisir Atlas Core ?" : "Why choose Atlas Core?") 
+                  : (language === "fr" ? "Pourquoi choisir Atlas Panorama ?" : "Why choose Atlas Panorama?")}
+              </h2>
+            </div>
+            <div className="elevator-why-choose-grid">
+              {(itemTitle === "Atlas Core" ? atlasCoreReasons : atlasPanoramaReasons).map((item, index) => (
+                <article className="why-choose-item" key={index}>
+                  <div className="why-choose-item-icon">
+                    {item.icon}
+                  </div>
+                  <div className="why-choose-item-text">
+                    <h4>
+                      <span>{item.titlePart1[language] ?? item.titlePart1.en}</span>
+                      <strong>{item.titlePart2[language] ?? item.titlePart2.en}</strong>
+                    </h4>
+                    {item.desc && (
+                      <p>{item.desc[language] ?? item.desc.en}</p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        </>
+      ) : (
+        <>
+          <PageHero current={language === "fr" ? "Nos Ascenseurs" : "Our Elevators"} title={pageTitle} accent={pageAccent} separateAccent={false} />
+          <section className="section">
+            <div className="product-presentation">
+              <div className="product-presentation-copy">
+                <div className="eyebrow">{note.label}</div>
+                <h2 className="section-title">{note.headline}</h2>
+                <p>{note.body}</p>
+                <ul className="product-feature-list">
+                  {note.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+              </div>
+              <div
+                className={`product-presentation-image ${itemTitle === "COMO Commercial" ? "product-presentation-image-clean" : ""} ${itemTitle === "Atlas Core" ? "product-presentation-image-como" : ""} ${itemTitle === "Exterior Elevators" ? "product-presentation-image-exterior" : ""}`}
+              >
+                <img src={itemImage} alt={itemTitle} />
+              </div>
+            </div>
+
+            <div className="product-summary-band">
+              <div>
+                <span>{language === "fr" ? "Application" : "Application"}</span>
+                <strong>{page.source === "res" ? (language === "fr" ? "Projets résidentiels" : "Residential projects") : (language === "fr" ? "Projets commerciaux" : "Commercial projects")}</strong>
+              </div>
+              <div>
+                <span>{language === "fr" ? "Personnalisation" : "Customization"}</span>
+                <strong>{language === "fr" ? "Cabine, portes, gaine, éclairage" : "Cabin, doors, shaft, lighting"}</strong>
+              </div>
+              <div>
+                <span>{language === "fr" ? "Support" : "Support"}</span>
+                <strong>{language === "fr" ? "Installation et maintenance" : "Installation and maintenance"}</strong>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
       <section className="section">
-        <div className="product-presentation">
-          <div className="product-presentation-copy">
-            <div className="eyebrow">{note.label}</div>
-            <h2 className="section-title">{note.headline}</h2>
-            <p>{note.body}</p>
-            <ul className="product-feature-list">
-              {note.points.map((point) => <li key={point}>{point}</li>)}
-            </ul>
-          </div>
-          <div
-            className={`product-presentation-image ${itemTitle === 'COMO Commercial' ? 'product-presentation-image-clean' : ''} ${itemTitle === 'Atlas Core' ? 'product-presentation-image-como' : ''} ${itemTitle === 'Exterior Elevators' ? 'product-presentation-image-exterior' : ''}`}
-          >
-            <img src={itemImage} alt={itemTitle} />
-          </div>
-        </div>
-
-        <div className="product-summary-band">
-          <div>
-            <span>{language === 'fr' ? 'Application' : 'Application'}</span>
-            <strong>{page.source === 'res' ? (language === 'fr' ? 'Projets résidentiels' : 'Residential projects') : (language === 'fr' ? 'Projets commerciaux' : 'Commercial projects')}</strong>
-          </div>
-          <div>
-            <span>{language === 'fr' ? 'Personnalisation' : 'Customization'}</span>
-            <strong>{language === 'fr' ? 'Cabine, portes, gaine, éclairage' : 'Cabin, doors, shaft, lighting'}</strong>
-          </div>
-          <div>
-            <span>{language === 'fr' ? 'Support' : 'Support'}</span>
-            <strong>{language === 'fr' ? 'Installation et maintenance' : 'Installation and maintenance'}</strong>
-          </div>
-        </div>
-
         {showAtlasCoreSections && <AtlasCoreSections language={language} />}
-        {showAtlasPanoramaSections && <AtlasPanoramaSections language={language} />}
 
         {showAtlasCoreSections && (
-          <div className="como-cabin-section">
+          <div className="como-cabin-section text-center-luxury">
             <div className="gallery-head">
               <div>
-                <div className="eyebrow">{language === 'fr' ? 'Cabines Atlas Core' : 'Atlas Core Cabins'}</div>
-                <h2 className="section-title tight-title">{language === 'fr' ? 'Choisir une cabine personnalisable' : 'Choose a customizable cabin'}</h2>
+                <div className="eyebrow">{language === "fr" ? "Cabines Atlas Core" : "Atlas Core Cabins"}</div>
+                <h2 className="section-title tight-title">{language === "fr" ? "Choisir une cabine personnalisable" : "Choose a customizable cabin"}</h2>
               </div>
             </div>
             <div className="como-cabin-grid">
@@ -485,7 +774,7 @@ export default function ElevatorDetail() {
                   <img src={cabin.image} alt={cabin.title} loading="lazy" />
                   <div className="como-cabin-card-info">
                     <h3>
-                      <span>{language === 'fr' ? 'Cabine' : 'Cabin'}</span>
+                      <span>{language === "fr" ? "Cabine" : "Cabin"}</span>
                       <strong>{cabin.id}</strong>
                     </h3>
                   </div>
@@ -497,32 +786,33 @@ export default function ElevatorDetail() {
 
         {showGallery && (
           <ProductGallery
-            eyebrow={language === 'fr' ? 'Galerie Produit' : 'Product Gallery'}
-            title={language === 'fr' ? 'Images de la Gamme' : `${itemTitle} Gallery`}
+            eyebrow={language === "fr" ? "Galerie Produit" : "Product Gallery"}
+            title={language === "fr" ? "Images de la Gamme" : `${itemTitle} Gallery`}
             images={gallery}
-            className={usePhoneTallGallery ? 'product-gallery-phone-tall' : ''}
+            className={`${usePhoneTallGallery ? "product-gallery-phone-tall" : ""} ${itemTitle === "Atlas Panorama" ? "text-center-luxury" : ""}`.trim()}
+            showAll={itemTitle === "Atlas Panorama"}
             getLabel={(index, image) => {
-              if (itemTitle === 'Atlas Panorama') {
-                return language === 'fr' ? `Ascenseur Panoramique Atlas Panorama ${index + 1}` : `Atlas Panorama Panoramic Elevator ${index + 1}`;
+              if (itemTitle === "Atlas Panorama") {
+                return language === "fr" ? `Ascenseur Panoramique Atlas Panorama ${index + 1}` : `Atlas Panorama Panoramic Elevator ${index + 1}`;
               }
-              return `${language === 'fr' ? 'Image Produit' : itemTitle} ${String(index + 1).padStart(2, '0')}`;
+              return `${language === "fr" ? "Image Produit" : itemTitle} ${String(index + 1).padStart(2, "0")}`;
             }}
             getAlt={(index, image) => {
-              if (itemTitle === 'Atlas Panorama') {
+              if (itemTitle === "Atlas Panorama") {
                 const altTags = {
                   fr: [
-                    'Ascenseur panoramique en verre pour villa moderne à Rabat - Atlas Panorama',
-                    'Ascenseur de villa en verre avec gaine vitrée à Marrakech - Atlas Panorama',
-                    'Installation d’ascenseur panoramique privatif à Casablanca - Atlas Panorama',
-                    'Ascenseur résidentiel de luxe avec structure en verre à Tanger - Atlas Panorama',
-                    'Cabine d’ascenseur vitrée d’intérieur de maison au Maroc - Atlas Panorama'
+                    "Ascenseur panoramique en verre pour villa moderne à Rabat - Atlas Panorama",
+                    "Ascenseur de villa en verre avec gaine vitrée à Marrakech - Atlas Panorama",
+                    "Installation d’ascenseur panoramique privatif à Casablanca - Atlas Panorama",
+                    "Ascenseur résidentiel de luxe avec structure en verre à Tanger - Atlas Panorama",
+                    "Cabine d’ascenseur vitrée d’intérieur de maison au Maroc - Atlas Panorama"
                   ],
                   en: [
-                    'Panoramic glass villa elevator in Rabat - Atlas Panorama',
-                    'Glass home lift with glazed shaft in Marrakech - Atlas Panorama',
-                    'Private panoramic residential elevator installation in Casablanca - Atlas Panorama',
-                    'Luxury residential elevator with glass structure in Tangier - Atlas Panorama',
-                    'Modern indoor panoramic lift cabin in Morocco - Atlas Panorama'
+                    "Panoramic glass villa elevator in Rabat - Atlas Panorama",
+                    "Glass home lift with glazed shaft in Marrakech - Atlas Panorama",
+                    "Private panoramic residential elevator installation in Casablanca - Atlas Panorama",
+                    "Luxury residential elevator with glass structure in Tangier - Atlas Panorama",
+                    "Modern indoor panoramic lift cabin in Morocco - Atlas Panorama"
                   ]
                 };
                 return altTags[language]?.[index] ?? altTags.fr[index] ?? `Atlas Panorama ${index + 1}`;
@@ -532,152 +822,120 @@ export default function ElevatorDetail() {
           />
         )}
 
-        {showAtlasCoreSections && (
-          <section className="atlas-core-block">
-            <div className="gallery-head">
-              <div>
-                <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
-                <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Core' : 'Atlas Core Documents'}</h2>
-              </div>
-            </div>
-            <div className="centered-download-grid">
-              {(language === 'fr' ? frAtlasCoreDownloads : atlasCoreDownloads).map((item) => (
-                <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
-                  <div className="download-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                  </div>
-                  <div className="download-text">
-                    <span>{item.label}</span>
-                    <small>{item.note}</small>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
+        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+          <PanoramaVsCoreComparison language={language} />
         )}
 
-        {showAtlasPanoramaSections && (
-          <section className="atlas-core-block">
-            <div className="gallery-head">
-              <div>
-                <div className="eyebrow">{language === 'fr' ? 'Téléchargements' : 'Downloads'}</div>
-                <h2 className="section-title tight-title">{language === 'fr' ? 'Documents Atlas Panorama' : 'Atlas Panorama Documents'}</h2>
-              </div>
-            </div>
-            <div className="centered-download-grid">
-              {(language === 'fr' ? frAtlasPanoramaDownloads : atlasPanoramaDownloads).map((item) => (
-                <a className="centered-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
-                  <div className="download-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                  </div>
-                  <div className="download-text">
-                    <span>{item.label}</span>
-                    <small>{item.note}</small>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {showAtlasCoreSections && (
-          <section className="atlas-core-block">
-            <div className="gallery-head">
-              <div>
-                <div className="eyebrow">FAQ</div>
-                <h2 className="section-title tight-title">
-                  {language === 'fr' ? 'Questions fréquentes Atlas Core' : 'Atlas Core frequently asked questions'}
-                </h2>
-              </div>
-            </div>
-            <div className="faq-wrap atlas-core-faq">
-              {(language === 'fr' ? frAtlasCoreFaqs : atlasCoreFaqs).map(([question, answer], index) => (
-                <div className={`faq-item ${openFaq === index ? 'open' : ''}`} key={question}>
-                  <button className="faq-q" type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
-                    {question} <span className="faq-plus">+</span>
-                  </button>
-                  <div className="faq-a">{answer}</div>
+        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+          <section className="atlas-core-block" id="documents">
+            <div className="split-docs-faq">
+              <div className="split-col">
+                <h3>{language === "fr" ? "Téléchargements" : "Downloads"}</h3>
+                <div>
+                  {(itemTitle === "Atlas Core" ? (language === "fr" ? frAtlasCoreDownloads : atlasCoreDownloads) : (language === "fr" ? frAtlasPanoramaDownloads : atlasPanoramaDownloads)).map((item) => (
+                    <a className="compact-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
+                      <div className="compact-download-info">
+                        <div className="compact-download-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+                        </div>
+                        <div className="compact-download-text">
+                          <span>{item.label}</span>
+                          <small>{item.note}</small>
+                        </div>
+                      </div>
+                      <div className="compact-download-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </div>
+                    </a>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {showAtlasPanoramaSections && (
-          <section className="atlas-core-block">
-            <div className="gallery-head">
-              <div>
-                <div className="eyebrow">FAQ</div>
-                <h2 className="section-title tight-title">
-                  {language === 'fr' ? 'Questions fréquentes Atlas Panorama' : 'Atlas Panorama frequently asked questions'}
-                </h2>
               </div>
-            </div>
-            <div className="faq-wrap atlas-core-faq">
-              {(language === 'fr' ? frAtlasPanoramaFaqs : atlasPanoramaFaqs).map(([question, answer], index) => (
-                <div className={`faq-item ${openFaq === index ? 'open' : ''}`} key={question}>
-                  <button className="faq-q" type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
-                    {question} <span className="faq-plus">+</span>
-                  </button>
-                  <div className="faq-a">{answer}</div>
+              <div className="split-col">
+                <h3>{language === "fr" ? "Questions fréquentes" : "Frequently Asked Questions"}</h3>
+                <div className="faq-wrap atlas-core-faq">
+                  {((itemTitle === "Atlas Core" ? (language === "fr" ? frAtlasCoreFaqs : atlasCoreFaqs) : (language === "fr" ? frAtlasPanoramaFaqs : atlasPanoramaFaqs)).slice(0, showAllFaqs ? undefined : 3)).map(([question, answer], index) => (
+                    <div className={`faq-item ${openFaq === index ? "open" : ""}`} key={question}>
+                      <button className="faq-q" type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                        {question} <span className="faq-plus">+</span>
+                      </button>
+                      <div className="faq-a">{answer}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <button
+                  type="button"
+                  className="faq-view-all-btn"
+                  onClick={() => setShowAllFaqs(!showAllFaqs)}
+                >
+                  {showAllFaqs 
+                    ? (language === "fr" ? "Masquer les questions" : "Hide questions") 
+                    : (language === "fr" ? "Voir toutes les questions" : "View all questions")}
+                  <svg 
+                    width="14" 
+                    height="14" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    style={{ transform: showAllFaqs ? "rotate(180deg)" : "none", transition: "transform 0.2s", marginLeft: "6px" }}
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </div>
             </div>
           </section>
         )}
 
-        {showAtlasCoreSections && (
-          <section className="atlas-core-block">
-            <div className="gallery-head">
+        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+          <section className="elevator-testimonials-block text-center-luxury">
+            <div className="gallery-head" style={{ maxWidth: 'var(--max-width)', margin: '0 auto 40px', padding: '0 5%' }}>
               <div>
-                <div className="eyebrow">{language === 'fr' ? 'Avis Clients' : 'Client Reviews'}</div>
+                <div className="eyebrow">{language === "fr" ? "Ils nous font confiance" : "They trust us"}</div>
                 <h2 className="section-title tight-title">
-                  {language === 'fr' ? 'Ce que disent nos clients' : 'What Our Clients Say'}
+                  {language === "fr" ? "Ce que disent nos clients" : "What Our Clients Say"}
                 </h2>
               </div>
             </div>
-            <div className="atlas-core-testimonial-grid">
-              {atlasCoreTestimonials.map((item) => (
-                <article className={`atlas-core-testimonial ${item.source === 'WhatsApp' ? 'whatsapp' : 'facebook'}`} key={`${item.source}-${item.name}`}>
-                  <span>{item.source}</span>
-                  <p>{item.text}</p>
-                  <strong>{item.name}</strong>
+            <div className="chat-testimonials-grid" style={{ maxWidth: 'var(--max-width)', margin: '0 auto', padding: '0 5%' }}>
+              {(itemTitle === "Atlas Core" ? atlasCoreTestimonials : atlasPanoramaTestimonials).map((item) => (
+                <article className="chat-bubble-card" key={`${item.source}-${item.name}`}>
+                  <div className="chat-header">
+                    <div className="chat-avatar">{item.name.charAt(0)}</div>
+                    <div className="chat-user">
+                      <h4>{item.name}</h4>
+                      <small>{item.source}</small>
+                    </div>
+                  </div>
+                  <div className="chat-message">
+                    {item.text}
+                    <div className="chat-meta">
+                      <span>✓✓</span>
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>
           </section>
         )}
 
-        {showAtlasPanoramaSections && (
-          <section className="atlas-core-block">
-            <div className="gallery-head">
-              <div>
-                <div className="eyebrow">{language === 'fr' ? 'Avis Clients' : 'Client Reviews'}</div>
-                <h2 className="section-title tight-title">
-                  {language === 'fr' ? 'Ce que disent nos clients' : 'What Our Clients Say'}
-                </h2>
-              </div>
-            </div>
-            <div className="atlas-core-testimonial-grid">
-              {atlasPanoramaTestimonials.map((item) => (
-                <article className={`atlas-core-testimonial ${item.source === 'WhatsApp' ? 'whatsapp' : 'facebook'}`} key={`${item.source}-${item.name}`}>
-                  <span>{item.source}</span>
-                  <p>{item.text}</p>
-                  <strong>{item.name}</strong>
-                </article>
-              ))}
+        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+          <section className="elevator-bottom-cta">
+            <h2>{language === "fr" ? "Prêt à donner une nouvelle dimension à votre villa ?" : "Ready to give a new dimension to your villa?"}</h2>
+            <p>{language === "fr" ? "Contactez nos experts dès aujourd'hui." : "Contact our experts today."}</p>
+            <div className="cta-actions">
+              <Link to="/contact" className="btn-gold">
+                {language === "fr" ? "Demander un devis" : "Request a quote"}
+              </Link>
+              <a href="https://wa.me/212600000000" className="btn-whatsapp-outline" target="_blank" rel="noreferrer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </a>
             </div>
           </section>
         )}
       </section>
-    </>
+    </div>
   );
 }
