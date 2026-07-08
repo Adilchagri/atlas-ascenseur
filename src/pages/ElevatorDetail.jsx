@@ -659,12 +659,26 @@ export default function ElevatorDetail() {
   const usePhoneTallGallery = phoneTallGalleryPages.has(itemTitle);
   const showAtlasCoreSections = itemTitle === "Atlas Core";
   const showAtlasPanoramaSections = itemTitle === "Atlas Panorama";
+  const useLuxuryArchitecture = ["Atlas Core", "Atlas Panorama", "Circular Elevators", "Exterior Elevators"].includes(itemTitle);
+  const showAtlasExtendedSections = showAtlasCoreSections || showAtlasPanoramaSections;
+  const whyChooseItems = showAtlasCoreSections
+    ? atlasCoreReasons
+    : showAtlasPanoramaSections
+      ? atlasPanoramaReasons
+      : note.points.map((point, index) => ({
+          titlePart1: { en: point, fr: point },
+          titlePart2: { en: "", fr: "" },
+          desc: { en: note.body.split(". " )[index] || note.body.split(". " )[0], fr: note.body.split(". " )[index] || note.body.split(". " )[0] },
+          icon: atlasPanoramaReasons[index % atlasPanoramaReasons.length].icon
+        }));
+  const brochureHref = itemTitle === "Atlas Panorama" ? atlasPanoramaPdf : itemTitle === "Atlas Core" ? atlasCoreCataloguePdf : "/contact";
+  const brochureIsPdf = itemTitle === "Atlas Panorama" || itemTitle === "Atlas Core";
   const pageTitle = page.title[language] ?? page.title.en;
   const pageAccent = page.accent[language] ?? page.accent.en;
 
   return (
-    <div className={(showAtlasCoreSections || showAtlasPanoramaSections) ? "elevator-luxury-layout" : ""}>
-      {(showAtlasCoreSections || showAtlasPanoramaSections) ? (
+    <div className={useLuxuryArchitecture ? "elevator-luxury-layout" : ""}>
+      {useLuxuryArchitecture ? (
         <>
           <section className="elevator-luxury-hero">
             <div 
@@ -673,6 +687,7 @@ export default function ElevatorDetail() {
             />
             <div className="elevator-luxury-hero-overlay"></div>
             <div className="elevator-luxury-hero-content">
+              <span className="elevator-luxury-hero-eyebrow">{note.label}</span>
               <h1>
                 {pageTitle.replace(pageAccent, "").trim()}
                 <em>{pageAccent}</em>
@@ -680,11 +695,12 @@ export default function ElevatorDetail() {
               <p>{note.body}</p>
               <div className="elevator-luxury-hero-actions">
                 <Link to="/contact" className="btn-gold">
-                  {language === "fr" ? "Demander un devis" : "Request a quote"}
+                  <span>{language === "fr" ? "Demander un devis" : "Request a quote"}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "10px", transition: "transform 0.3s ease" }}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </Link>
-                <a href="#documents" className="btn-outline-icon">
-                  {language === "fr" ? "Voir la brochure" : "View Brochure"}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <a href={brochureHref} className="btn-outline-icon" target={brochureIsPdf ? "_blank" : undefined} rel={brochureIsPdf ? "noreferrer" : undefined}>
+                  <span>{language === "fr" ? "Télécharger la brochure" : "Download Brochure"}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "10px" }}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 </a>
               </div>
             </div>
@@ -694,13 +710,11 @@ export default function ElevatorDetail() {
             <div className="why-choose-header">
               <div className="eyebrow">{language === "fr" ? "Avantages" : "Benefits"}</div>
               <h2>
-                {itemTitle === "Atlas Core" 
-                  ? (language === "fr" ? "Pourquoi choisir Atlas Core ?" : "Why choose Atlas Core?") 
-                  : (language === "fr" ? "Pourquoi choisir Atlas Panorama ?" : "Why choose Atlas Panorama?")}
+                {language === "fr" ? `Pourquoi choisir ${itemTitle} ?` : `Why choose ${itemTitle}?`}
               </h2>
             </div>
             <div className="elevator-why-choose-grid">
-              {(itemTitle === "Atlas Core" ? atlasCoreReasons : atlasPanoramaReasons).map((item, index) => (
+              {whyChooseItems.map((item, index) => (
                 <article className="why-choose-item" key={index}>
                   <div className="why-choose-item-icon">
                     {item.icon}
@@ -708,7 +722,7 @@ export default function ElevatorDetail() {
                   <div className="why-choose-item-text">
                     <h4>
                       <span>{item.titlePart1[language] ?? item.titlePart1.en}</span>
-                      <strong>{item.titlePart2[language] ?? item.titlePart2.en}</strong>
+                      {(item.titlePart2[language] ?? item.titlePart2.en) && <strong>{item.titlePart2[language] ?? item.titlePart2.en}</strong>}
                     </h4>
                     {item.desc && (
                       <p>{item.desc[language] ?? item.desc.en}</p>
@@ -822,11 +836,11 @@ export default function ElevatorDetail() {
           />
         )}
 
-        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+        {showAtlasExtendedSections && (
           <PanoramaVsCoreComparison language={language} />
         )}
 
-        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+        {showAtlasExtendedSections && (
           <section className="atlas-core-block" id="documents">
             <div className="split-docs-faq">
               <div className="split-col">
@@ -889,7 +903,7 @@ export default function ElevatorDetail() {
           </section>
         )}
 
-        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+        {showAtlasExtendedSections && (
           <section className="elevator-testimonials-block text-center-luxury">
             <div className="gallery-head" style={{ maxWidth: 'var(--max-width)', margin: '0 auto 40px', padding: '0 5%' }}>
               <div>
@@ -921,7 +935,7 @@ export default function ElevatorDetail() {
           </section>
         )}
 
-        {(showAtlasCoreSections || showAtlasPanoramaSections) && (
+        {showAtlasExtendedSections && (
           <section className="elevator-bottom-cta">
             <h2>{language === "fr" ? "Prêt à donner une nouvelle dimension à votre villa ?" : "Ready to give a new dimension to your villa?"}</h2>
             <p>{language === "fr" ? "Contactez nos experts dès aujourd'hui." : "Contact our experts today."}</p>
