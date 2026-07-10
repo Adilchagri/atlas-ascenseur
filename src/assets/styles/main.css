@@ -3719,6 +3719,126 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   }
   .elevator-luxury-hero-actions {
     justify-content: center !important;
+    width: 100%;
+    gap: 10px !important;
+  }
+  .elevator-luxury-hero-actions .btn-gold,
+  .elevator-luxury-hero-actions .btn-outline-icon {
+    flex: 1 1 0;
+    min-width: 0 !important;
+    height: 48px !important;
+    padding: 0 12px !important;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap;
+  }
+  .elevator-luxury-hero-content {
+    padding-bottom: max(44px, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .elevator-luxury-hero-content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-top: min(31svh, 205px) !important;
+  }
+  .elevator-luxury-hero h1 {
+    font-size: clamp(32px, 9vw, 38px) !important;
+    margin-bottom: 16px !important;
+  }
+  .elevator-luxury-hero h1 em {
+    font-size: clamp(36px, 10vw, 42px) !important;
+  }
+  .elevator-luxury-hero p {
+    margin-bottom: 22px !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .elevator-luxury-hero {
+    height: auto !important;
+    min-height: 100svh !important;
+  }
+  .elevator-luxury-hero-content {
+    margin-top: min(24svh, 160px) !important;
+  }
+  .elevator-luxury-hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .elevator-luxury-hero-actions .btn-gold,
+  .elevator-luxury-hero-actions .btn-outline-icon {
+    flex: none;
+    width: min(100%, 260px);
+    height: 44px !important;
+    padding: 0 10px !important;
+    font-size: 9px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero {
+    height: 100svh !important;
+    min-height: 100svh !important;
+  }
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-content,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero-content {
+    margin-top: max(110px, 16svh) !important;
+  }
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero h1,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero h1 {
+    font-size: clamp(28px, 8vw, 34px) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 14px !important;
+  }
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero h1 em,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero h1 em {
+    font-size: clamp(30px, 8.5vw, 38px) !important;
+    line-height: 1.04 !important;
+  }
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero p,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-bottom: 18px !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* The dedicated five-card application lists are centered at every screen size. */
+.elevator-luxury-layout--exterior-elevators .atlas-core-icon-grid,
+.elevator-luxury-layout--circular-elevators .atlas-core-icon-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1100px) {
+  .elevator-luxury-layout--exterior-elevators .atlas-core-icon-grid,
+  .elevator-luxury-layout--circular-elevators .atlas-core-icon-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .elevator-luxury-layout--exterior-elevators .atlas-core-icon-grid,
+  .elevator-luxury-layout--circular-elevators .atlas-core-icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .elevator-luxury-layout--exterior-elevators .atlas-core-icon-grid,
+  .elevator-luxury-layout--circular-elevators .atlas-core-icon-grid {
+    grid-template-columns: 1fr;
   }
 }
 .btn-outline-icon {

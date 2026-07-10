@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import atlasCoreCompareImg from '../assets/images/photos-of-comparaisons/Atlas Core.png';
 import atlasPanoramaCompareImg from '../assets/images/photos-of-comparaisons/Atlas Panorama.png';
+import circularCompareImg from '../assets/images/photos-of-comparaisons/ChatGPT Image Jul 10, 2026, 02_51_00 PM.png';
 import { Link, useLocation } from 'react-router-dom';
 import PageHero from '../components/layout/PageHero.jsx';
 import { atlasCoreGallery, commercialElevators, comoCabins, elevatorDetailGalleries, residentialElevators } from '../data/siteData.js';
@@ -238,6 +239,52 @@ const atlasCoreApplications = [
   },
 ];
 
+const exteriorApplications = [
+  { en: 'Villas and private homes', fr: 'Villas et maisons privees', icon: atlasCoreApplications[0].icon },
+  { en: 'Existing buildings and extensions', fr: 'Batiments existants et extensions', icon: atlasCoreApplications[1].icon },
+  { en: 'Hotels, riads, and guest spaces', fr: 'Hotels, riads et espaces d accueil', icon: atlasCoreApplications[3].icon },
+  { en: 'Terraces, gardens, and pool levels', fr: 'Terrasses, jardins et niveaux piscine', icon: atlasCoreApplications[5].icon },
+  { en: 'Accessible routes between levels', fr: 'Parcours accessibles entre niveaux', icon: atlasCoreApplications[4].icon },
+];
+
+const circularApplications = [
+  { en: 'Villas with an atrium or central void', fr: 'Villas avec atrium ou vide central', icon: atlasCoreApplications[0].icon },
+  { en: 'Hotel and hospitality lobbies', fr: 'Halls d hotels et espaces hospitality', icon: atlasCoreApplications[3].icon },
+  { en: 'Retail showrooms and flagship spaces', fr: 'Showrooms et espaces de vente', icon: atlasCoreApplications[5].icon },
+  { en: 'Museums and cultural venues', fr: 'Musees et lieux culturels', icon: atlasCoreApplications[1].icon },
+  { en: 'Architectural office interiors', fr: 'Interieurs de bureaux architecturaux', icon: atlasCoreApplications[2].icon },
+];
+
+const exteriorReasons = [
+  { titlePart1: { en: 'Site-specific', fr: 'Etude du' }, titlePart2: { en: 'planning', fr: 'site' }, desc: { en: 'The shaft, entrances, structure, drainage, and access are coordinated around the building.', fr: 'La gaine, les acces, la structure et le drainage sont etudies avec le batiment.' }, icon: atlasCoreApplications[0].icon },
+  { titlePart1: { en: 'Weather-aware', fr: 'Concu pour' }, titlePart2: { en: 'specification', fr: 'l exterieur' }, desc: { en: 'Materials, drainage, and electrical protection must be selected for the local exposure.', fr: 'Materiaux, drainage et protections electriques sont choisis selon l exposition du site.' }, icon: atlasCoreApplications[1].icon },
+  { titlePart1: { en: 'Clear vertical', fr: 'Connexion' }, titlePart2: { en: 'connection', fr: 'verticale' }, desc: { en: 'A practical way to link entrances, terraces, gardens, and upper floors.', fr: 'Une liaison pratique entre entree, terrasses, jardin et etages.' }, icon: atlasCoreApplications[5].icon },
+  { titlePart1: { en: 'Architectural', fr: 'Integration' }, titlePart2: { en: 'integration', fr: 'architecturale' }, desc: { en: 'Glazing, cladding, and landing details can be coordinated with the facade.', fr: 'Vitrage, habillage et paliers peuvent etre coordonnes avec la facade.' }, icon: atlasCoreApplications[2].icon },
+];
+
+const circularReasons = [
+  { titlePart1: { en: 'Panoramic', fr: 'Vue' }, titlePart2: { en: 'experience', fr: 'panoramique' }, desc: { en: 'The circular form keeps the elevator visually open within an atrium or lobby.', fr: 'La forme circulaire preserve une presence visuelle ouverte dans un atrium ou un hall.' }, icon: atlasCoreApplications[2].icon },
+  { titlePart1: { en: 'Architectural', fr: 'Piece' }, titlePart2: { en: 'centrepiece', fr: 'architecturale' }, desc: { en: 'A bespoke option when vertical circulation is also part of the interior design.', fr: 'Une option sur mesure quand la circulation verticale fait partie du projet interieur.' }, icon: atlasCoreApplications[5].icon },
+  { titlePart1: { en: 'Bespoke', fr: 'Etude sur' }, titlePart2: { en: 'engineering', fr: 'mesure' }, desc: { en: 'Diameter, doors, travel, capacity, and structure are validated during technical design.', fr: 'Diametre, portes, course, capacite et structure sont valides pendant l etude technique.' }, icon: atlasCoreApplications[1].icon },
+  { titlePart1: { en: 'Finish', fr: 'Finitions' }, titlePart2: { en: 'coordination', fr: 'coordonnees' }, desc: { en: 'Glass, metalwork, lighting, and cabin finishes can be aligned with the space.', fr: 'Verre, metal, eclairage et finitions cabine peuvent etre harmonises avec le lieu.' }, icon: atlasCoreApplications[3].icon },
+];
+
+const exteriorFaqs = [
+  ['Can an exterior elevator be added to an existing building?', 'Often, yes. A site survey is needed to confirm the structure, available space, landing access, utilities, and local approvals.'],
+  ['How is an exterior elevator protected from weather?', 'The specification should address drainage, corrosion-resistant materials, glazing or cladding, and weather-protected electrical components for the site conditions.'],
+  ['Does an exterior elevator require planning approval?', 'Requirements depend on the municipality, property, facade changes, and building use. This should be checked before final design.'],
+  ['What should be decided early in the project?', 'Travel height, landing positions, shaft location, pit and headroom, power supply, drainage, and fire or access requirements should be reviewed early.'],
+  ['Is maintenance different outdoors?', 'Preventive maintenance remains essential, with additional attention to drainage, seals, exposed finishes, and the local environment.'],
+];
+
+const circularFaqs = [
+  ['Where does a circular elevator work best?', 'It is usually considered for atriums, lobbies, central stair spaces, showrooms, and other projects where the lift is a visible architectural feature.'],
+  ['Can a circular elevator be installed in an existing building?', 'It can be possible after a technical survey confirms the available diameter, structure, pit, headroom, landing access, and permit requirements.'],
+  ['How are capacity and door positions selected?', 'They are determined from the expected users, accessibility needs, traffic, building layout, and the available structural envelope.'],
+  ['Are glass panels suitable for elevator enclosures?', 'Yes, when the enclosure is engineered with appropriate safety glass and the complete installation meets applicable project requirements.'],
+  ['What needs to be coordinated with the architect?', 'The shaft diameter, doors, landings, structural support, lighting, finishes, electrical supply, and maintenance access should all be agreed during design.'],
+];
+
 const atlasCoreReasons = [
   { 
     titlePart1: { en: "Concrete shaft", fr: "Installation" },
@@ -358,6 +405,23 @@ const atlasCoreComparison = {
     ['Identité visuelle', 'Présence vitrée et panoramique', 'Cabine premium intégrée au bâtiment'],
     ['Personnalisation', 'Structure, verre, éclairage, finitions cabine', 'Finitions cabine, portes, éclairage, commandes'],
     ['Meilleur choix', 'Quand l’ascenseur devient un élément architectural', 'Quand le projet prévoit une gaine maçonnée'],
+  ],
+};
+
+const circularVsPanoramaComparison = {
+  en: [
+    ['Installation', 'Panoramic structure planned around the project', 'Circular shaft or enclosure engineered for the project'],
+    ['Best fit', 'Villas and projects where a glazed lift is a visible feature', 'Atriums, lobbies, showrooms, and central architectural spaces'],
+    ['Visual identity', 'Vertical glass presence and open views', 'A circular focal point within the interior composition'],
+    ['Key design inputs', 'Structure, glazing, cabin finishes, and landings', 'Diameter, door positions, structure, finishes, and landings'],
+    ['Project validation', 'Technical survey confirms the route, structure, and access', 'Technical survey confirms diameter, structure, access, and circulation'],
+  ],
+  fr: [
+    ['Installation', 'Structure panoramique etudiee selon le projet', 'Gaine ou enveloppe circulaire etudiee selon le projet'],
+    ['Projet ideal', 'Villas et projets ou l ascenseur vitré est un element visible', 'Atriums, halls, showrooms et espaces architecturaux centraux'],
+    ['Identite visuelle', 'Presence vitree verticale et vues ouvertes', 'Point focal circulaire dans la composition interieure'],
+    ['Points de conception', 'Structure, vitrage, finitions cabine et paliers', 'Diametre, positions des portes, structure, finitions et paliers'],
+    ['Validation projet', 'Visite technique pour confirmer course, structure et acces', 'Visite technique pour confirmer diametre, structure, acces et circulation'],
   ],
 };
 
@@ -523,15 +587,15 @@ const atlasPanoramaTestimonials = [
   { source: "WhatsApp", name: "Propriétaire - Rabat", text: "Très satisfait de l'installation de notre ascenseur en verre. L'équipe d'Atlas a été très professionnelle du début à la fin." }
 ];
 
-function PanoramaVsCoreComparison({ language }) {
-  const comparisonRows = atlasCoreComparison[language] ?? atlasCoreComparison.en;
+function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, title = 'PANORAMA VS CORE', rightImage = atlasCoreCompareImg, rightTitle = 'ATLAS CORE', rightSubtitle }) {
+  const comparisonRows = comparison[language] ?? comparison.en;
   
   return (
     <section className="comparison-split-section">
       <div className="comparison-container">
         <div className="comparison-info-side">
           <div className="eyebrow">{language === 'fr' ? 'Comparatif' : 'Comparison'}</div>
-          <h2>PANORAMA VS CORE</h2>
+          <h2>{title}</h2>
           <p>{language === 'fr' ? 'Quel modèle est fait pour vous ?' : 'Which model is right for you?'}</p>
 
         </div>
@@ -551,10 +615,10 @@ function PanoramaVsCoreComparison({ language }) {
               </div>
               
               <div className="comparison-col-product">
-                <img src={atlasCoreCompareImg} alt="Atlas Core" className="comparison-product-img" />
+                <img src={rightImage} alt={rightTitle} className="comparison-product-img" />
                 <div className="comparison-product-title-wrap">
-                  <h3>ATLAS CORE</h3>
-                  <span>{language === 'fr' ? 'Ascenseur en gaine béton' : 'Concrete shaft elevator'}</span>
+                  <h3>{rightTitle}</h3>
+                  <span>{rightSubtitle ?? (language === 'fr' ? 'Ascenseur en gaine béton' : 'Concrete shaft elevator')}</span>
                 </div>
               </div>
             </div>
@@ -640,6 +704,17 @@ function AtlasCoreSections({ language }) {
   );
 }
 
+function ProductApplicationsSection({ language, items, title }) {
+  return (
+    <section className="atlas-core-block text-center-luxury">
+      <div className="gallery-head"><div><div className="eyebrow">Applications</div><h2 className="section-title tight-title">{title}</h2></div></div>
+      <div className="atlas-core-icon-grid">
+        {items.map((item) => <article className="atlas-core-icon-card" key={item.en}><span>{item.icon}</span><h3>{item[language] ?? item.en}</h3></article>)}
+      </div>
+    </section>
+  );
+}
+
 export default function ElevatorDetail() {
   const { language } = useUI();
   const { pathname } = useLocation();
@@ -659,13 +734,19 @@ export default function ElevatorDetail() {
   const usePhoneTallGallery = phoneTallGalleryPages.has(itemTitle);
   const showAtlasCoreSections = itemTitle === "Atlas Core";
   const showAtlasPanoramaSections = itemTitle === "Atlas Panorama";
+  const showExteriorSections = itemTitle === "Exterior Elevators";
+  const showCircularSections = itemTitle === "Circular Elevators";
   const useLuxuryArchitecture = ["Atlas Core", "Atlas Panorama", "Circular Elevators", "Exterior Elevators"].includes(itemTitle);
   const showAtlasExtendedSections = showAtlasCoreSections || showAtlasPanoramaSections;
   const whyChooseItems = showAtlasCoreSections
     ? atlasCoreReasons
     : showAtlasPanoramaSections
       ? atlasPanoramaReasons
-      : note.points.map((point, index) => ({
+      : showExteriorSections
+        ? exteriorReasons
+        : showCircularSections
+          ? circularReasons
+          : note.points.map((point, index) => ({
           titlePart1: { en: point, fr: point },
           titlePart2: { en: "", fr: "" },
           desc: { en: note.body.split(". " )[index] || note.body.split(". " )[0], fr: note.body.split(". " )[index] || note.body.split(". " )[0] },
@@ -677,7 +758,7 @@ export default function ElevatorDetail() {
   const pageAccent = page.accent[language] ?? page.accent.en;
 
   return (
-    <div className={useLuxuryArchitecture ? "elevator-luxury-layout" : ""}>
+    <div className={useLuxuryArchitecture ? `elevator-luxury-layout elevator-luxury-layout--${itemTitle.toLowerCase().replaceAll(" ", "-")}` : ""}>
       {useLuxuryArchitecture ? (
         <>
           <section className="elevator-luxury-hero">
@@ -698,10 +779,12 @@ export default function ElevatorDetail() {
                   <span>{language === "fr" ? "Demander un devis" : "Request a quote"}</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "10px", transition: "transform 0.3s ease" }}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </Link>
-                <a href={brochureHref} className="btn-outline-icon" target={brochureIsPdf ? "_blank" : undefined} rel={brochureIsPdf ? "noreferrer" : undefined}>
+                {brochureIsPdf && (
+                  <a href={brochureHref} className="btn-outline-icon" target="_blank" rel="noreferrer">
                   <span>{language === "fr" ? "Télécharger la brochure" : "Download Brochure"}</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "10px" }}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                </a>
+                  </a>
+                )}
               </div>
             </div>
           </section>
@@ -774,6 +857,22 @@ export default function ElevatorDetail() {
       <section className="section">
         {showAtlasCoreSections && <AtlasCoreSections language={language} />}
 
+        {showExteriorSections && (
+          <ProductApplicationsSection
+            language={language}
+            items={exteriorApplications}
+            title={language === 'fr' ? 'Des applications pensees pour les acces exterieurs' : 'Applications planned for exterior access'}
+          />
+        )}
+
+        {showCircularSections && (
+          <ProductApplicationsSection
+            language={language}
+            items={circularApplications}
+            title={language === 'fr' ? 'Des applications ou le design devient experience' : 'Applications where design becomes part of the experience'}
+          />
+        )}
+
         {showAtlasCoreSections && (
           <div className="como-cabin-section text-center-luxury">
             <div className="gallery-head">
@@ -804,7 +903,7 @@ export default function ElevatorDetail() {
             title={language === "fr" ? "Images de la Gamme" : `${itemTitle} Gallery`}
             images={gallery}
             className={`${usePhoneTallGallery ? "product-gallery-phone-tall" : ""} ${itemTitle === "Atlas Panorama" ? "text-center-luxury" : ""}`.trim()}
-            showAll={itemTitle === "Atlas Panorama"}
+            showAll={itemTitle === "Atlas Panorama" || showExteriorSections || showCircularSections}
             getLabel={(index, image) => {
               if (itemTitle === "Atlas Panorama") {
                 return language === "fr" ? `Ascenseur Panoramique Atlas Panorama ${index + 1}` : `Atlas Panorama Panoramic Elevator ${index + 1}`;
@@ -834,6 +933,35 @@ export default function ElevatorDetail() {
               return undefined;
             }}
           />
+        )}
+
+        {showCircularSections && (
+          <PanoramaVsCoreComparison
+            language={language}
+            comparison={circularVsPanoramaComparison}
+            title="CIRCULAR VS PANORAMA"
+            rightImage={circularCompareImg}
+            rightTitle="CIRCULAR ELEVATOR"
+            rightSubtitle={language === 'fr' ? 'Ascenseur circulaire sur mesure' : 'Bespoke circular elevator'}
+          />
+        )}
+
+        {(showExteriorSections || showCircularSections) && (
+          <section className="atlas-core-block" id="faq">
+            <div className="split-col">
+              <h3>{language === 'fr' ? 'Questions frequentes' : 'Frequently Asked Questions'}</h3>
+              <div className="faq-wrap atlas-core-faq">
+                {(showExteriorSections ? exteriorFaqs : circularFaqs).map(([question, answer], index) => (
+                  <div className={`faq-item ${openFaq === index ? 'open' : ''}`} key={question}>
+                    <button className="faq-q" type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                      {question} <span className="faq-plus">+</span>
+                    </button>
+                    <div className="faq-a">{answer}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         )}
 
         {showAtlasExtendedSections && (
