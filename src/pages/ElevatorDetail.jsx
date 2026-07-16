@@ -281,19 +281,39 @@ const circularReasons = [
 ];
 
 const exteriorFaqs = [
-  ['Can an exterior elevator be added to an existing building?', 'Often, yes. A site survey is needed to confirm the structure, available space, landing access, utilities, and local approvals.'],
-  ['How is an exterior elevator protected from weather?', 'The specification should address drainage, corrosion-resistant materials, glazing or cladding, and weather-protected electrical components for the site conditions.'],
-  ['Does an exterior elevator require planning approval?', 'Requirements depend on the municipality, property, facade changes, and building use. This should be checked before final design.'],
-  ['What should be decided early in the project?', 'Travel height, landing positions, shaft location, pit and headroom, power supply, drainage, and fire or access requirements should be reviewed early.'],
-  ['Is maintenance different outdoors?', 'Preventive maintenance remains essential, with additional attention to drainage, seals, exposed finishes, and the local environment.'],
+  ['When should I choose an outdoor elevator?', 'Atlas Outdoor is the ideal solution when there is not enough space inside the villa or building. It is installed outside the building while offering comfortable and elegant access between floors.'],
+  ['Can an outdoor elevator be installed on an existing building?', 'Yes. Atlas Outdoor can be installed on both existing buildings and new projects after a technical study carried out by our experts.'],
+  ['How long does a project take?', 'The total duration of a project is approximately 3 months, including manufacturing, maritime transport, installation, and commissioning.'],
+  ['Is the elevator resistant to weather conditions?', 'Yes. Atlas Outdoor is designed to resist rain, sun, humidity, and climate variations thanks to high-quality materials suited to outdoor installation.'],
+  ['Can the design be personalized?', 'Yes. You can personalize the structure, glazing, stainless steel finishes, colors, LED lighting, and cabin so the elevator integrates perfectly with your building architecture.'],
+  ['Are the elevators compliant with safety standards?', 'Yes. All Atlas Outdoor elevators are manufactured in accordance with European standards and also meet Moroccan regulatory requirements for safety and quality.'],
+];
+
+const frExteriorFaqs = [
+  ["Dans quels cas choisir un ascenseur extérieur ?", "Atlas Outdoor est la solution idéale lorsqu'il n'y a pas suffisamment d'espace à l'intérieur de la villa ou de l'immeuble. Il s'installe à l'extérieur du bâtiment tout en offrant un accès confortable et élégant entre les étages."],
+  ["Peut-on installer un ascenseur extérieur sur un bâtiment existant ?", "Oui. Atlas Outdoor peut être installé aussi bien sur une construction existante que sur un projet neuf, après une étude technique réalisée par nos experts."],
+  ["Combien de temps dure un projet ?", "La durée totale d'un projet est d'environ 3 mois, incluant la fabrication, le transport maritime, l'installation et la mise en service."],
+  ["L'ascenseur résiste-t-il aux intempéries ?", "Oui. Atlas Outdoor est conçu pour résister à la pluie, au soleil, à l'humidité et aux variations climatiques grâce à des matériaux de haute qualité adaptés à une installation extérieure."],
+  ["Peut-on personnaliser le design ?", "Oui. Vous pouvez personnaliser la structure, les vitrages, les finitions inox, les couleurs, l'éclairage LED et la cabine afin d'intégrer parfaitement l'ascenseur à l'architecture de votre bâtiment."],
+  ["Les ascenseurs sont-ils conformes aux normes de sécurité ?", "Oui. Tous les ascenseurs Atlas Outdoor sont fabriqués conformément aux normes européennes et répondent également aux exigences réglementaires marocaines en matière de sécurité et de qualité."],
 ];
 
 const circularFaqs = [
-  ['Where does a circular elevator work best?', 'It is usually considered for atriums, lobbies, central stair spaces, showrooms, and other projects where the lift is a visible architectural feature.'],
-  ['Can a circular elevator be installed in an existing building?', 'It can be possible after a technical survey confirms the available diameter, structure, pit, headroom, landing access, and permit requirements.'],
-  ['How are capacity and door positions selected?', 'They are determined from the expected users, accessibility needs, traffic, building layout, and the available structural envelope.'],
-  ['Are glass panels suitable for elevator enclosures?', 'Yes, when the enclosure is engineered with appropriate safety glass and the complete installation meets applicable project requirements.'],
-  ['What needs to be coordinated with the architect?', 'The shaft diameter, doors, landings, structural support, lighting, finishes, electrical supply, and maintenance access should all be agreed during design.'],
+  ['What is the minimum dimension required?', 'Atlas Circulaire generally requires a minimum diameter of 1,200 mm to allow an optimal installation. Our experts study each project to confirm feasibility according to your available space.'],
+  ['How long does a project take?', 'The total duration of a project is approximately 6 months, including technical studies, custom manufacturing, maritime transport, installation, and commissioning.'],
+  ['Can a circular elevator be installed in an existing villa?', 'Yes. Atlas Circulaire can be installed in both a new villa and an existing villa, subject to a prior technical study.'],
+  ['Why choose a circular elevator?', 'Thanks to its 360-degree panoramic design, Atlas Circulaire becomes a true architectural feature. It offers an exceptional view while adding prestige and modernity to your villa.'],
+  ['Is the cabin customizable?', 'Yes. You can personalize the glazing, stainless steel finishes, colors, flooring, ceiling, LED lighting, and controls to create a fully custom elevator.'],
+  ['Are the elevators compliant with safety standards?', 'Yes. All Atlas Circulaire elevators are manufactured in accordance with European standards and also meet Moroccan regulatory requirements for safety and quality.'],
+];
+
+const frCircularFaqs = [
+  ["Quelle est la dimension minimale requise ?", "Atlas Circulaire nécessite généralement un diamètre minimum de 1 200 mm pour permettre une installation optimale. Nos experts étudient chaque projet afin de confirmer la faisabilité selon votre espace disponible."],
+  ["Combien de temps dure un projet ?", "La durée totale d'un projet est d'environ 6 mois, incluant les études techniques, la fabrication sur mesure, le transport maritime, l'installation et la mise en service."],
+  ["Peut-on installer un ascenseur circulaire dans une villa existante ?", "Oui. Atlas Circulaire peut être installé aussi bien dans une villa neuve que dans une villa existante, sous réserve d'une étude technique préalable."],
+  ["Pourquoi choisir un ascenseur circulaire ?", "Grâce à son design panoramique à 360°, Atlas Circulaire devient une véritable pièce architecturale. Il offre une vue exceptionnelle tout en apportant une touche de prestige et de modernité à votre villa."],
+  ["La cabine est-elle personnalisable ?", "Oui. Vous pouvez personnaliser les vitrages, les finitions inox, les couleurs, le sol, le plafond, l'éclairage LED ainsi que les commandes afin de créer un ascenseur entièrement sur mesure."],
+  ["Les ascenseurs sont-ils conformes aux normes de sécurité ?", "Oui. Tous les ascenseurs Atlas Circulaire sont fabriqués conformément aux normes européennes et répondent également aux exigences réglementaires marocaines en matière de sécurité et de qualité."],
 ];
 
 const atlasCoreReasons = [
@@ -445,29 +465,29 @@ const frAtlasCoreDownloads = [
 ];
 
 const atlasCoreFaqs = [
-  ['What is the minimum shaft dimension?', 'Atlas Core can start from approximately 1.10 m depending on cabin configuration, load, doors, and site constraints.'],
-  ['How long does installation take?', 'A complete Atlas Core project typically takes around 3 months, including technical validation, production, preparation, installation, and commissioning.'],
-  ['Can Atlas Core be installed in an existing villa?', 'Yes, when a suitable concrete shaft can be created or adapted after a technical survey.'],
-  ['Is Atlas Core adapted to apartment buildings?', 'Yes. It is designed for villas, residential buildings, and professional properties that use a concrete shaft.'],
-  ['What is the electrical consumption?', 'Consumption remains low thanks to efficient components and project-specific drive selection.'],
-  ['Can the cabin be personalized?', 'Yes. Cabin walls, flooring, doors, lighting, handrails, and control panels can be personalized.'],
-  ['What capacity is available?', 'Capacity depends on the shaft and project requirements, from compact residential layouts to larger building configurations.'],
-  ['What warranty is included?', 'Warranty terms are confirmed in the project offer and can be supported by an Atlas maintenance contract.'],
-  ['Is maintenance available?', 'Yes. Atlas Ascenseurs provides preventive maintenance, inspections, and emergency support.'],
-  ['Which safety standards apply?', 'Atlas Core is specified around applicable safety standards and certified components for the Moroccan market.'],
+  ['What is the minimum dimension required?', 'Atlas Core can be installed in a masonry shaft from 70 x 90 cm, depending on the project configuration. Our engineers provide a free technical study to propose the most suitable solution for your villa.'],
+  ['How long does a project take?', 'The total duration of a project is approximately 3 months, including manufacturing, maritime transport, installation, and commissioning.'],
+  ['Can Atlas Core be installed in an existing villa?', 'Yes. Atlas Core can be installed in both a new villa and an existing villa, provided there is a suitable masonry shaft or one that can be created.'],
+  ['Is Atlas Core suitable for buildings?', 'Yes. Atlas Core is perfectly suited to villas and residential buildings. For buildings above G+4 or with high-frequency use, we recommend Atlas Core Plus, specially designed for commercial buildings and intensive use.'],
+  ['What is the electrical consumption?', 'Atlas Core is designed with high-efficiency energy technology. Its electrical consumption is comparable to that of a modern household appliance while ensuring optimal performance and quiet operation.'],
+  ['Is the cabin customizable?', 'Absolutely. You can personalize the finishes, wall coverings, floor, ceiling, LED lighting, control buttons, and cabin dimensions so it integrates perfectly with your interior.'],
+  ['What capacity is available?', 'Atlas Core is available with several capacities, generally from 2 to 8 persons (250 to 630 kg), depending on your project needs.'],
+  ['What warranty is provided?', 'All Atlas Core elevators are covered by a manufacturer warranty. Our team also supports you with responsive after-sales service and maintenance contracts.'],
+  ['Is maintenance available?', 'Yes. Atlas Ascenseurs offers preventive maintenance contracts, troubleshooting interventions, and spare parts supply throughout Morocco.'],
+  ['Which safety standards are respected?', 'All Atlas Core elevators are manufactured in accordance with European standards and also meet Moroccan regulatory requirements for safety and quality.'],
 ];
 
 const frAtlasCoreFaqs = [
-  ['Quelle est la dimension minimale ?', 'Atlas Core peut démarrer autour de 1,10 m selon la configuration cabine, la charge, les portes et les contraintes du site.'],
-  ['Quelle est la durée du projet ?', 'Un projet Atlas Core complet prend généralement environ 3 mois, incluant validation technique, production, préparation, installation et mise en service.'],
-  ['Peut-on l’installer dans une villa existante ?', 'Oui, si une gaine béton adaptée peut être créée ou ajustée après visite technique.'],
-  ['Est-il adapté aux immeubles ?', 'Oui. Atlas Core est conçu pour les villas, immeubles résidentiels et bâtiments professionnels avec gaine béton.'],
-  ['Quelle est la consommation électrique ?', 'La consommation reste faible grâce à des composants efficaces et une motorisation adaptée au projet.'],
-  ['La cabine est-elle personnalisable ?', 'Oui. Parois, sol, portes, éclairage, main courante et panneau de commande peuvent être personnalisés.'],
-  ['Quelle capacité est disponible ?', 'La capacité dépend de la gaine et des besoins du projet, des configurations résidentielles compactes aux formats pour immeubles.'],
-  ['Quelle garantie est prévue ?', 'Les conditions de garantie sont confirmées dans l’offre projet et peuvent être accompagnées d’un contrat de maintenance Atlas.'],
-  ['L’entretien est-il disponible ?', 'Oui. Atlas Ascenseurs assure maintenance préventive, inspections et support d’urgence.'],
-  ['Quelles normes de sécurité ?', 'Atlas Core est spécifié selon les normes de sécurité applicables et des composants certifiés pour le marché marocain.'],
+  ["Quelle est la dimension minimale requise ?", "Atlas Core peut être installé dans une gaine maçonnée à partir de 70 × 90 cm, selon la configuration du projet. Nos ingénieurs réalisent gratuitement une étude technique afin de proposer la solution la plus adaptée à votre villa."],
+  ["Combien de temps dure un projet ?", "La durée totale d'un projet est d'environ 3 mois, incluant la fabrication, le transport maritime, l'installation et la mise en service."],
+  ["Peut-on installer Atlas Core dans une villa existante ?", "Oui. Atlas Core peut être installé aussi bien dans une villa neuve que dans une villa existante, à condition de disposer d'une gaine maçonnée adaptée ou pouvant être créée."],
+  ["Atlas Core est-il adapté aux immeubles ?", "Oui. Atlas Core convient parfaitement aux villas et aux immeubles résidentiels. Pour les immeubles de plus de G+4 ou à forte fréquence d'utilisation, nous recommandons Atlas Core Plus, spécialement conçu pour les bâtiments commerciaux et les usages intensifs."],
+  ["Quelle est la consommation électrique ?", "Atlas Core est conçu avec une technologie à haute efficacité énergétique. Sa consommation électrique est comparable à celle d'un appareil électroménager moderne, tout en garantissant des performances optimales et un fonctionnement silencieux."],
+  ["La cabine est-elle personnalisable ?", "Absolument. Vous pouvez personnaliser les finitions, les revêtements, le sol, le plafond, l'éclairage LED, les boutons de commande et les dimensions de la cabine afin qu'elle s'intègre parfaitement à votre intérieur."],
+  ["Quelle capacité est disponible ?", "Atlas Core est disponible avec plusieurs capacités, généralement de 2 à 8 personnes (250 à 630 kg), selon les besoins de votre projet."],
+  ["Quelle garantie est prévue ?", "Tous les ascenseurs Atlas Core sont couverts par une garantie constructeur. Notre équipe vous accompagne également avec un service après-vente réactif et des contrats de maintenance."],
+  ["L'entretien est-il disponible ?", "Oui. Atlas Ascenseurs propose des contrats de maintenance préventive, des interventions de dépannage ainsi que la fourniture de pièces détachées partout au Maroc."],
+  ["Quelles normes de sécurité sont respectées ?", "Tous les ascenseurs Atlas Core sont fabriqués conformément aux normes européennes et répondent également aux exigences réglementaires marocaines en matière de sécurité et de qualité."],
 ];
 
 const atlasCoreTestimonials = [
@@ -567,29 +587,27 @@ const frAtlasPanoramaDownloads = [
 ];
 
 const atlasPanoramaFaqs = [
-  ["What is the minimum shaft dimension required?", "A minimum shaft dimension of 1.1 m is required for the installation of an Atlas Panorama elevator."],
-  ["How long does the installation process take?", "The complete project (custom manufacturing and installation) takes approximately 3 months to ensure a precise and compliant setup."],
-  ["Can it be installed in an existing villa?", "Yes, installing an Atlas Panorama glass lift in an existing villa is entirely possible after a positive technical site survey."],
-  ["Is a machine room required?", "No, Atlas Panorama elevators are designed Machine-Room-Less (MRL), maximizing living space and simplifying architectural integration."],
-  ["What is the electrical consumption?", "Thanks to state-of-the-art motorization, energy consumption is very low, comparable to a standard household appliance."],
-  ["Can the cabin be personalized?", "Yes, you can fully customize the cabin: glass finishes, structure colors, LED lighting, flooring, and control panel styles."],
-  ["How does it work during a power outage?", "The elevator features an automatic emergency battery rescue system (UPS) that safely brings the cabin to the nearest floor and opens the doors."],
-  ["What warranty is included?", "Our equipment comes with a full manufacturer warranty, which can be extended through our tailor-made maintenance contracts."],
-  ["What maintenance is necessary?", "Regular preventive maintenance is required to ensure long-term performance and safety. We offer scheduled visits and rapid support."],
-  ["Are the elevators compliant with safety standards?", "Absolutely. All Atlas Panorama elevators are fully certified and compliant with the latest safety and engineering standards."]
+  ["What is the minimum dimension required?", "In most projects, a shaft of around 1 m x 1 m is sufficient to install an Atlas Panorama elevator. In some specific cases, we have completed installations in spaces as compact as 70 x 70 cm. Contact our experts for a personalized technical study."],
+  ["Can a panoramic elevator be installed in an existing villa?", "Yes. Atlas Panorama elevators can be installed in both a villa under construction and an existing villa, thanks to a self-supporting glass structure when necessary."],
+  ["How long does a project take?", "The total duration of a project is approximately 3 months, including manufacturing, maritime transport, installation, and commissioning of your elevator."],
+  ["Is a machine room or pit required?", "No. Atlas Panorama elevators generally require neither a machine room nor a pit, which makes them easier to integrate into new villas and renovation projects."],
+  ["Can the cabin be personalized?", "Absolutely. You can personalize the glass, stainless steel finishes, flooring, ceiling, LED lighting, controls, and dimensions to create a unique elevator."],
+  ["What is the electrical consumption?", "Our elevators are designed to be energy-efficient thanks to latest-generation motors and low-consumption LED lighting."],
+  ["What happens during a power outage?", "All our elevators are equipped with an automatic rescue system (ARD) that allows the cabin to reach the nearest level and open the doors safely."],
+  ["What maintenance is necessary?", "Periodic maintenance is recommended to ensure the proper operation, safety, and long life of your elevator. Atlas Ascenseurs offers maintenance contracts adapted to each installation."],
+  ["Are the elevators compliant with safety standards?", "Yes. All Atlas Panorama elevators are manufactured in accordance with European standards and also meet Moroccan regulatory requirements for safety."]
 ];
 
 const frAtlasPanoramaFaqs = [
-  ["Dimension minimale requise ?", "Une dimension de gaine minimale de 1,1 m (largeur ou profondeur) est requise pour l'installation d'un ascenseur Atlas Panorama."],
-  ["Quelle est la durée d'installation ?", "Le processus global (fabrication sur mesure et installation) prend environ 3 mois pour garantir une pose soignée et conforme."],
-  ["Peut-on installer dans une villa existante ?", "Oui, l'intégration d'un ascenseur panoramique Atlas Panorama est tout à fait possible dans une villa existante, sous réserve d'une étude technique préalable."],
-  ["Faut-il un local machine ?", "Non, les ascenseurs Atlas Panorama sont conçus sans local machine (MRL), ce qui permet de maximiser l'espace de vie et de simplifier l'intégration architecturale."],
-  ["Consommation électrique ?", "Grâce à une motorisation de dernière génération, la consommation électrique est très faible, similaire à celle d'un appareil électroménager standard."],
-  ["Peut-on personnaliser la cabine ?", "Oui, vous disposez d'un large choix de personnalisation : types de parois vitrées, coloris de la structure, éclairages LED, sols et finitions des commandes."],
-  ["Fonctionnement en cas de coupure de courant ?", "L'ascenseur est équipé d'un système de secours automatique (UPS) qui ramène la cabine à l'étage le plus proche et ouvre les portes en toute sécurité."],
-  ["Quelle est la garantie ?", "Nos équipements bénéficient d'une garantie constructeur complète, extensible grâce à nos contrats d'entretien personnalisés."],
-  ["Quel entretien est nécessaire ?", "Un entretien périodique est indispensable pour assurer la longévité et la sécurité. Nos contrats incluent des visites préventives régulières et un support réactif."],
-  ["Les ascenseurs sont-ils conformes aux normes de sécurité ?", "Absolument. Tous nos ascenseurs respectent rigoureusement les normes de sécurité en vigueur et sont dotés de composants certifiés."]
+  ["Quelle est la dimension minimale requise ?", "Dans la plupart des projets, une gaine d'environ 1 m × 1 m est suffisante pour installer un ascenseur Atlas Panorama. Dans certains cas spécifiques, nous avons réalisé des installations dans des espaces aussi réduits que 70 × 70 cm. Contactez nos experts pour une étude technique personnalisée."],
+  ["Peut-on installer un ascenseur panoramique dans une villa existante ?", "Oui. Les ascenseurs Atlas Panorama peuvent être installés aussi bien dans une villa en construction que dans une villa existante, grâce à une structure autoportante en verre lorsque cela est nécessaire."],
+  ["Combien de temps dure un projet ?", "La durée totale d'un projet est d'environ 3 mois, incluant la fabrication, le transport maritime, l'installation et la mise en service de votre ascenseur."],
+  ["Faut-il un local technique ou une fosse ?", "Non. Les ascenseurs Atlas Panorama ne nécessitent généralement ni local technique ni fosse, ce qui facilite leur intégration dans les villas neuves comme dans les projets de rénovation."],
+  ["Peut-on personnaliser la cabine ?", "Absolument. Vous pouvez personnaliser le verre, les finitions inox, le sol, le plafond, l'éclairage LED, les commandes ainsi que les dimensions afin de créer un ascenseur unique."],
+  ["Quelle est la consommation électrique ?", "Nos ascenseurs sont conçus pour être économes en énergie grâce à des moteurs de dernière génération et un éclairage LED basse consommation."],
+  ["Que se passe-t-il en cas de coupure de courant ?", "Tous nos ascenseurs sont équipés d'un système de secours automatique (ARD) qui permet à la cabine de rejoindre le niveau le plus proche et d'ouvrir les portes en toute sécurité."],
+  ["Quel entretien est nécessaire ?", "Un entretien périodique est recommandé afin d'assurer le bon fonctionnement, la sécurité et la longévité de votre ascenseur. Atlas Ascenseurs propose des contrats de maintenance adaptés à chaque installation."],
+  ["Les ascenseurs sont-ils conformes aux normes de sécurité ?", "Oui. Tous les ascenseurs Atlas Panorama sont fabriqués conformément aux normes européennes et répondent également aux exigences réglementaires marocaines en matière de sécurité."]
 ];
 
 const atlasPanoramaTestimonials = [
@@ -821,6 +839,9 @@ export default function ElevatorDetail() {
   const hasMobileHeroCopy = Boolean(note.mobileBody);
   const activeTestimonials = itemTitle === "Atlas Core" ? atlasCoreTestimonials : atlasPanoramaTestimonials;
   const hasTestimonialScreenshots = testimonialScreenshotImages.length > 0;
+  const standaloneFaqs = showExteriorSections
+    ? (language === "fr" ? frExteriorFaqs : exteriorFaqs)
+    : (language === "fr" ? frCircularFaqs : circularFaqs);
 
   return (
     <div className={useLuxuryArchitecture ? `elevator-luxury-layout elevator-luxury-layout--${itemTitle.toLowerCase().replaceAll(" ", "-")}` : ""}>
@@ -1015,9 +1036,9 @@ export default function ElevatorDetail() {
         {(showExteriorSections || showCircularSections) && (
           <section className="atlas-core-block" id="faq">
             <div className="split-col">
-              <h3>{language === 'fr' ? 'Questions frequentes' : 'Frequently Asked Questions'}</h3>
+              <h3>{language === 'fr' ? 'Questions fréquentes' : 'Frequently Asked Questions'}</h3>
               <div className="faq-wrap atlas-core-faq">
-                {(showExteriorSections ? exteriorFaqs : circularFaqs).map(([question, answer], index) => (
+                {standaloneFaqs.map(([question, answer], index) => (
                   <div className={`faq-item ${openFaq === index ? 'open' : ''}`} key={question}>
                     <button className="faq-q" type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)}>
                       {question} <span className="faq-plus">+</span>

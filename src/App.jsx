@@ -11,6 +11,7 @@ import Configurator from './pages/Configurator.jsx';
 import ElevatorDetail from './pages/ElevatorDetail.jsx';
 import CabinDesignPage from './pages/CabinDesignPage.jsx';
 import ComoCabinDetail from './pages/ComoCabinDetail.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import SEO from './components/SEO.jsx';
 
 function ScrollToTop() {
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/configurator" element={<Configurator />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
     </Layout>

@@ -284,6 +284,16 @@ const routeSeo = {
       description: 'Configurez type d’ascenseur, capacité, vitesse, portes, commandes, murs, sols et éclairage avec Atlas Ascenseurs.',
     },
   },
+  '/privacy-policy': {
+    en: {
+      title: 'Privacy Policy - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs privacy policy for website, Facebook Lead Forms, social media, inquiry, and project information handling.',
+    },
+    fr: {
+      title: 'Privacy Policy - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs privacy policy for website, Facebook Lead Forms, social media, inquiry, and project information handling.',
+    },
+  },
 };
 
 const routeKeywords = {
@@ -315,6 +325,10 @@ const routeKeywords = {
     en: ['elevator company Casablanca', 'elevator installation Casablanca', 'elevator quote Morocco'],
     fr: ['ascenseuriste Casablanca', 'installation ascenseur Casablanca', 'devis ascenseur Maroc'],
   },
+  '/privacy-policy': {
+    en: ['Atlas Ascenseurs privacy policy', 'personal information Atlas Ascenseurs', 'Meta Lead Forms Atlas Ascenseurs'],
+    fr: ['politique de confidentialité Atlas Ascenseurs', 'données personnelles Atlas Ascenseurs', 'formulaire Meta Atlas Ascenseurs'],
+  },
 };
 
 const routeLabels = {
@@ -338,6 +352,7 @@ const routeLabels = {
   '/service': { en: 'Service and Maintenance', fr: 'Service et Maintenance' },
   '/contact': { en: 'Contact', fr: 'Contact' },
   '/configurator': { en: '3D Personalization', fr: 'Personnalisation 3D' },
+  '/privacy-policy': { en: 'Privacy Policy', fr: 'Privacy Policy' },
 };
 
 function setMeta(selector, attribute, value) {
@@ -457,6 +472,7 @@ function getRouteImage(pathname) {
   if (normalized === '/contact') return pageImages.contact;
   if (normalized === '/service') return pageImages.service;
   if (normalized === '/about') return pageImages.about;
+  if (normalized === '/privacy-policy') return pageImages.privacy;
   if (normalized === '/elevators') return imagePaths.elevators.comoResidential;
   if (normalized === '/villa-glass-elevators-morocco') return imagePaths.elevators.astoria;
   if (normalized === '/residential-elevators-morocco') return imagePaths.elevators.comoResidential;

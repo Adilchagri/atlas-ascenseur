@@ -4,6 +4,7 @@ import StatsBar from '../components/sections/StatsBar.jsx';
 import WhySection from '../components/sections/WhySection.jsx';
 import ElevatorsSection from '../components/sections/ElevatorsSection.jsx';
 import ProjectsSection from '../components/sections/ProjectsSection.jsx';
+import PartnersSection from '../components/sections/PartnersSection.jsx';
 import FaqSection from '../components/sections/FaqSection.jsx';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <WhySection />
       <ElevatorsSection />
       <ProjectsSection />
+      <PartnersSection />
       <FaqSection />
     </>
   );

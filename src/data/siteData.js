@@ -180,6 +180,7 @@ export const pageImages = {
   service: imgElevatorAstoriaInterior,
   contact: imgPageContactOffice,
   faq: imgServiceInspectionCertification,
+  privacy: astoriaRange3,
 };
 
 export const navLinks = [
@@ -328,11 +329,13 @@ export const services = [
 ];
 
 export const faqs = [
-  ['How long does installation take?', 'Most residential elevator installations take between 3 to 5 days. Commercial projects vary depending on scope and building specifications. Our team will give you a precise timeline during the consultation phase.'],
-  ['Do you operate outside Casablanca?', 'Yes. Atlas Ascenseurs operates in Casablanca, Rabat, Marrakech, Tangier, Agadir, Fes, and all major Moroccan cities. We have a nationwide team ready to assist you.'],
-  ['What maintenance options do you offer?', 'We offer flexible maintenance contracts including monthly, quarterly, and annual inspection plans. All contracts include 24/7 emergency breakdown support and priority response.'],
-  ['Are elevators compliant with Moroccan safety norms?', 'Absolutely. All Atlas Ascenseurs elevators are fully compliant with Euro-Moroccan safety standards and come with the necessary certifications. Safety is at the core of every product we offer.'],
-  ['Can I customize the cabin design?', 'Yes. We offer extensive customization options including cabin finishes, lighting, door styles, flooring, and control panels. Our design team will help you achieve the exact look and feel you envision.'],
+  ["What types of elevators do you offer for villas?", "We offer residential elevators adapted to every project, whether it requires a concrete shaft or a panoramic glass structure. Each elevator is custom-designed according to your space, needs, and villa style."],
+  ["Do you operate throughout Morocco?", "Yes. Atlas Ascenseurs operates throughout Morocco, including Casablanca, Rabat, Marrakech, Tangier, Agadir, Fes, Meknes, and other cities on request."],
+  ["How much does a residential elevator cost?", "The price depends on the number of floors, dimensions, installation type, cabin finishes, and selected options. Contact us to receive a free technical study and personalized quotation."],
+  ["How long does it take to complete a project?", "Manufacturing generally requires 25 to 35 days, followed by around 45 days of maritime transport. Including installation and formalities, the total project duration is approximately 3 months."],
+  ["Do you offer maintenance and service?", "Yes. We provide preventive maintenance, troubleshooting, repairs, and spare parts to ensure the safety and long life of your elevator."],
+  ["Are your elevators compliant with standards?", "Yes. All our elevators are designed in accordance with European standards and also meet Moroccan regulatory requirements for safety and quality."],
+  ["Can I personalize the cabin design?", "Absolutely. You can personalize your cabin finishes with a wide choice of materials, colors, lighting, flooring, ceilings, and accessories to create an elevator perfectly integrated into your interior."],
 ];
 
 export const frNavLinks = [
@@ -438,11 +441,13 @@ export const frServices = [
 ];
 
 export const frFaqs = [
-  ['Combien de temps dure l’installation ?', 'La plupart des installations résidentielles prennent entre 3 et 5 jours. Les projets commerciaux varient selon le périmètre et les spécifications du bâtiment. Notre équipe vous donnera un planning précis pendant la consultation.'],
-  ['Intervenez-vous hors Casablanca ?', 'Oui. Atlas Ascenseurs intervient à Casablanca, Rabat, Marrakech, Tanger, Agadir, Fès et dans les principales villes du Maroc.'],
-  ['Quelles options de maintenance proposez-vous ?', 'Nous proposons des contrats flexibles avec inspections mensuelles, trimestrielles ou annuelles. Tous les contrats incluent le support d’urgence 24/7 et une intervention prioritaire.'],
-  ['Vos ascenseurs respectent-ils les normes marocaines ?', 'Absolument. Tous les ascenseurs Atlas Ascenseurs sont conformes aux standards de sécurité euro-marocains et livrés avec les certifications nécessaires.'],
-  ['Puis-je personnaliser le design de la cabine ?', 'Oui. Nous proposons de nombreuses options: finitions cabine, éclairage, portes, sol et panneaux de commande. Notre équipe design vous aide à obtenir le rendu souhaité.'],
+  ["Quels types d'ascenseurs proposez-vous pour les villas ?", "Nous proposons des ascenseurs résidentiels adaptés à tous les projets, qu'il s'agisse d'une gaine en béton ou d'une structure panoramique en verre. Chaque ascenseur est conçu sur mesure selon votre espace, vos besoins et le style de votre villa."],
+  ["Intervenez-vous partout au Maroc ?", "Oui. Atlas Ascenseurs intervient dans tout le Maroc, notamment à Casablanca, Rabat, Marrakech, Tanger, Agadir, Fès, Meknès et dans les autres villes sur demande."],
+  ["Combien coûte un ascenseur résidentiel ?", "Le prix dépend du nombre d'étages, des dimensions, du type d'installation, des finitions de la cabine et des options choisies. Contactez-nous pour recevoir une étude technique et un devis personnalisé gratuit."],
+  ["Combien de temps faut-il pour réaliser un projet ?", "La fabrication nécessite généralement 25 à 35 jours, suivie d'environ 45 jours de transport maritime. En tenant compte de l'installation et des formalités, la durée totale d'un projet est d'environ 3 mois."],
+  ["Proposez-vous un service d'entretien et de maintenance ?", "Oui. Nous assurons l'entretien préventif, le dépannage, les réparations et la fourniture de pièces détachées afin de garantir la sécurité et la longévité de votre ascenseur."],
+  ["Vos ascenseurs sont-ils conformes aux normes ?", "Oui. Tous nos ascenseurs sont conçus conformément aux normes européennes et répondent également aux exigences réglementaires marocaines en matière de sécurité et de qualité."],
+  ["Puis-je personnaliser le design de la cabine ?", "Absolument. Vous pouvez personnaliser les finitions de votre cabine avec un large choix de matériaux, de couleurs, d'éclairages, de sols, de plafonds et d'accessoires afin de créer un ascenseur parfaitement intégré à votre intérieur."],
 ];
 
 export function localized(language, enValue, frValue) {
