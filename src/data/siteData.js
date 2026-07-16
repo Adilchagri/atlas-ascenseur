@@ -190,7 +190,7 @@ export const navLinks = [
 ];
 
 export const residentialLinks = ['Circular Elevators', 'Exterior Elevators', 'Astoria Range', 'Atlas Core'];
-export const commercialLinks = ['Hospital Lifts', 'Car Lifts', 'Escalators / Walkways', 'Como Commercial', 'Cargo Lifts', 'Dumbwaiter Lifts'];
+export const commercialLinks = ['Hospital Lifts', 'Car Lifts', 'Escalators / Walkways', 'Core Commercial', 'Cargo Lifts', 'Dumbwaiter Lifts'];
 export const elevatorMenuLinks = {
   residential: [
     { label: 'Circular Elevators', to: '/elevators/circular-elevators' },
@@ -202,7 +202,7 @@ export const elevatorMenuLinks = {
     { label: 'Hospital Lifts', to: '/elevators/hospital-lifts' },
     { label: 'Car Lifts', to: '/elevators/car-lifts' },
     { label: 'Escalators / Walkways', to: '/elevators/escalators-walkways' },
-    { label: 'Como Commercial', to: '/elevators/como-commercial' },
+    { label: 'Core Commercial', to: '/elevators/como-commercial' },
     { label: 'Cargo Lifts', to: '/elevators/cargo-lifts' },
     { label: 'Dumbwaiter Lifts', to: '/elevators/dumbwaiter-lifts' },
   ],
@@ -215,8 +215,8 @@ export const cabinMenuLinks = [
 ];
 
 export const stats = [
-  { value: '70', suffix: '+', label: 'Years of History' },
-  { value: '500', suffix: '+', label: 'Installations in Morocco' },
+  { value: '30', suffix: '+', label: 'Years of History' },
+  { value: '300', suffix: '+', label: 'Installations in Morocco' },
   { value: '24', suffix: '/7', label: 'Emergency Support' },
   { value: '10', suffix: '+', label: 'Cities Served' },
 ];
@@ -248,7 +248,7 @@ export const elevatorCards = [
   { tag: 'Residential', title: 'Atlas Panorama', desc: 'Premium panoramic glass elevators for modern villas. Bespoke design, silent operation, and high-end customizations.', image: imagePaths.elevators.astoria },
   { tag: 'Residential', title: 'Circular Elevators', desc: 'A statement piece for any home. Panoramic, architectural, and unmistakably refined.', image: imagePaths.elevators.circular },
   { tag: 'Residential', title: 'Exterior Elevators', desc: 'Weatherproof and beautifully designed for outdoor installations, gardens, and terraces.', image: imagePaths.elevators.exterior },
-  { tag: 'Commercial', title: 'Como Commercial', desc: 'High-traffic performance elevators built for offices, hotels, and commercial buildings.', image: imagePaths.elevators.commercial },
+  { tag: 'Commercial', title: 'Core Commercial', desc: 'High-traffic performance elevators built for offices, hotels, and commercial buildings.', image: imagePaths.elevators.commercial },
   { tag: 'Commercial', title: 'Hospital & Cargo Lifts', desc: 'Specialized lifts engineered for healthcare environments and industrial logistics needs.', image: imagePaths.elevators.cargo },
   { tag: 'Commercial', title: 'Escalators & Walkways', desc: 'Smooth, reliable moving infrastructure for malls, airports, and large public spaces.', image: imagePaths.elevators.escalator },
 ];
@@ -263,7 +263,7 @@ export const residentialElevators = [
 ];
 
 export const commercialElevators = [
-  ['B', 'COMO Commercial', 'Gearless all-electric passenger elevators for offices, hotels, public buildings, and commercial properties. Modular shaft design, refined cabin options, UPS emergency release, and configurable load capacities support demanding daily use.', imagePaths.elevators.commercial],
+  ['B', 'Core Commercial', 'Gearless all-electric passenger elevators for offices, hotels, public buildings, and commercial properties. Modular shaft design, refined cabin options, UPS emergency release, and configurable load capacities support demanding daily use.', imagePaths.elevators.commercial],
   ['E', 'Escalators & Walkways', 'Continuous movement solutions for malls, airports, stations, supermarkets, and public infrastructure. Robust truss construction, anti-slip surfaces, anti-corrosion materials, and advanced safety systems create smooth high-volume flow.', imagePaths.elevators.escalator],
   ['V', 'Car Lifts', 'Vehicle lifts for private garages, showrooms, parking facilities, and service buildings. Configurations can support light, heavy, and very heavy vehicles with automatic doors, protective bump rails, and adaptable speeds.', imagePaths.elevators.car],
   ['F', 'Cargo Lifts', 'Machine-room-less freight elevators for warehouses, factories, retail back-of-house areas, and industrial buildings. Heavy-load models, reinforced cabins, regenerative energy options, and quiet gearless technology improve logistics performance.', imagePaths.elevators.cargo],
@@ -278,7 +278,7 @@ export const elevatorDetailGalleries = {
   'Exterior Elevators': exteriorGallery,
   'Panoramic & Glass Cabins': circularGallery,
   'Doors & Cabin Finishes': doorGallery,
-  'COMO Commercial': comoCommercialGallery,
+  'Core Commercial': comoCommercialGallery,
   'Escalators & Walkways': escalatorGallery,
   'Car Lifts': carLiftGallery,
   'Cargo Lifts': cargoGallery,
@@ -353,7 +353,7 @@ export const frElevatorMenuLinks = {
     { label: 'Ascenseurs Hospitaliers', to: '/elevators/hospital-lifts' },
     { label: 'Monte-voitures', to: '/elevators/car-lifts' },
     { label: 'Escalators / Trottoirs Roulants', to: '/elevators/escalators-walkways' },
-    { label: 'COMO Commercial', to: '/elevators/como-commercial' },
+    { label: 'Core Commercial', to: '/elevators/como-commercial' },
     { label: 'Monte-charges', to: '/elevators/cargo-lifts' },
     { label: 'Monte-plats', to: '/elevators/dumbwaiter-lifts' },
   ],
@@ -366,8 +366,8 @@ export const frCabinMenuLinks = [
 ];
 
 export const frStats = [
-  { value: '70', suffix: '+', label: 'Années d’Histoire' },
-  { value: '500', suffix: '+', label: 'Installations au Maroc' },
+  { value: '30', suffix: '+', label: 'Années d’Histoire' },
+  { value: '300', suffix: '+', label: 'Installations au Maroc' },
   { value: '24', suffix: '/7', label: 'Support d’Urgence' },
   { value: '10', suffix: '+', label: 'Villes Couvertes' },
 ];
@@ -399,7 +399,7 @@ export const frElevatorCards = [
   { tag: 'Résidentiel', title: 'Atlas Panorama', desc: 'Ascenseurs panoramiques en verre de prestige pour villas modernes au Maroc. Fonctionnement silencieux et finitions haut de gamme.', image: imagePaths.elevators.astoria },
   { tag: 'Résidentiel', title: 'Ascenseurs Circulaires', desc: 'Une pièce architecturale forte pour la maison. Panoramique, raffinée et immédiatement reconnaissable.', image: imagePaths.elevators.circular },
   { tag: 'Résidentiel', title: 'Ascenseurs Extérieurs', desc: 'Solutions extérieures résistantes aux intempéries pour jardins, terrasses et accès en façade.', image: imagePaths.elevators.exterior },
-  { tag: 'Commercial', title: 'COMO Commercial', desc: 'Ascenseurs haute performance pour bureaux, hôtels et bâtiments à fort trafic.', image: imagePaths.elevators.commercial },
+  { tag: 'Commercial', title: 'Core Commercial', desc: 'Ascenseurs haute performance pour bureaux, hôtels et bâtiments à fort trafic.', image: imagePaths.elevators.commercial },
   { tag: 'Commercial', title: 'Ascenseurs Hospitaliers & Monte-charges', desc: 'Solutions spécialisées pour environnements médicaux et besoins logistiques industriels.', image: imagePaths.elevators.cargo },
   { tag: 'Commercial', title: 'Escalators & Trottoirs Roulants', desc: 'Mouvements fluides et fiables pour centres commerciaux, aéroports et grands espaces publics.', image: imagePaths.elevators.escalator },
 ];
@@ -414,7 +414,7 @@ export const frResidentialElevators = [
 ];
 
 export const frCommercialElevators = [
-  ['B', 'COMO Commercial', 'Ascenseurs passagers gearless tout électriques pour bureaux, hôtels, bâtiments publics et espaces commerciaux. Conception modulaire, cabines raffinées, secours UPS et capacités configurables pour un usage intensif.', imagePaths.elevators.commercial],
+  ['B', 'Core Commercial', 'Ascenseurs passagers gearless tout électriques pour bureaux, hôtels, bâtiments publics et espaces commerciaux. Conception modulaire, cabines raffinées, secours UPS et capacités configurables pour un usage intensif.', imagePaths.elevators.commercial],
   ['E', 'Escalators & Trottoirs Roulants', 'Solutions de circulation continue pour centres commerciaux, aéroports, gares, supermarchés et infrastructures publiques, avec construction robuste et systèmes de sécurité avancés.', imagePaths.elevators.escalator],
   ['V', 'Monte-voitures', 'Ascenseurs pour garages privés, showrooms, parkings et bâtiments de service. Configurations adaptées aux véhicules légers, lourds et très lourds.', imagePaths.elevators.car],
   ['F', 'Monte-charges', 'Ascenseurs de fret pour entrepôts, usines, réserves commerciales et bâtiments industriels. Cabines renforcées, accès pratique et technologie fiable pour la logistique quotidienne.', imagePaths.elevators.cargo],

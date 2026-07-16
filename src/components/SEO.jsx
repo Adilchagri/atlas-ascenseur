@@ -9,12 +9,13 @@ import {
   imagePaths,
   pageImages,
 } from '../data/siteData.js';
+import { BUSINESS_PHONE_DISPLAY } from '../data/contact.js';
 import { useUI } from '../context/UIContext.jsx';
 
 const SITE_URL = 'https://www.atlasascenseurs.com';
 const SITE_NAME = 'Atlas Ascenseurs';
 const DEFAULT_IMAGE = pageImages.luxuryBanner || imagePaths.logos.main;
-const BUSINESS_PHONE = '+212 6 XX XX XX XX';
+const BUSINESS_PHONE = BUSINESS_PHONE_DISPLAY;
 const BUSINESS_EMAIL = 'contact@atlasascenseurs.ma';
 const BUSINESS_ADDRESS = {
   streetAddress: 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors',
@@ -185,11 +186,11 @@ const routeSeo = {
   },
   '/elevators/como-commercial': {
     en: {
-      title: 'COMO Commercial Elevators - Atlas Ascenseurs',
+      title: 'Core Commercial Elevators - Atlas Ascenseurs',
       description: 'Commercial passenger elevators for offices, hotels, public buildings, and daily traffic environments.',
     },
     fr: {
-      title: 'COMO Commercial - Ascenseurs Professionnels',
+      title: 'Core Commercial - Ascenseurs Professionnels',
       description: 'Ascenseurs passagers commerciaux pour bureaux, hôtels, bâtiments publics et environnements à trafic quotidien.',
     },
   },
@@ -327,7 +328,7 @@ const routeLabels = {
   '/elevators/hospital-lifts': { en: 'Hospital Lifts', fr: 'Ascenseurs Hospitaliers' },
   '/elevators/car-lifts': { en: 'Car Lifts', fr: 'Monte-Voitures' },
   '/elevators/escalators-walkways': { en: 'Escalators and Walkways', fr: 'Escalators et Trottoirs Roulants' },
-  '/elevators/como-commercial': { en: 'COMO Commercial', fr: 'COMO Commercial' },
+  '/elevators/como-commercial': { en: 'Core Commercial', fr: 'Core Commercial' },
   '/elevators/cargo-lifts': { en: 'Cargo Lifts', fr: 'Monte-Charges' },
   '/elevators/dumbwaiter-lifts': { en: 'Dumbwaiter Lifts', fr: 'Monte-Plats' },
   '/projects': { en: 'Projects', fr: 'Projets' },

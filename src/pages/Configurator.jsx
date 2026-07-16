@@ -86,7 +86,7 @@ const configProfiles = [
   },
   {
     id: 'como-commercial',
-    name: 'COMO Commercial',
+    name: 'Core Commercial',
     short: 'Commercial',
     useCase: 'Offices, hotels, public buildings, and daily passenger traffic.',
     load: ['630 kg', '800 kg', '1000 kg'],
@@ -266,7 +266,7 @@ const frProfileText = {
     features: ['Construction résistante', 'Anticorrosion', 'Accès extérieur'],
   },
   'como-commercial': {
-    name: 'COMO Commercial',
+    name: 'Core Commercial',
     short: 'Commercial',
     useCase: 'Bureaux, hôtels, bâtiments publics et trafic passagers quotidien.',
     features: ['Prêt fort trafic', 'Motorisation gearless', 'Secours UPS'],
@@ -851,7 +851,7 @@ async function downloadConfigurationPdf({ lead, summary, language, logoUrl }) {
   ctx.fillStyle = '#8d8576';
   ctx.font = '14px Arial, sans-serif';
   ctx.fillText(`Generated ${new Date().toLocaleString()}`, 70, 1090);
-  ctx.fillText('contact@atlasascenseurs.ma  |  +212 6 XX XX XX XX', 70, 1118);
+  ctx.fillText('contact@atlasascenseurs.ma  |  +212666323055', 70, 1118);
 
   canvas.toBlob(async (blob) => {
     if (!blob) return;

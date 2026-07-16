@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { buildWhatsAppUrl } from '../../data/contact.js';
 import { getCabinMenuLinks, getElevatorMenuLinks, getNavLinks, imagePaths } from '../../data/siteData.js';
 import { useUI } from '../../context/UIContext.jsx';
 
@@ -12,6 +13,11 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileView, setMobileView] = useState('main');
   const [dismissedDropdown, setDismissedDropdown] = useState(null);
+  const quoteHref = buildWhatsAppUrl(
+    language === 'fr'
+      ? 'Bonjour Atlas Ascenseurs, je souhaite demander un devis.'
+      : 'Hello Atlas Ascenseurs, I would like to request a quote.'
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -89,7 +95,7 @@ export default function Navbar() {
             <button className={`ui-pill ${language === 'fr' ? 'active' : ''}`} type="button" onClick={() => setLanguage('fr')}>FR</button>
           </div>
         </div>
-        <Link className="nav-cta" to="/contact">{t('getQuote')}</Link>
+        <a className="nav-cta" href={quoteHref} target="_blank" rel="noreferrer">{t('getQuote')}</a>
 
         <button className={`hamburger ${mobileOpen ? 'open' : ''}`} type="button" onClick={toggleMobile} aria-label={t('toggleMenu')} aria-expanded={mobileOpen}>
           <span />

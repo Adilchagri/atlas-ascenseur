@@ -32,7 +32,7 @@ export default function Elevators() {
       resDesc: 'Atlas Ascenseurs couvre les ascenseurs résidentiels, Atlas Panorama, COMO résidentiel, circulaires, extérieurs et panoramiques avec un accompagnement clair.',
       comDivider: 'Ascenseurs Commerciaux',
       comHeading: 'Conçus pour le <em>Trafic, la Sécurité et la Fiabilité.</em>',
-      comDesc: 'La gamme commerciale comprend COMO Commercial, escalators et trottoirs roulants, monte-voitures, monte-charges, ascenseurs hospitaliers et monte-plats.',
+      comDesc: 'La gamme commerciale comprend Core Commercial, escalators et trottoirs roulants, monte-voitures, monte-charges, ascenseurs hospitaliers et monte-plats.',
     }
     : {
       current: 'Our Elevators',
@@ -43,7 +43,7 @@ export default function Elevators() {
       resDesc: 'Atlas Ascenseurs covers residential lifts, Atlas Panorama panoramic elevators, COMO residential, circular elevators, exterior lifts, and panoramic solutions with clear product guidance aligned with the Atlas Ascenseurs identity.',
       comDivider: 'Commercial Lifts',
       comHeading: 'Built for <em>Traffic, Safety, and Uptime.</em>',
-      comDesc: 'The commercial range includes COMO Commercial, escalators and walkways, car lifts, cargo lifts, hospital lifts, and dumbwaiter lifts, presented with direct guidance for traffic, safety, and uptime.',
+      comDesc: 'The commercial range includes Core Commercial, escalators and walkways, car lifts, cargo lifts, hospital lifts, and dumbwaiter lifts, presented with direct guidance for traffic, safety, and uptime.',
     };
 
   return (

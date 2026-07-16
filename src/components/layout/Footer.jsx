@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { BUSINESS_PHONE_DISPLAY } from '../../data/contact.js';
 import { useUI } from '../../context/UIContext.jsx';
 
 export default function Footer() {
@@ -36,7 +37,7 @@ export default function Footer() {
               ? 'twin center, angle boulevard zerktouni et al massira, 5ème et 6ème étages, casabanca, 20100'
               : 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors, casabanca, 20100'}
           </a>
-          <a>+212 6 XX XX XX XX</a>
+          <a>{BUSINESS_PHONE_DISPLAY}</a>
           <a>contact@atlasascenseurs.ma</a>
         </div>
       </div>

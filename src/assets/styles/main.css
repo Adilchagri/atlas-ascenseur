@@ -3525,6 +3525,9 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   overflow: hidden;
   background: var(--black);
 }
+.elevator-luxury-hero-copy-mobile {
+  display: none;
+}
 
 @media (max-height: 950px) {
   .elevator-luxury-hero {
@@ -3810,6 +3813,21 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
     font-size: 13px !important;
     line-height: 1.55 !important;
   }
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-copy-desktop,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero-copy-desktop {
+    display: none !important;
+  }
+  .elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-copy-mobile,
+  .elevator-luxury-layout--atlas-core .elevator-luxury-hero-copy-mobile {
+    display: block !important;
+    -webkit-box-orient: initial !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
+    margin: 0 auto 18px !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    color: var(--text-muted) !important;
+  }
 }
 
 /* The dedicated five-card application lists are centered at every screen size. */
@@ -4076,6 +4094,48 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   position: relative;
   border: 1px solid rgba(255,255,255,0.05);
 }
+.testimonial-screenshot-card {
+  height: 300px;
+  max-width: 360px;
+  padding: 12px;
+  overflow: hidden;
+  border-color: var(--gold-border);
+  background:
+    linear-gradient(135deg, rgba(24,24,24,0.96), rgba(8,8,8,0.98)),
+    radial-gradient(circle at 50% 0%, rgba(201,168,76,0.1), transparent 42%);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.22);
+  transition: transform var(--motion-medium) var(--ease-soft), border-color var(--motion-medium) var(--ease-soft), filter var(--motion-medium) var(--ease-soft), box-shadow var(--motion-medium) var(--ease-soft);
+}
+.testimonial-screenshot-card::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(232,201,122,0.16);
+  pointer-events: none;
+  transition: border-color var(--motion-medium) var(--ease-soft), inset var(--motion-medium) var(--ease-soft);
+}
+.testimonial-screenshot-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: rgba(0,0,0,0.42);
+  transition: transform var(--motion-medium) var(--ease-soft), filter var(--motion-medium) var(--ease-soft);
+}
+.testimonial-screenshot-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(232,201,122,0.55);
+  filter: saturate(1.08) contrast(1.04);
+  box-shadow: 0 26px 54px rgba(0,0,0,0.3);
+}
+.testimonial-screenshot-card:hover .testimonial-screenshot-img {
+  transform: scale(1.01);
+}
+.testimonial-screenshot-card:hover::after {
+  inset: 16px;
+  border-color: rgba(232,201,122,0.55);
+}
 .chat-header {
   display: flex;
   align-items: center;
@@ -4216,6 +4276,10 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .chat-bubble-card {
     max-width: 400px;
   }
+}
+.chat-bubble-card.testimonial-screenshot-card {
+  flex: 0 0 clamp(260px, 29vw, 360px) !important;
+  max-width: 360px;
 }
 
 /* Center-aligned section titles for luxury layout */
@@ -4688,6 +4752,82 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
   .elevator-luxury-layout .elevator-luxury-hero-actions .btn-outline-icon {
     min-width: 214px;
     padding: 0 24px;
+  }
+}
+
+@media (min-width: 901px) {
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-content,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: clamp(52px, 7.2svh, 92px);
+    padding-bottom: clamp(24px, 3.6svh, 42px);
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-eyebrow,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero-eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero h1,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero h1 {
+    font-size: clamp(38px, 2.9vw, 52px);
+    line-height: 1.03;
+    margin-bottom: 8px;
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero h1 em,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero h1 em {
+    font-size: clamp(44px, 3.35vw, 60px);
+    line-height: 1;
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero p,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero p {
+    font-size: clamp(13.5px, 0.86vw, 15px);
+    line-height: 1.48;
+    margin-bottom: 16px;
+    max-width: 600px;
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-actions,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero-actions {
+    gap: 12px;
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-actions .btn-gold,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-actions .btn-outline-icon,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero-actions .btn-gold,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero-actions .btn-outline-icon {
+    min-width: clamp(188px, 12vw, 238px);
+    height: 46px;
+    padding: 0 20px;
+    font-size: clamp(11.5px, 0.8vw, 13px);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1220px) {
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero-content,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero-content {
+    width: 56%;
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero h1,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero h1 {
+    font-size: clamp(34px, 3.15vw, 44px);
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero h1 em,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero h1 em {
+    font-size: clamp(40px, 3.7vw, 52px);
+  }
+
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-panorama .elevator-luxury-hero p,
+  .elevator-luxury-layout.elevator-luxury-layout--atlas-core .elevator-luxury-hero p {
+    font-size: 13.5px;
+    line-height: 1.42;
   }
 }
 

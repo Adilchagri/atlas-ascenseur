@@ -22,7 +22,7 @@ export default function Contact() {
                 : 'twin center, corner of boulevard zerktouni and al massira, 5th and 6th floors, casabanca, 20100'}
             </p>
             <h4>{isFr ? 'Téléphone' : 'Phone'}</h4>
-            <p>+212 6 XX XX XX XX</p>
+            <p>+212666323055</p>
             <h4>Email</h4>
             <p>contact@atlasascenseurs.ma</p>
             <h4>{isFr ? 'Couverture' : 'Coverage'}</h4>

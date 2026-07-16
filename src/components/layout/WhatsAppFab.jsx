@@ -1,12 +1,18 @@
+import { buildWhatsAppUrl } from '../../data/contact.js';
 import { useUI } from '../../context/UIContext.jsx';
 
 export default function WhatsAppFab() {
-  const { t } = useUI();
+  const { language, t } = useUI();
+  const supportHref = buildWhatsAppUrl(
+    language === 'fr'
+      ? 'Bonjour Atlas Ascenseurs, je souhaite plus d’informations sur mon projet.'
+      : 'Hello Atlas Ascenseurs, I need support for my project.'
+  );
 
   return (
     <a
       className="whatsapp-fab"
-      href="https://wa.me/?text=Hello%20Atlas%20Ascenseurs%2C%20I%20need%20support%20for%20my%20project."
+      href={supportHref}
       target="_blank"
       rel="noreferrer"
       aria-label={t('whatsAppChat')}

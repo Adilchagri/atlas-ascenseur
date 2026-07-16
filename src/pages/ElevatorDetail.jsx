@@ -10,12 +10,19 @@ import ProductGallery from '../components/ui/ProductGallery.jsx';
 import atlasCoreCataloguePdf from '../assets/pdfs-for-brochures/atlas-core-catalogue.pdf';
 import atlasPanoramaHydraulicPdf from '../assets/pdfs-for-brochures/Atlas Panorama-Hydrauliquee.pdf';
 import atlasPanoramaPdf from '../assets/pdfs-for-brochures/Atlas Panorama.pdf';
+import { buildWhatsAppUrl } from '../data/contact.js';
+
+const testimonialScreenshotImages = Object.entries(
+  import.meta.glob('../assets/images/client-testimonials/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', { eager: true, import: 'default' })
+)
+  .sort(([a], [b]) => a.localeCompare(b, 'fr', { numeric: true }))
+  .map(([, image]) => image);
 
 const noGalleryPages = new Set([
   'Hospital Lifts',
   'Car Lifts',
   'Escalators & Walkways',
-  'COMO Commercial',
+  'Core Commercial',
   'Atlas Core',
   'Cargo Lifts',
   'Dumbwaiter Lifts',
@@ -40,7 +47,7 @@ const elevatorPages = {
   '/elevators/hospital-lifts': { title: { en: 'Hospital', fr: 'Ascenseurs' }, accent: { en: 'Lifts', fr: 'Hospitaliers' }, source: 'com', key: 'Hospital Lifts' },
   '/elevators/car-lifts': { title: { en: 'Car', fr: 'Monte' }, accent: { en: 'Lifts', fr: 'Voitures' }, source: 'com', key: 'Car Lifts' },
   '/elevators/escalators-walkways': { title: { en: 'Escalators', fr: 'Escalators' }, accent: { en: '& Walkways', fr: '& Trottoirs Roulants' }, source: 'com', key: 'Escalators & Walkways' },
-  '/elevators/como-commercial': { title: { en: 'COMO', fr: 'COMO' }, accent: { en: 'Commercial', fr: 'Commercial' }, source: 'com', key: 'COMO Commercial' },
+  '/elevators/como-commercial': { title: { en: 'Core', fr: 'Core' }, accent: { en: 'Commercial', fr: 'Commercial' }, source: 'com', key: 'Core Commercial' },
   '/elevators/cargo-lifts': { title: { en: 'Cargo', fr: 'Monte' }, accent: { en: 'Lifts', fr: 'Charges' }, source: 'com', key: 'Cargo Lifts' },
   '/elevators/dumbwaiter-lifts': { title: { en: 'Dumbwaiter', fr: 'Monte' }, accent: { en: 'Lifts', fr: 'Plats' }, source: 'com', key: 'Dumbwaiter Lifts' },
 };
@@ -50,12 +57,14 @@ const productNotes = {
     label: 'Panoramic Design Lift',
     headline: 'Panoramic Elevators for Villas in Morocco',
     body: 'Atlas Panorama is our premium range of panoramic glass elevators designed for modern villas in Morocco. Offering a glazed shaft, elegant styling, and extensive customization, it provides an exquisite residential addition with silent, safe, and comfortable operation. Each project is tailormade to meet our clients\' technical and aesthetic desires.',
+    mobileBody: 'A premium panoramic glass elevator for modern villas in Morocco, with elegant design, quiet comfort, and bespoke finishes.',
     points: ['Glass panoramic structure', 'Smooth and quiet operation', 'Custom cabin, lighting, and doors', 'Ideal for Moroccan villas'],
   },
   'Atlas Core': {
     label: 'Atlas Core',
     headline: 'Residential Elevators for Villas & Buildings in Morocco',
     body: 'Atlas Core is our premium elevator range designed for concrete shaft installations. Adapted to villas, residential buildings, and professional spaces, it delivers a reliable, elegant, and durable solution with broad personalization options, quiet operation, and high-quality components.',
+    mobileBody: 'A premium concrete-shaft elevator for villas and buildings, designed for reliable performance, quiet comfort, and elegant finishes.',
     points: ['Concrete shaft installation', 'Silent operation', 'Customizable cabins', 'High-quality components'],
   },
   'Circular Elevators': {
@@ -70,7 +79,7 @@ const productNotes = {
     body: 'Our exterior elevators integrate harmoniously with villas and contemporary buildings through an elegant, durable, and compact structure.',
     points: ['Weather-ready shaft', 'Anti-corrosion materials', 'Terrace and garden access', 'Compact outdoor footprint'],
   },
-  'COMO Commercial': {
+  'Core Commercial': {
     label: 'Commercial passenger lift',
     headline: 'Traffic-ready vertical transport for professional buildings.',
     body: 'A commercial elevator solution for offices, hotels, public buildings, and mixed-use properties, with configurable load capacities, refined cabins, and uptime-focused components.',
@@ -113,12 +122,14 @@ const frProductNotes = {
     label: 'Ascenseur résidentiel design',
     headline: 'Ascenseurs Panoramiques pour Villas au Maroc',
     body: 'Atlas Panorama est notre gamme d’ascenseurs panoramiques haut de gamme conçue pour les villas modernes au Maroc. Grâce à sa gaine vitrée, son design élégant et ses nombreuses possibilités de personnalisation, Atlas Panorama apporte une véritable valeur ajoutée à votre habitation. Nos ascenseurs offrent un déplacement silencieux, sécurisé et confortable tout en s’intégrant parfaitement à l’architecture de votre villa. Chaque projet est conçu sur mesure afin de répondre aux besoins esthétiques et techniques de nos clients.',
+    mobileBody: 'Un ascenseur panoramique haut de gamme pour villas au Maroc, avec design élégant, confort silencieux et finitions sur mesure.',
     points: ['Design panoramique en verre', 'Déplacement silencieux et sécurisé', 'Intégration architecturale sur mesure', 'Conçu pour les villas marocaines'],
   },
   'Atlas Core': {
     label: 'Atlas Core',
     headline: 'Ascenseurs Résidentiels pour Villas & Immeubles au Maroc',
     body: 'Atlas Core est notre gamme d’ascenseurs premium conçue pour les installations en gaine béton. Adaptée aux villas, immeubles résidentiels et bâtiments professionnels, cette gamme offre une solution fiable, élégante et durable. Grâce à ses nombreuses possibilités de personnalisation, son fonctionnement silencieux et ses composants de haute qualité, Atlas Core répond aux exigences des architectes, promoteurs et particuliers.',
+    mobileBody: 'Un ascenseur premium pour gaine béton, idéal pour villas et immeubles, alliant fiabilité, silence et finitions élégantes.',
     points: ['Installation en gaine béton', 'Fonctionnement silencieux', 'Cabines personnalisables', 'Composants haut de gamme'],
   },
   'Circular Elevators': {
@@ -133,7 +144,7 @@ const frProductNotes = {
     body: 'Nos ascenseurs extérieurs s’intègrent harmonieusement aux villas et bâtiments contemporains grâce à une structure élégante, résistante et peu encombrante.',
     points: ['Gaine résistante aux intempéries', 'Matériaux anticorrosion', 'Accès terrasse et jardin', 'Empreinte extérieure compacte'],
   },
-  'COMO Commercial': {
+  'Core Commercial': {
     label: 'Ascenseur commercial passagers',
     headline: 'Transport vertical prêt pour le trafic des bâtiments professionnels.',
     body: 'Une solution pour bureaux, hôtels, bâtiments publics et immeubles mixtes, avec capacités configurables, cabines raffinées et composants orientés disponibilité.',
@@ -587,8 +598,53 @@ const atlasPanoramaTestimonials = [
   { source: "WhatsApp", name: "Propriétaire - Rabat", text: "Très satisfait de l'installation de notre ascenseur en verre. L'équipe d'Atlas a été très professionnelle du début à la fin." }
 ];
 
-function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, title = 'PANORAMA VS CORE', rightImage = atlasCoreCompareImg, rightTitle = 'ATLAS CORE', rightSubtitle }) {
+const galleryNamesByTitle = {
+  'Atlas Panorama': [
+    'Atlas Panorama Pure (Entry model)',
+    'Atlas Panorama Edge',
+    'Atlas Panorama Select',
+    'Atlas Panorama Elegance',
+    'Atlas Panorama Signature',
+    'Atlas Panorama Prestige',
+    'Atlas Panorama Horizon',
+    'Atlas Panorama Imperial',
+    'Atlas Panorama Infinity (Flagship model)',
+  ],
+  'Circular Elevators': [
+    'Atlas Circular Pure',
+    'Atlas Circular One',
+    'Atlas Circular Nova',
+    'Atlas Circular Slim',
+    'Atlas Circular Vision',
+    'Atlas Circular Crystal',
+    'Atlas Circular Horizon',
+    'Atlas Circular Select',
+    'Atlas Circular Elegance',
+    'Atlas Circular Signature',
+    'Atlas Circular Prestige',
+    'Atlas Circular Imperial',
+    'Atlas Circular Platinum',
+    'Atlas Circular Diamond',
+    'Atlas Circular Infinity (Flagship)',
+  ],
+  'Exterior Elevators': [
+    'Atlas Outdoor Pure',
+    'Atlas Outdoor One',
+    'Atlas Outdoor Nova',
+    'Atlas Outdoor Vision',
+    'Atlas Outdoor Crystal',
+    'Atlas Outdoor Horizon',
+    'Atlas Outdoor Signature',
+    'Atlas Outdoor Prestige',
+    'Atlas Outdoor Imperial',
+    'Atlas Outdoor Infinity',
+  ],
+};
+
+function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, title = 'PANORAMA VS CORE', description, leftSubtitle, rightImage = atlasCoreCompareImg, rightTitle = 'ATLAS CORE', rightSubtitle }) {
   const comparisonRows = comparison[language] ?? comparison.en;
+  const comparisonDescription = description ?? (language === 'fr' ? 'Quel modèle est fait pour vous ?' : 'Which model is right for you?');
+  const panoramaSubtitle = leftSubtitle ?? (language === 'fr' ? 'Ascenseur panoramique (gaine verre)' : 'Panoramic glass shaft elevator');
   
   return (
     <section className="comparison-split-section">
@@ -596,7 +652,7 @@ function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, 
         <div className="comparison-info-side">
           <div className="eyebrow">{language === 'fr' ? 'Comparatif' : 'Comparison'}</div>
           <h2>{title}</h2>
-          <p>{language === 'fr' ? 'Quel modèle est fait pour vous ?' : 'Which model is right for you?'}</p>
+          <p>{comparisonDescription}</p>
 
         </div>
         
@@ -610,7 +666,7 @@ function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, 
                 <img src={atlasPanoramaCompareImg} alt="Atlas Panorama" className="comparison-product-img" />
                 <div className="comparison-product-title-wrap">
                   <h3>ATLAS PANORAMA</h3>
-                  <span>{language === 'fr' ? 'Ascenseur panoramique (gaine verre)' : 'Panoramic glass shaft elevator'}</span>
+                  <span>{panoramaSubtitle}</span>
                 </div>
               </div>
               
@@ -618,7 +674,7 @@ function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, 
                 <img src={rightImage} alt={rightTitle} className="comparison-product-img" />
                 <div className="comparison-product-title-wrap">
                   <h3>{rightTitle}</h3>
-                  <span>{rightSubtitle ?? (language === 'fr' ? 'Ascenseur en gaine béton' : 'Concrete shaft elevator')}</span>
+                  <span>{rightSubtitle ?? (language === 'fr' ? 'Ascenseur pour gaine maçonnée (béton)' : 'Concrete shaft elevator')}</span>
                 </div>
               </div>
             </div>
@@ -756,6 +812,15 @@ export default function ElevatorDetail() {
   const brochureIsPdf = itemTitle === "Atlas Panorama" || itemTitle === "Atlas Core";
   const pageTitle = page.title[language] ?? page.title.en;
   const pageAccent = page.accent[language] ?? page.accent.en;
+  const quoteHref = buildWhatsAppUrl(
+    language === 'fr'
+      ? 'Bonjour Atlas Ascenseurs, je souhaite demander un devis.'
+      : 'Hello Atlas Ascenseurs, I would like to request a quote.'
+  );
+  const galleryLabels = galleryNamesByTitle[itemTitle];
+  const hasMobileHeroCopy = Boolean(note.mobileBody);
+  const activeTestimonials = itemTitle === "Atlas Core" ? atlasCoreTestimonials : atlasPanoramaTestimonials;
+  const hasTestimonialScreenshots = testimonialScreenshotImages.length > 0;
 
   return (
     <div className={useLuxuryArchitecture ? `elevator-luxury-layout elevator-luxury-layout--${itemTitle.toLowerCase().replaceAll(" ", "-")}` : ""}>
@@ -773,12 +838,13 @@ export default function ElevatorDetail() {
                 {pageTitle.replace(pageAccent, "").trim()}
                 <em>{pageAccent}</em>
               </h1>
-              <p>{note.body}</p>
+              <p className={hasMobileHeroCopy ? "elevator-luxury-hero-copy-desktop" : undefined}>{note.body}</p>
+              {hasMobileHeroCopy && <p className="elevator-luxury-hero-copy-mobile">{note.mobileBody}</p>}
               <div className="elevator-luxury-hero-actions">
-                <Link to="/contact" className="btn-gold">
+                <a href={quoteHref} className="btn-gold" target="_blank" rel="noreferrer">
                   <span>{language === "fr" ? "Demander un devis" : "Request a quote"}</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "10px", transition: "transform 0.3s ease" }}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </Link>
+                </a>
                 {brochureIsPdf && (
                   <a href={brochureHref} className="btn-outline-icon" target="_blank" rel="noreferrer">
                   <span>{language === "fr" ? "Télécharger la brochure" : "Download Brochure"}</span>
@@ -830,7 +896,7 @@ export default function ElevatorDetail() {
                 </ul>
               </div>
               <div
-                className={`product-presentation-image ${itemTitle === "COMO Commercial" ? "product-presentation-image-clean" : ""} ${itemTitle === "Atlas Core" ? "product-presentation-image-como" : ""} ${itemTitle === "Exterior Elevators" ? "product-presentation-image-exterior" : ""}`}
+                className={`product-presentation-image ${itemTitle === "Core Commercial" ? "product-presentation-image-clean" : ""} ${itemTitle === "Atlas Core" ? "product-presentation-image-como" : ""} ${itemTitle === "Exterior Elevators" ? "product-presentation-image-exterior" : ""}`}
               >
                 <img src={itemImage} alt={itemTitle} />
               </div>
@@ -861,7 +927,7 @@ export default function ElevatorDetail() {
           <ProductApplicationsSection
             language={language}
             items={exteriorApplications}
-            title={language === 'fr' ? 'Des applications pensees pour les acces exterieurs' : 'Applications planned for exterior access'}
+            title={language === 'fr' ? 'Solutions pour Ascenseurs Extérieurs' : 'Applications planned for exterior access'}
           />
         )}
 
@@ -900,13 +966,13 @@ export default function ElevatorDetail() {
         {showGallery && (
           <ProductGallery
             eyebrow={language === "fr" ? "Galerie Produit" : "Product Gallery"}
-            title={language === "fr" ? "Images de la Gamme" : `${itemTitle} Gallery`}
+            title="Inspirations & Realisations"
             images={gallery}
             className={`${usePhoneTallGallery ? "product-gallery-phone-tall" : ""} ${itemTitle === "Atlas Panorama" ? "text-center-luxury" : ""}`.trim()}
             showAll={itemTitle === "Atlas Panorama" || showExteriorSections || showCircularSections}
             getLabel={(index, image) => {
-              if (itemTitle === "Atlas Panorama") {
-                return language === "fr" ? `Ascenseur Panoramique Atlas Panorama ${index + 1}` : `Atlas Panorama Panoramic Elevator ${index + 1}`;
+              if (galleryLabels?.[index]) {
+                return galleryLabels[index];
               }
               return `${language === "fr" ? "Image Produit" : itemTitle} ${String(index + 1).padStart(2, "0")}`;
             }}
@@ -965,14 +1031,18 @@ export default function ElevatorDetail() {
         )}
 
         {showAtlasExtendedSections && (
-          <PanoramaVsCoreComparison language={language} />
+          <PanoramaVsCoreComparison
+            language={language}
+            description={language === 'fr' ? 'choisissez la solution adaptée à votre villa.' : undefined}
+            leftSubtitle={language === 'fr' ? 'Ascenseur panoramique avec gaine en verre' : undefined}
+          />
         )}
 
         {showAtlasExtendedSections && (
           <section className="atlas-core-block" id="documents">
             <div className="split-docs-faq">
               <div className="split-col">
-                <h3>{language === "fr" ? "Téléchargements" : "Downloads"}</h3>
+                <h3>Brochures & Catalogues</h3>
                 <div>
                   {(itemTitle === "Atlas Core" ? (language === "fr" ? frAtlasCoreDownloads : atlasCoreDownloads) : (language === "fr" ? frAtlasPanoramaDownloads : atlasPanoramaDownloads)).map((item) => (
                     <a className="compact-download-box" href={item.file || "/contact"} download={item.file ? true : undefined} target={item.file ? "_blank" : undefined} rel={item.file ? "noreferrer" : undefined} key={item.label}>
@@ -1042,23 +1112,34 @@ export default function ElevatorDetail() {
               </div>
             </div>
             <div className="chat-testimonials-grid" style={{ maxWidth: 'var(--max-width)', margin: '0 auto', padding: '0 5%' }}>
-              {(itemTitle === "Atlas Core" ? atlasCoreTestimonials : atlasPanoramaTestimonials).map((item) => (
-                <article className="chat-bubble-card" key={`${item.source}-${item.name}`}>
-                  <div className="chat-header">
-                    <div className="chat-avatar">{item.name.charAt(0)}</div>
-                    <div className="chat-user">
-                      <h4>{item.name}</h4>
-                      <small>{item.source}</small>
+              {hasTestimonialScreenshots
+                ? testimonialScreenshotImages.map((image, index) => (
+                  <article className="chat-bubble-card testimonial-screenshot-card" key={image}>
+                    <img
+                      className="testimonial-screenshot-img"
+                      src={image}
+                      alt={language === "fr" ? `Capture témoignage client ${String(index + 1).padStart(2, "0")}` : `Client testimonial screenshot ${String(index + 1).padStart(2, "0")}`}
+                      loading="lazy"
+                    />
+                  </article>
+                ))
+                : activeTestimonials.map((item) => (
+                  <article className="chat-bubble-card" key={`${item.source}-${item.name}`}>
+                    <div className="chat-header">
+                      <div className="chat-avatar">{item.name.charAt(0)}</div>
+                      <div className="chat-user">
+                        <h4>{item.name}</h4>
+                        <small>{item.source}</small>
+                      </div>
                     </div>
-                  </div>
-                  <div className="chat-message">
-                    {item.text}
-                    <div className="chat-meta">
-                      <span>✓✓</span>
+                    <div className="chat-message">
+                      {item.text}
+                      <div className="chat-meta">
+                        <span>✓✓</span>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                ))}
             </div>
           </section>
         )}
@@ -1068,10 +1149,10 @@ export default function ElevatorDetail() {
             <h2>{language === "fr" ? "Prêt à donner une nouvelle dimension à votre villa ?" : "Ready to give a new dimension to your villa?"}</h2>
             <p>{language === "fr" ? "Contactez nos experts dès aujourd'hui." : "Contact our experts today."}</p>
             <div className="cta-actions">
-              <Link to="/contact" className="btn-gold">
+              <a href={quoteHref} className="btn-gold" target="_blank" rel="noreferrer">
                 {language === "fr" ? "Demander un devis" : "Request a quote"}
-              </Link>
-              <a href="https://wa.me/212600000000" className="btn-whatsapp-outline" target="_blank" rel="noreferrer">
+              </a>
+              <a href={quoteHref} className="btn-whatsapp-outline" target="_blank" rel="noreferrer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </a>
             </div>
