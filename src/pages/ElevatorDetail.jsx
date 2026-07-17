@@ -7,9 +7,9 @@ import PageHero from '../components/layout/PageHero.jsx';
 import { atlasCoreGallery, commercialElevators, comoCabins, elevatorDetailGalleries, residentialElevators } from '../data/siteData.js';
 import { useUI } from '../context/UIContext.jsx';
 import ProductGallery from '../components/ui/ProductGallery.jsx';
-import atlasCoreCataloguePdf from '../assets/pdfs-for-brochures/atlas-core-catalogue.pdf';
-import atlasPanoramaHydraulicPdf from '../assets/pdfs-for-brochures/Atlas Panorama-Hydrauliquee.pdf';
-import atlasPanoramaPdf from '../assets/pdfs-for-brochures/Atlas Panorama.pdf';
+import atlasCoreCataloguePdf from '../assets/pdfs-for-brochures/atlas core.pdf';
+import atlasPanoramaElectricPdf from '../assets/pdfs-for-brochures/Atlas Panorama Electrique.pdf';
+import atlasPanoramaHydraulicPdf from '../assets/pdfs-for-brochures/Atlas Panorama Hydrolique1.pdf';
 import { buildWhatsAppUrl } from '../data/contact.js';
 
 const testimonialScreenshotImages = Object.entries(
@@ -457,11 +457,11 @@ const circularVsPanoramaComparison = {
 };
 
 const atlasCoreDownloads = [
-  { label: 'Download Catalogue', note: 'Discover the Atlas Core range details', file: atlasCoreCataloguePdf },
+  { label: 'Atlas Core Brochure', note: 'Discover the Atlas Core range details', file: atlasCoreCataloguePdf },
 ];
 
 const frAtlasCoreDownloads = [
-  { label: 'Télécharger le Catalogue', note: 'Découvrez les détails de la gamme Atlas Core', file: atlasCoreCataloguePdf },
+  { label: 'Brochure Atlas Core', note: 'Découvrez les détails de la gamme Atlas Core', file: atlasCoreCataloguePdf },
 ];
 
 const atlasCoreFaqs = [
@@ -577,13 +577,13 @@ const atlasPanoramaReasons = [
 ];
 
 const atlasPanoramaDownloads = [
-  { label: "Atlas Panorama Electric Brochure", note: "Electric Traction Edition", file: atlasPanoramaPdf },
-  { label: "Atlas Panorama Hydraulic Brochure", note: "Hydraulic System Edition", file: atlasPanoramaHydraulicPdf },
+  { label: "Atlas Panorama Electrique", note: "Electric Traction Edition", file: atlasPanoramaElectricPdf },
+  { label: "Atlas Panorama Hydrolique", note: "Hydraulic System Edition", file: atlasPanoramaHydraulicPdf },
 ];
 
 const frAtlasPanoramaDownloads = [
-  { label: "Brochure Électrique Atlas Panorama", note: "Édition Traction Électrique", file: atlasPanoramaPdf },
-  { label: "Brochure Hydraulique Atlas Panorama", note: "Édition Système Hydraulique", file: atlasPanoramaHydraulicPdf },
+  { label: "Atlas Panorama Electrique", note: "Édition Traction Électrique", file: atlasPanoramaElectricPdf },
+  { label: "Atlas Panorama Hydrolique", note: "Édition Système Hydraulique", file: atlasPanoramaHydraulicPdf },
 ];
 
 const atlasPanoramaFaqs = [
@@ -643,7 +643,7 @@ const galleryNamesByTitle = {
     'Atlas Circular Imperial',
     'Atlas Circular Platinum',
     'Atlas Circular Diamond',
-    'Atlas Circular Infinity (Flagship)',
+    'Atlas Circular Infinity',
   ],
   'Exterior Elevators': [
     'Atlas Outdoor Pure',
@@ -826,7 +826,7 @@ export default function ElevatorDetail() {
           desc: { en: note.body.split(". " )[index] || note.body.split(". " )[0], fr: note.body.split(". " )[index] || note.body.split(". " )[0] },
           icon: atlasPanoramaReasons[index % atlasPanoramaReasons.length].icon
         }));
-  const brochureHref = itemTitle === "Atlas Panorama" ? atlasPanoramaPdf : itemTitle === "Atlas Core" ? atlasCoreCataloguePdf : "/contact";
+  const brochureHref = itemTitle === "Atlas Panorama" ? atlasPanoramaElectricPdf : itemTitle === "Atlas Core" ? atlasCoreCataloguePdf : "/contact";
   const brochureIsPdf = itemTitle === "Atlas Panorama" || itemTitle === "Atlas Core";
   const pageTitle = page.title[language] ?? page.title.en;
   const pageAccent = page.accent[language] ?? page.accent.en;

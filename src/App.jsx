@@ -12,6 +12,9 @@ import ElevatorDetail from './pages/ElevatorDetail.jsx';
 import CabinDesignPage from './pages/CabinDesignPage.jsx';
 import ComoCabinDetail from './pages/ComoCabinDetail.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import CookiePolicy from './pages/CookiePolicy.jsx';
+import WarrantyMaintenancePolicy from './pages/WarrantyMaintenancePolicy.jsx';
 import SEO from './components/SEO.jsx';
 
 function ScrollToTop() {
@@ -68,6 +71,9 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/configurator" element={<Configurator />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/warranty-maintenance-policy" element={<WarrantyMaintenancePolicy />} />
         </Routes>
       </div>
     </Layout>

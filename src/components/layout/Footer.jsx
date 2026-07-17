@@ -14,10 +14,10 @@ export default function Footer() {
         <div className="footer-col">
           <h4>{t('footerQuickLinks')}</h4>
           <Link to="/about">{t('aboutUs')}</Link>
-          <Link to="/elevators">{t('ourElevators')}</Link>
-          <Link to="/configurator">{t('personal3d')}</Link>
           <Link to="/service">{t('serviceMaintenance')}</Link>
-          <Link to="/projects">{t('ourProjects')}</Link>
+          <Link to="/terms-and-conditions">{t('termsConditions')}</Link>
+          <Link to="/cookie-policy">{t('cookiePolicy')}</Link>
+          <Link to="/warranty-maintenance-policy">{t('warrantyMaintenancePolicy')}</Link>
           <Link to="/contact">{t('footerContact')}</Link>
         </div>
         <div className="footer-col">

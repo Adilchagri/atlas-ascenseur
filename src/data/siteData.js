@@ -53,6 +53,8 @@ import atlasCoreCasablanca from '../assets/images/atlas-core/villa-elevator-casa
 import atlasCoreBuilding from '../assets/images/atlas-core/apartment-building-elevator-morocco.jpg';
 import atlasCoreMarrakech from '../assets/images/atlas-core/premium-residential-lift-marrakech.jpg';
 import atlasCoreShaft from '../assets/images/atlas-core/concrete-shaft-elevator-atlas-core.jpg';
+import souissiRabatVideo from '../assets/images/videos_our_projects/souissi rabat.mp4';
+import amelkisMarrakechVideo from '../assets/images/videos_our_projects/Amelkis Marrakech.mp4';
 
 const withFallback = (src, fallback) => fallback || src;
 
@@ -86,7 +88,7 @@ const doorGallery = Object.entries(import.meta.glob('../assets/images/Doors/*.{j
   .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
   .map(([, src]) => src);
 const inspirationGallery = galleryFrom(import.meta.glob('../assets/images/Inspiration Gallery/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
-const projectVideos = galleryFrom(import.meta.glob('../assets/images/videos_our_projects/*.mp4', { eager: true, import: 'default' }));
+const projectVideos = galleryFrom(import.meta.glob('../assets/images/videos_our_projects/WhatsApp*.mp4', { eager: true, import: 'default' }));
 
 const comoCabinSpecs = [
   { id: '208', specs: [['Ceiling', 'C203 hairline stainless steel with LED ceiling light'], ['COP', 'COP43-00 dot matrix display with hairline stainless steel faceplate'], ['Cabin Walls', 'CAR208 hairline stainless steel'], ['Cabin Door', 'L01-00 hairline stainless steel']] },
@@ -316,9 +318,9 @@ export const libraryCabinImages = {
 export const projects = [
   { category: 'Residential - Marrakech', title: 'Palmeraie Marrakech', desc: 'Custom residential elevator for a luxury villa in the Palmeraie district.', video: projectVideos[0], image: imagePaths.projects.villa },
   { category: 'Residential - Casablanca', title: 'Ain Diab Casablanca', desc: 'Private lift installation for a coastal residence with refined cabin finishes and compact access.', video: projectVideos[1], image: imagePaths.projects.marina },
-  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
-  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: projectVideos[3], image: imagePaths.projects.circular },
-  { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: projectVideos[4], image: imagePaths.projects.outdoor },
+  { category: 'Commercial - Casablanca', title: 'Zone industrielle- Mohammedia', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
+  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: souissiRabatVideo, image: imagePaths.projects.circular },
+  { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
 ];
 
 export const services = [
@@ -428,9 +430,9 @@ export const frCommercialElevators = [
 export const frProjects = [
   { category: 'Résidentiel - Marrakech', title: 'Palmeraie Marrakech', desc: 'Ascenseur résidentiel sur mesure pour une villa de luxe dans le quartier de la Palmeraie.', video: projectVideos[0], image: imagePaths.projects.villa },
   { category: 'Résidentiel - Casablanca', title: 'Ain Diab Casablanca', desc: 'Installation d’un ascenseur privé pour une résidence côtière avec finitions raffinées et accès compact.', video: projectVideos[1], image: imagePaths.projects.marina },
-  { category: 'Commercial - Casablanca', title: 'Anfa Casablanca', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
-  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: projectVideos[3], image: imagePaths.projects.circular },
-  { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: projectVideos[4], image: imagePaths.projects.outdoor },
+  { category: 'Commercial - Casablanca', title: 'Zone industrielle- Mohammedia', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
+  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: souissiRabatVideo, image: imagePaths.projects.circular },
+  { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
 ];
 
 export const frServices = [

@@ -294,6 +294,36 @@ const routeSeo = {
       description: 'Read the Atlas Ascenseurs privacy policy for website, Facebook Lead Forms, social media, inquiry, and project information handling.',
     },
   },
+  '/terms-and-conditions': {
+    en: {
+      title: 'Terms and Conditions - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs terms and conditions for website use, quotations, orders, delivery, installation, warranty, maintenance, and governing law.',
+    },
+    fr: {
+      title: 'Terms and Conditions - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs terms and conditions for website use, quotations, orders, delivery, installation, warranty, maintenance, and governing law.',
+    },
+  },
+  '/cookie-policy': {
+    en: {
+      title: 'Cookie Policy - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs cookie policy, including how cookies are used, cookie types, browser controls, and third-party services.',
+    },
+    fr: {
+      title: 'Cookie Policy - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs cookie policy, including how cookies are used, cookie types, browser controls, and third-party services.',
+    },
+  },
+  '/warranty-maintenance-policy': {
+    en: {
+      title: 'Warranty & Maintenance Policy - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs warranty and maintenance policy, including manufacturer warranty, exclusions, preventive maintenance, service requests, and spare parts.',
+    },
+    fr: {
+      title: 'Warranty & Maintenance Policy - Atlas Ascenseurs',
+      description: 'Read the Atlas Ascenseurs warranty and maintenance policy, including manufacturer warranty, exclusions, preventive maintenance, service requests, and spare parts.',
+    },
+  },
 };
 
 const routeKeywords = {
@@ -329,6 +359,18 @@ const routeKeywords = {
     en: ['Atlas Ascenseurs privacy policy', 'personal information Atlas Ascenseurs', 'Meta Lead Forms Atlas Ascenseurs'],
     fr: ['politique de confidentialité Atlas Ascenseurs', 'données personnelles Atlas Ascenseurs', 'formulaire Meta Atlas Ascenseurs'],
   },
+  '/terms-and-conditions': {
+    en: ['Atlas Ascenseurs terms and conditions', 'Atlas Ascenseurs quotation terms', 'Atlas Ascenseurs warranty terms'],
+    fr: ['conditions générales Atlas Ascenseurs', 'conditions devis Atlas Ascenseurs', 'garantie Atlas Ascenseurs'],
+  },
+  '/cookie-policy': {
+    en: ['Atlas Ascenseurs cookie policy', 'website cookies Atlas Ascenseurs', 'Google Analytics cookies Atlas Ascenseurs'],
+    fr: ['politique cookies Atlas Ascenseurs', 'cookies site Atlas Ascenseurs', 'Google Analytics cookies Atlas Ascenseurs'],
+  },
+  '/warranty-maintenance-policy': {
+    en: ['Atlas Ascenseurs warranty policy', 'elevator maintenance policy Morocco', 'manufacturer warranty Atlas Ascenseurs'],
+    fr: ['politique garantie Atlas Ascenseurs', 'maintenance ascenseur Maroc', 'garantie fabricant Atlas Ascenseurs'],
+  },
 };
 
 const routeLabels = {
@@ -353,6 +395,9 @@ const routeLabels = {
   '/contact': { en: 'Contact', fr: 'Contact' },
   '/configurator': { en: '3D Personalization', fr: 'Personnalisation 3D' },
   '/privacy-policy': { en: 'Privacy Policy', fr: 'Privacy Policy' },
+  '/terms-and-conditions': { en: 'Terms and Conditions', fr: 'Terms and Conditions' },
+  '/cookie-policy': { en: 'Cookie Policy', fr: 'Cookie Policy' },
+  '/warranty-maintenance-policy': { en: 'Warranty & Maintenance Policy', fr: 'Warranty & Maintenance Policy' },
 };
 
 function setMeta(selector, attribute, value) {
@@ -472,7 +517,7 @@ function getRouteImage(pathname) {
   if (normalized === '/contact') return pageImages.contact;
   if (normalized === '/service') return pageImages.service;
   if (normalized === '/about') return pageImages.about;
-  if (normalized === '/privacy-policy') return pageImages.privacy;
+  if (['/privacy-policy', '/terms-and-conditions', '/cookie-policy', '/warranty-maintenance-policy'].includes(normalized)) return pageImages.privacy;
   if (normalized === '/elevators') return imagePaths.elevators.comoResidential;
   if (normalized === '/villa-glass-elevators-morocco') return imagePaths.elevators.astoria;
   if (normalized === '/residential-elevators-morocco') return imagePaths.elevators.comoResidential;
