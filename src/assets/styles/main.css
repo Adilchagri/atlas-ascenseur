@@ -1148,12 +1148,26 @@ nav.scrolled {
   margin-bottom: 30px;
 }
 .partners-glider {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   border-top: 1px solid var(--gold-border);
   border-bottom: 1px solid var(--gold-border);
   background: linear-gradient(90deg, rgba(201,168,76,0.05), rgba(255,255,255,0.02), rgba(201,168,76,0.05));
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-y;
+}
+.partners-glider::-webkit-scrollbar {
+  display: none;
+}
+.partners-glider.is-interactive {
+  cursor: grab;
+}
+.partners-glider.is-dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 .partners-track {
   display: flex;
@@ -1161,11 +1175,9 @@ nav.scrolled {
   width: max-content;
   padding: 18px 0;
 }
+/* Glide is driven by JS so cursor drag can control the same track */
 .partners-track.is-animated {
-  animation: partnersGlide 26s linear infinite;
-}
-.partners-glider:hover .partners-track.is-animated {
-  animation-play-state: paused;
+  animation: none;
 }
 .partner-logo-card {
   flex: 0 0 clamp(160px, 18vw, 240px);
@@ -1174,22 +1186,38 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 22px;
+  padding: 16px 20px;
   border: 1px solid var(--gold-border);
-  background: rgba(255,255,255,0.035);
+  /* Light plate so dark / removebg PNGs stay readable on the dark site */
+  background: linear-gradient(180deg, #f7f4ec 0%, #efe9dc 100%);
+  box-shadow: inset 0 0 0 1px rgba(201,168,76,0.12);
 }
 .partner-logo-card img {
   width: 100%;
   height: 100%;
+  max-height: 76px;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.05);
-  opacity: 0.86;
+  object-position: center;
+  filter: grayscale(1) contrast(1.08);
+  opacity: 0.9;
   transition: filter var(--motion-medium) var(--ease-soft), opacity var(--motion-medium) var(--ease-soft), transform var(--motion-medium) var(--ease-soft);
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 .partner-logo-card:hover img {
   filter: grayscale(0) contrast(1.02);
   opacity: 1;
   transform: scale(1.035);
+}
+/* Same card box as the others — only the Al Maaden artwork is a bit larger */
+.partner-logo-card--enlarge img {
+  max-height: 96px;
+  transform: scale(1.18);
+  transform-origin: center center;
+}
+.partner-logo-card--enlarge:hover img {
+  transform: scale(1.22);
 }
 @keyframes partnersGlide {
   from { transform: translateX(0); }
@@ -3312,16 +3340,14 @@ footer { background: var(--black-2); border-top: 1px solid var(--gold-border); p
     overflow-x: auto;
     -webkit-mask-image: none;
     mask-image: none;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) var(--black-2);
-  }
-  .partners-track.is-animated {
-    animation: none;
   }
   .partner-logo-card {
     flex-basis: min(58vw, 240px);
     height: 96px;
-    padding: 18px;
+    padding: 14px 16px;
+  }
+  .partner-logo-card img {
+    max-height: 64px;
   }
   .form-row { grid-template-columns: 1fr; }
   .elevators-header { flex-direction: column; align-items: flex-start; gap: 16px; }

@@ -320,7 +320,7 @@ export const projects = [
   { category: 'Residential - Casablanca', title: 'Ain Diab Casablanca', desc: 'Private lift installation for a coastal residence with refined cabin finishes and compact access.', video: projectVideos[1], image: imagePaths.projects.marina },
   { category: 'Commercial - Casablanca', title: 'Zone industrielle- Mohammedia', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
   { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: souissiRabatVideo, image: imagePaths.projects.circular },
-  { category: 'Outdoor - Tangier', title: 'Malabata Tanger', desc: 'Weatherproof external lift for a hillside residential property in Tangier.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
+  { category: 'Residential - Marrakech', title: 'Amelkis Marrakech', desc: 'Custom residential elevator installation for a luxury property in Amelkis, Marrakech.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
 ];
 
 export const services = [
@@ -432,7 +432,7 @@ export const frProjects = [
   { category: 'Résidentiel - Casablanca', title: 'Ain Diab Casablanca', desc: 'Installation d’un ascenseur privé pour une résidence côtière avec finitions raffinées et accès compact.', video: projectVideos[1], image: imagePaths.projects.marina },
   { category: 'Commercial - Casablanca', title: 'Zone industrielle- Mohammedia', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
   { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: souissiRabatVideo, image: imagePaths.projects.circular },
-  { category: 'Extérieur - Tanger', title: 'Malabata Tanger', desc: 'Ascenseur extérieur résistant aux intempéries pour une propriété résidentielle en pente à Tanger.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
+  { category: 'Résidentiel - Marrakech', title: 'Amelkis Marrakech', desc: 'Installation d’un ascenseur résidentiel sur mesure pour une propriété de luxe à Amelkis, Marrakech.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
 ];
 
 export const frServices = [
