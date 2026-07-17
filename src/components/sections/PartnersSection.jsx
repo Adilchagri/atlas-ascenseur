@@ -128,7 +128,6 @@ export default function PartnersSection() {
 
   const images = isAnimated ? [...partnerImages, ...partnerImages] : partnerImages;
   const title = language === 'fr' ? 'Nos Partenaires' : 'Our Partners';
-  const imageLabel = language === 'fr' ? 'partenaires' : 'partners';
 
   return (
     <section className="section partners-section" aria-labelledby="partners-title">
@@ -137,7 +136,6 @@ export default function PartnersSection() {
           <div className="eyebrow">{title}</div>
           <h2 className="section-title tight-title" id="partners-title">{title}</h2>
         </div>
-        <span className="gallery-count">{partnerImages.length} {imageLabel}</span>
       </div>
 
       <div

@@ -626,7 +626,7 @@ const galleryNamesByTitle = {
     'Atlas Panorama Prestige',
     'Atlas Panorama Horizon',
     'Atlas Panorama Imperial',
-    'Atlas Panorama Infinity (Flagship model)',
+    'Atlas Panorama Infinity',
   ],
   'Circular Elevators': [
     'Atlas Circular Pure',

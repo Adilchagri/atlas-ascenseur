@@ -15,6 +15,7 @@ export default function Footer() {
           <h4>{t('footerQuickLinks')}</h4>
           <Link to="/about">{t('aboutUs')}</Link>
           <Link to="/service">{t('serviceMaintenance')}</Link>
+          <Link to="/privacy-policy">{t('privacyPolicy')}</Link>
           <Link to="/terms-and-conditions">{t('termsConditions')}</Link>
           <Link to="/cookie-policy">{t('cookiePolicy')}</Link>
           <Link to="/warranty-maintenance-policy">{t('warrantyMaintenancePolicy')}</Link>
