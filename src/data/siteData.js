@@ -53,7 +53,7 @@ import atlasCoreCasablanca from '../assets/images/atlas-core/villa-elevator-casa
 import atlasCoreBuilding from '../assets/images/atlas-core/apartment-building-elevator-morocco.jpg';
 import atlasCoreMarrakech from '../assets/images/atlas-core/premium-residential-lift-marrakech.jpg';
 import atlasCoreShaft from '../assets/images/atlas-core/concrete-shaft-elevator-atlas-core.jpg';
-import souissiRabatVideo from '../assets/images/videos_our_projects/souissi rabat.mp4';
+import marrakechVideo from '../assets/images/videos_our_projects/souissi rabat.mp4';
 import amelkisMarrakechVideo from '../assets/images/videos_our_projects/Amelkis Marrakech.mp4';
 
 const withFallback = (src, fallback) => fallback || src;
@@ -319,7 +319,7 @@ export const projects = [
   { category: 'Residential - Marrakech', title: 'Palmeraie Marrakech', desc: 'Custom residential elevator for a luxury villa in the Palmeraie district.', video: projectVideos[0], image: imagePaths.projects.villa },
   { category: 'Residential - Casablanca', title: 'Ain Diab Casablanca', desc: 'Private lift installation for a coastal residence with refined cabin finishes and compact access.', video: projectVideos[1], image: imagePaths.projects.marina },
   { category: 'Commercial - Casablanca', title: 'Zone industrielle- Mohammedia', desc: 'Medical-grade lift installation for a professional space in Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
-  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: souissiRabatVideo, image: imagePaths.projects.circular },
+  { category: 'Residential - Rabat', title: 'Souissi Rabat', desc: 'Panoramic circular lift for a modern residence in Rabat.', video: marrakechVideo, image: imagePaths.projects.circular },
   { category: 'Residential - Marrakech', title: 'Amelkis Marrakech', desc: 'Custom residential elevator installation for a luxury property in Amelkis, Marrakech.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
 ];
 
@@ -431,7 +431,7 @@ export const frProjects = [
   { category: 'Résidentiel - Marrakech', title: 'Palmeraie Marrakech', desc: 'Ascenseur résidentiel sur mesure pour une villa de luxe dans le quartier de la Palmeraie.', video: projectVideos[0], image: imagePaths.projects.villa },
   { category: 'Résidentiel - Casablanca', title: 'Ain Diab Casablanca', desc: 'Installation d’un ascenseur privé pour une résidence côtière avec finitions raffinées et accès compact.', video: projectVideos[1], image: imagePaths.projects.marina },
   { category: 'Commercial - Casablanca', title: 'Zone industrielle- Mohammedia', desc: 'Installation d’un ascenseur adapté à un espace professionnel à Casablanca.', video: projectVideos[2], image: imagePaths.projects.veterinary },
-  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: souissiRabatVideo, image: imagePaths.projects.circular },
+  { category: 'Résidentiel - Rabat', title: 'Souissi Rabat', desc: 'Ascenseur panoramique circulaire pour une résidence moderne à Rabat.', video: marrakechVideo, image: imagePaths.projects.circular },
   { category: 'Résidentiel - Marrakech', title: 'Amelkis Marrakech', desc: 'Installation d’un ascenseur résidentiel sur mesure pour une propriété de luxe à Amelkis, Marrakech.', video: amelkisMarrakechVideo, image: imagePaths.projects.outdoor },
 ];
 
