@@ -10,6 +10,22 @@ import ProductGallery from '../components/ui/ProductGallery.jsx';
 import atlasCoreCataloguePdf from '../assets/pdfs-for-brochures/atlas core.pdf';
 import atlasPanoramaElectricPdf from '../assets/pdfs-for-brochures/Atlas Panorama Electrique.pdf';
 import atlasPanoramaHydraulicPdf from '../assets/pdfs-for-brochures/Atlas Panorama Hydrolique1.pdf';
+import cop50001 from '../assets/images/commands and buttons/cop500-01.png';
+import cop504 from '../assets/images/commands and buttons/cop504.png';
+import hop508 from '../assets/images/commands and buttons/hop508.png';
+import hop510 from '../assets/images/commands and buttons/hop510.png';
+import hop511 from '../assets/images/commands and buttons/hop511.png';
+import hop512 from '../assets/images/commands and buttons/hop512.png';
+import atlasCoreCover from '../assets/images/new-covers/atlas-core.png';
+import atlasPanoramaCover from '../assets/images/new-covers/atlas-panorma.png';
+import circularElevatorCover from '../assets/images/new-covers/circulare-elevator.png';
+import exteriorElevatorCover from '../assets/images/new-covers/exterior-elevator.png';
+import circularPureImage from '../assets/images/new-circular-pics/Aging in Place_ Residential Elevator.jpeg';
+import circularNovaImage from '../assets/images/new-circular-pics/Installation of home lift in Perth.jpeg';
+import circularSelectImage from '../assets/images/new-circular-pics/Double-Height Living Room with Sculptural Glass Elevator _ M-System Elevator.jpeg';
+import circularOneImage from '../assets/images/new-circular-pics/Vuelift Elevator - Savaria.jpeg';
+import circularEleganceImage from '../assets/images/new-circular-pics/WhatsApp Image 2026-09-09 at 17.33.25.jpeg';
+import circularHorizonImage from '../assets/images/new-circular-pics/Industrial Minimalism and Modern Art Accents _ M-System Elevator.jpeg';
 import { buildWhatsAppUrl } from '../data/contact.js';
 
 const testimonialScreenshotImages = Object.entries(
@@ -27,6 +43,22 @@ const noGalleryPages = new Set([
   'Cargo Lifts',
   'Dumbwaiter Lifts',
 ]);
+
+const heroCoverByTitle = {
+  'Atlas Core': atlasCoreCover,
+  'Atlas Panorama': atlasPanoramaCover,
+  'Circular Elevators': circularElevatorCover,
+  'Exterior Elevators': exteriorElevatorCover,
+};
+
+const circularGalleryReplacements = {
+  'Atlas Circular Pure': circularPureImage,
+  'Atlas Circular Nova': circularNovaImage,
+  'Atlas Circular Select': circularSelectImage,
+  'Atlas Circular One': circularOneImage,
+  'Atlas Circular Elegance': circularEleganceImage,
+  'Atlas Circular Horizon': circularHorizonImage,
+};
 
 const elevatorPages = {
   '/elevators/circular-elevators': { title: { en: 'Circular', fr: 'Ascenseurs' }, accent: { en: 'Elevators', fr: 'Circulaires' }, source: 'res', key: 'Circular Elevators' },
@@ -618,15 +650,14 @@ const atlasPanoramaTestimonials = [
 
 const galleryNamesByTitle = {
   'Atlas Panorama': [
-    'Atlas Panorama Pure (Entry model)',
-    'Atlas Panorama Edge',
-    'Atlas Panorama Select',
-    'Atlas Panorama Elegance',
-    'Atlas Panorama Signature',
-    'Atlas Panorama Prestige',
-    'Atlas Panorama Horizon',
-    'Atlas Panorama Imperial',
-    'Atlas Panorama Infinity',
+    'Atlas Panorama Clear',
+    'Atlas Panorama Black',
+    'Atlas Panorama Champagne',
+    'Atlas Panorama Architectural',
+    'Atlas Panorama White',
+    'Atlas Panorama Bronze',
+    'Atlas Panorama Graphite',
+    'Atlas Panorama Ruby Red',
   ],
   'Circular Elevators': [
     'Atlas Circular Pure',
@@ -658,6 +689,130 @@ const galleryNamesByTitle = {
     'Atlas Outdoor Infinity',
   ],
 };
+
+const atlasPanoramaFinishes = [
+  { name: 'Clear', detail: 'Pure & minimal', className: 'clear' },
+  { name: 'Black', detail: 'Bold & modern', className: 'black' },
+  { name: 'Champagne', detail: 'Elegant & timeless', className: 'champagne' },
+  { name: 'Bronze', detail: 'Warm & sophisticated', className: 'bronze' },
+  { name: 'White', detail: 'Clean & contemporary', className: 'white' },
+  { name: 'Architectural', detail: 'Decorative slats', className: 'architectural' },
+  { name: 'Graphite', detail: 'Deep & refined', className: 'graphite' },
+  { name: 'Ruby Red', detail: 'A statement finish', className: 'ruby-red' },
+];
+
+const atlasPanoramaCeilings = [
+  { name: 'C503 · Ti Black', className: 'ti-black' },
+  { name: 'C503 · Champagne Gold', className: 'champagne-gold' },
+  { name: 'C503 · Rose Gold', className: 'rose-gold' },
+  { name: 'C503 · Ti Gold', className: 'ti-gold' },
+  { name: 'C503 · Mirror Stainless Steel', className: 'mirror-steel' },
+];
+
+const atlasPanoramaFloors = [
+  { name: 'D32 Jazz White', className: 'jazz-white' },
+  { name: 'D33 Light Grey', className: 'light-grey' },
+  { name: 'D34 Elegant Black', className: 'elegant-black' },
+  { name: 'D35 Italy Grey', className: 'italy-grey' },
+  { name: '715-1 Hermes Grey', className: 'hermes-grey' },
+  { name: '715-2 Cyprus Grey', className: 'cyprus-grey' },
+  { name: '5128 Moonlight Beige', className: 'moonlight-beige' },
+  { name: '701A Portugal Grey', className: 'portugal-grey' },
+  { name: '6016-8 Castle Grey', className: 'castle-grey' },
+];
+
+const atlasPanoramaControls = [
+  { id: 'COP500-01', type: 'Cabin control', image: cop50001, spec: '13.3-inch full touch screen', note: '200 × 350 × 13 mm · Wall-mounted' },
+  { id: 'COP504', type: 'Cabin control', image: cop504, spec: '13-inch touch LCD display', note: '201 × 350 × 11.5 mm · Aluminium & glass' },
+  { id: 'HOP508', type: 'Landing button', image: hop508, spec: 'Touch button · metal & glass', note: '43 × 118 × 15 mm' },
+  { id: 'HOP512', type: 'Landing button', image: hop512, spec: 'Touch button · zinc alloy & glass', note: '31 × 140 × 14 mm' },
+  { id: 'HOP510', type: 'Landing button', image: hop510, spec: 'Touch button · wood-grain detail', note: '43 × 160.5 × 10.5 mm' },
+  { id: 'HOP511', type: 'Landing button', image: hop511, spec: 'Touch button · aluminium & glass', note: '39 × 45.5 × 8.7 mm' },
+];
+
+function AtlasPanoramaFinishes({ language }) {
+  const [activeMaterial, setActiveMaterial] = useState('floor');
+  const copy = language === 'fr'
+    ? { eyebrow: 'Couleurs & finitions', title: 'Une personnalisation à votre image', intro: 'Du classique à l’audacieux, nos finitions s’accordent à chaque signature architecturale.', interiorEyebrow: 'Détails intérieurs', interiorTitle: 'Le raffinement, jusque dans les moindres détails.', interiorText: 'Plafond, sol et finitions composent une atmosphère de cabine cohérente.', ceiling: 'Options de plafond', floor: 'Options de sol' }
+    : { eyebrow: 'Colours & finishes', title: 'Personalisation with character', intro: 'From classic to bold, our finishes are designed to match every architectural style.', interiorEyebrow: 'Interior details', interiorTitle: 'Refinement, down to every detail.', interiorText: 'Ceiling, flooring and finishes combine to create an exceptional cabin atmosphere.', ceiling: 'Ceiling options', floor: 'Flooring options' };
+
+  return (
+    <section className="atlas-panorama-finishes text-center-luxury">
+      <div className="atlas-panorama-finishes-head">
+        <div>
+          <div className="eyebrow">{copy.eyebrow}</div>
+          <h2 className="section-title tight-title">{copy.title}</h2>
+        </div>
+        <p>{copy.intro}</p>
+      </div>
+      <div className="atlas-panorama-swatch-grid">
+        {atlasPanoramaFinishes.map((finish) => (
+          <article className="atlas-panorama-swatch" key={finish.name}>
+            <span className={`atlas-panorama-swatch-circle atlas-panorama-swatch-circle--${finish.className}`} aria-hidden="true" />
+            <h3>Atlas Panorama <strong>{finish.name}</strong></h3>
+            <p>{finish.detail}</p>
+          </article>
+        ))}
+      </div>
+      <div className="atlas-panorama-interior-options">
+        <div className="atlas-panorama-interior-heading">
+          <div className="atlas-panorama-interior-intro">
+            <div className="eyebrow">{copy.interiorEyebrow}</div>
+            <h3>{copy.interiorTitle}</h3>
+          </div>
+          <p>{copy.interiorText}</p>
+        </div>
+        <div className="atlas-panorama-material-layout">
+          <div className="atlas-panorama-material-nav" role="tablist" aria-label={language === 'fr' ? 'Choix de matériaux' : 'Material selections'}>
+            <button type="button" role="tab" aria-selected={activeMaterial === 'floor'} className={activeMaterial === 'floor' ? 'is-active' : ''} onClick={() => setActiveMaterial('floor')}><b>02</b>{copy.floor}</button>
+            <button type="button" role="tab" aria-selected={activeMaterial === 'ceiling'} className={activeMaterial === 'ceiling' ? 'is-active' : ''} onClick={() => setActiveMaterial('ceiling')}><b>01</b>{copy.ceiling}</button>
+          </div>
+          <div className="atlas-panorama-interior-grid">
+          {activeMaterial === 'ceiling' ? (
+            <div className="atlas-panorama-option-group" role="tabpanel">
+              <div className="atlas-panorama-option-heading"><h4>{language === 'fr' ? 'Plafonds avec éclairage LED intégré' : 'Ceilings with integrated LED lighting'}</h4></div>
+            <div className="atlas-panorama-ceiling-list">
+              {atlasPanoramaCeilings.map((ceiling) => (
+                <article className="atlas-panorama-ceiling-option" key={ceiling.name}>
+                  <span className={`atlas-panorama-ceiling-visual atlas-panorama-ceiling-visual--${ceiling.className}`} aria-hidden="true"><i /></span>
+                  <p>{ceiling.name}</p>
+                </article>
+              ))}
+            </div>
+            </div>
+          ) : (
+            <div className="atlas-panorama-option-group" role="tabpanel">
+            <div className="atlas-panorama-option-heading"><h4>{language === 'fr' ? 'Sols minéraux sélectionnés' : 'Curated mineral flooring'}</h4></div>
+            <div className="atlas-panorama-floor-list">
+              {atlasPanoramaFloors.map((floor) => (
+                <article className="atlas-panorama-floor-option" key={floor.name}>
+                  <span className={`atlas-panorama-floor-visual atlas-panorama-floor-visual--${floor.className}`} aria-hidden="true" />
+                  <p>{floor.name}</p>
+                </article>
+              ))}
+            </div>
+            </div>
+          )}
+          </div>
+        </div>
+      </div>
+      <div className="atlas-panorama-controls">
+        <div className="atlas-panorama-controls-heading">
+          <div><div className="eyebrow">{language === 'fr' ? 'Commandes & boutons' : 'Controls & buttons'}</div><h3>{language === 'fr' ? 'Une interaction aussi élégante que l’ascenseur.' : 'An interaction as elegant as the elevator.'}</h3></div>
+          <p>{language === 'fr' ? 'Écrans de cabine et boutons de palier sélectionnés pour leur précision, leur toucher et leur présence.' : 'Cabin displays and landing buttons selected for their precision, tactility, and presence.'}</p>
+        </div>
+        <div className="atlas-panorama-control-grid">
+          {atlasPanoramaControls.map((control) => (
+            <article className="atlas-panorama-control-card" key={control.id}>
+              <div className="atlas-panorama-control-image"><img src={control.image} alt={`${control.id} ${control.type}`} loading="lazy" /></div>
+              <div className="atlas-panorama-control-copy"><span>{control.type}</span><h4>{control.id}</h4><p>{control.spec}</p><small>{control.note}</small></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function PanoramaVsCoreComparison({ language, comparison = atlasCoreComparison, title = 'PANORAMA VS CORE', description, leftSubtitle, rightImage = atlasCoreCompareImg, rightTitle = 'ATLAS CORE', rightSubtitle }) {
   const comparisonRows = comparison[language] ?? comparison.en;
@@ -802,7 +957,11 @@ export default function ElevatorDetail() {
   const item = residentialElevators.find((e) => e[1] === pageKey) ?? commercialElevators.find((e) => e[1] === pageKey) ?? residentialElevators[0];
 
   const [, itemTitle, itemText, itemImage] = item;
-  const gallery = elevatorDetailGalleries[itemTitle] ?? [itemImage];
+  const heroCover = heroCoverByTitle[itemTitle] ?? itemImage;
+  const sourceGallery = elevatorDetailGalleries[itemTitle] ?? [itemImage];
+  const gallery = itemTitle === 'Circular Elevators'
+    ? sourceGallery.map((image, index) => circularGalleryReplacements[galleryNamesByTitle['Circular Elevators']?.[index]] ?? image)
+    : sourceGallery;
   const showGallery = !noGalleryPages.has(itemTitle);
   const phoneTallGalleryPages = new Set(["Atlas Panorama", "Atlas Core", "Circular Elevators", "Exterior Elevators"]);
   const usePhoneTallGallery = phoneTallGalleryPages.has(itemTitle);
@@ -850,7 +1009,7 @@ export default function ElevatorDetail() {
           <section className="elevator-luxury-hero">
             <div 
               className="elevator-luxury-hero-bg" 
-              style={{ backgroundImage: `url(${itemImage})` }}
+              style={{ backgroundImage: `url(${heroCover})` }}
             />
             <div className="elevator-luxury-hero-overlay"></div>
             <div className="elevator-luxury-hero-content">
@@ -986,8 +1145,8 @@ export default function ElevatorDetail() {
 
         {showGallery && (
           <ProductGallery
-            eyebrow={language === "fr" ? "Galerie Produit" : "Product Gallery"}
-            title="Inspirations & Realisations"
+            eyebrow={itemTitle === "Atlas Panorama" ? (language === "fr" ? "Nos modèles" : "Our models") : (language === "fr" ? "Galerie Produit" : "Product Gallery")}
+            title={itemTitle === "Atlas Panorama" ? (language === "fr" ? "Configurations Atlas Panorama" : "Atlas Panorama Configurations") : "Inspirations & Realisations"}
             images={gallery}
             className={`${usePhoneTallGallery ? "product-gallery-phone-tall" : ""} ${itemTitle === "Atlas Panorama" ? "text-center-luxury" : ""}`.trim()}
             showAll={itemTitle === "Atlas Panorama" || showExteriorSections || showCircularSections}
@@ -1021,6 +1180,8 @@ export default function ElevatorDetail() {
             }}
           />
         )}
+
+        {showAtlasPanoramaSections && <AtlasPanoramaFinishes language={language} />}
 
         {showCircularSections && (
           <PanoramaVsCoreComparison

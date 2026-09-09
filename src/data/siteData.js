@@ -76,9 +76,10 @@ function galleriesByCabin(modules) {
 }
 
 const astoriaGallery = galleryFrom(import.meta.glob('../assets/images/astoria_range/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
+export const atlasPanoramaGallery = galleryFrom(import.meta.glob('../assets/images/section_atlas_panorama/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const comoCabinImages = galleriesByCabin(import.meta.glob('../assets/images/como_range/cabine*/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
-const circularGallery = galleryFrom(import.meta.glob('../assets/images/circular_elevators/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
-const exteriorGallery = galleryFrom(import.meta.glob('../assets/images/exterior_elevators/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
+const circularGallery = galleryFrom(import.meta.glob('../assets/images/new-circular_gallery/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
+const exteriorGallery = galleryFrom(import.meta.glob('../assets/images/ne-exterior-gallery/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const comoCommercialGallery = galleryFrom(import.meta.glob('../assets/images/Como_Commercial_Range/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const escalatorGallery = galleryFrom(import.meta.glob('../assets/images/escalators/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
 const carLiftGallery = galleryFrom(import.meta.glob('../assets/images/car-lifts/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }));
@@ -275,7 +276,7 @@ export const commercialElevators = [
 ];
 
 export const elevatorDetailGalleries = {
-  'Atlas Panorama': astoriaGallery,
+  'Atlas Panorama': atlasPanoramaGallery,
   'Atlas Core': atlasCoreGallery.map((item) => item.src),
   'Circular Elevators': circularGallery,
   'Exterior Elevators': exteriorGallery,
