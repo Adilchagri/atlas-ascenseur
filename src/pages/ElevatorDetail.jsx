@@ -20,10 +20,10 @@ import atlasCoreCover from '../assets/images/new-covers/atlas-core.png';
 import atlasPanoramaCover from '../assets/images/new-covers/atlas-panorma.png';
 import circularElevatorCover from '../assets/images/new-covers/circulare-elevator.png';
 import exteriorElevatorCover from '../assets/images/new-covers/exterior-elevator.png';
-import circularPureImage from '../assets/images/new-circular-pics/Aging in Place_ Residential Elevator.jpeg';
+import circularPureImage from '../assets/images/two replace pics/circular-pure.jpeg';
 import circularNovaImage from '../assets/images/new-circular-pics/Installation of home lift in Perth.jpeg';
 import circularSelectImage from '../assets/images/new-circular-pics/Double-Height Living Room with Sculptural Glass Elevator _ M-System Elevator.jpeg';
-import circularOneImage from '../assets/images/new-circular-pics/Vuelift Elevator - Savaria.jpeg';
+import circularOneImage from '../assets/images/two replace pics/Harmonious Blend of Premium Textures _ M-System Elevator.jpeg';
 import circularEleganceImage from '../assets/images/new-circular-pics/WhatsApp Image 2026-09-09 at 17.33.25.jpeg';
 import circularHorizonImage from '../assets/images/new-circular-pics/Industrial Minimalism and Modern Art Accents _ M-System Elevator.jpeg';
 import { buildWhatsAppUrl } from '../data/contact.js';
@@ -59,6 +59,12 @@ const circularGalleryReplacements = {
   'Atlas Circular Elegance': circularEleganceImage,
   'Atlas Circular Horizon': circularHorizonImage,
 };
+
+const circularGalleryPriority = [
+  'Atlas Circular Elegance',
+  'Atlas Circular Select',
+  'Atlas Circular Crystal',
+];
 
 const elevatorPages = {
   '/elevators/circular-elevators': { title: { en: 'Circular', fr: 'Ascenseurs' }, accent: { en: 'Elevators', fr: 'Circulaires' }, source: 'res', key: 'Circular Elevators' },
@@ -959,9 +965,19 @@ export default function ElevatorDetail() {
   const [, itemTitle, itemText, itemImage] = item;
   const heroCover = heroCoverByTitle[itemTitle] ?? itemImage;
   const sourceGallery = elevatorDetailGalleries[itemTitle] ?? [itemImage];
-  const gallery = itemTitle === 'Circular Elevators'
-    ? sourceGallery.map((image, index) => circularGalleryReplacements[galleryNamesByTitle['Circular Elevators']?.[index]] ?? image)
-    : sourceGallery;
+  const circularGalleryItems = itemTitle === 'Circular Elevators'
+    ? sourceGallery
+      .map((image, index) => {
+        const label = galleryNamesByTitle['Circular Elevators']?.[index];
+        return { image: circularGalleryReplacements[label] ?? image, label };
+      })
+      .sort((a, b) => {
+        const firstIndex = circularGalleryPriority.indexOf(a.label);
+        const secondIndex = circularGalleryPriority.indexOf(b.label);
+        return (firstIndex === -1 ? circularGalleryPriority.length : firstIndex) - (secondIndex === -1 ? circularGalleryPriority.length : secondIndex);
+      })
+    : null;
+  const gallery = circularGalleryItems ? circularGalleryItems.map(({ image }) => image) : sourceGallery;
   const showGallery = !noGalleryPages.has(itemTitle);
   const phoneTallGalleryPages = new Set(["Atlas Panorama", "Atlas Core", "Circular Elevators", "Exterior Elevators"]);
   const usePhoneTallGallery = phoneTallGalleryPages.has(itemTitle);
@@ -994,7 +1010,7 @@ export default function ElevatorDetail() {
       ? 'Bonjour Atlas Ascenseurs, je souhaite demander un devis.'
       : 'Hello Atlas Ascenseurs, I would like to request a quote.'
   );
-  const galleryLabels = galleryNamesByTitle[itemTitle];
+  const galleryLabels = circularGalleryItems ? circularGalleryItems.map(({ label }) => label) : galleryNamesByTitle[itemTitle];
   const hasMobileHeroCopy = Boolean(note.mobileBody);
   const activeTestimonials = itemTitle === "Atlas Core" ? atlasCoreTestimonials : atlasPanoramaTestimonials;
   const hasTestimonialScreenshots = testimonialScreenshotImages.length > 0;
@@ -1148,7 +1164,7 @@ export default function ElevatorDetail() {
             eyebrow={itemTitle === "Atlas Panorama" ? (language === "fr" ? "Nos modèles" : "Our models") : (language === "fr" ? "Galerie Produit" : "Product Gallery")}
             title={itemTitle === "Atlas Panorama" ? (language === "fr" ? "Configurations Atlas Panorama" : "Atlas Panorama Configurations") : "Inspirations & Realisations"}
             images={gallery}
-            className={`${usePhoneTallGallery ? "product-gallery-phone-tall" : ""} ${itemTitle === "Atlas Panorama" ? "text-center-luxury" : ""}`.trim()}
+            className={`${usePhoneTallGallery ? "product-gallery-phone-tall" : ""} ${["Atlas Panorama", "Circular Elevators", "Exterior Elevators"].includes(itemTitle) ? "text-center-luxury" : ""}`.trim()}
             showAll={itemTitle === "Atlas Panorama" || showExteriorSections || showCircularSections}
             getLabel={(index, image) => {
               if (galleryLabels?.[index]) {
