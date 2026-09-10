@@ -719,7 +719,7 @@ nav.scrolled {
 
 .elevators-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
 .elevators-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.elev-card { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; text-decoration: none; transform: translateZ(0); transition: transform var(--motion-medium) var(--ease-soft), box-shadow var(--motion-medium) var(--ease-soft); }
+.elev-card { position: relative; overflow: hidden; aspect-ratio: 16/10; cursor: pointer; text-decoration: none; transform: translateZ(0); transition: transform var(--motion-medium) var(--ease-soft), box-shadow var(--motion-medium) var(--ease-soft); }
 .elev-card:hover { transform: translateY(-6px); box-shadow: 0 24px 54px rgba(0,0,0,0.28); z-index: 2; }
 .elev-bg, .proj-bg, .proj-page-bg {
   position: absolute; inset: 0; background-size: cover; background-position: center;

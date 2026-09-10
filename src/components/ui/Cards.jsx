@@ -11,10 +11,10 @@ export function WhyCard({ number, title, text }) {
   );
 }
 
-export function ElevatorCard({ tag, title, desc, image }) {
+export function ElevatorCard({ tag, title, desc, image, wideCover = false, imagePosition }) {
   return (
-    <Link className="elev-card" to="/elevators">
-      <div className="elev-bg" style={{ backgroundImage: `url(${image})` }} />
+    <Link className={`elev-card ${wideCover ? 'elev-card--wide-cover' : ''}`.trim()} to="/elevators">
+      <div className="elev-bg" style={{ backgroundImage: `url(${image})`, backgroundPosition: imagePosition }} />
       <div className="elev-icon-bg" />
       <div className="elev-overlay" />
       <div className="elev-content">

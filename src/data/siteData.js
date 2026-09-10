@@ -4,6 +4,9 @@ import homeBackgroundImage from '../assets/images/hero/home_bqckgound.png';
 import astoriaImage from '../assets/images/elevators/astoria.svg';
 import circularImage from '../assets/images/elevators/circular.svg';
 import exteriorImage from '../assets/images/elevators/exterior.svg';
+import homeAtlasPanoramaCover from '../assets/images/new-covers/atlas-panorma.png';
+import homeCircularElevatorCover from '../assets/images/new-covers/circulare-elevator.png';
+import homeExteriorElevatorCover from '../assets/images/new-covers/exterior-elevator.png';
 import commercialImage from '../assets/images/elevators/commercial.svg';
 import hospitalCargoImage from '../assets/images/elevators/hospital-cargo.svg';
 import escalatorImage from '../assets/images/elevators/escalator.svg';
@@ -249,9 +252,9 @@ export const whyCards = [
 ];
 
 export const elevatorCards = [
-  { tag: 'Residential', title: 'Atlas Panorama', desc: 'Premium panoramic glass elevators for modern villas. Bespoke design, silent operation, and high-end customizations.', image: imagePaths.elevators.astoria },
-  { tag: 'Residential', title: 'Circular Elevators', desc: 'A statement piece for any home. Panoramic, architectural, and unmistakably refined.', image: imagePaths.elevators.circular },
-  { tag: 'Residential', title: 'Exterior Elevators', desc: 'Weatherproof and beautifully designed for outdoor installations, gardens, and terraces.', image: imagePaths.elevators.exterior },
+  { tag: 'Residential', title: 'Atlas Panorama', desc: 'Premium panoramic glass elevators for modern villas. Bespoke design, silent operation, and high-end customizations.', image: homeAtlasPanoramaCover, wideCover: true, imagePosition: '72% center' },
+  { tag: 'Residential', title: 'Circular Elevators', desc: 'A statement piece for any home. Panoramic, architectural, and unmistakably refined.', image: homeCircularElevatorCover, wideCover: true, imagePosition: '66% center' },
+  { tag: 'Residential', title: 'Exterior Elevators', desc: 'Weatherproof and beautifully designed for outdoor installations, gardens, and terraces.', image: homeExteriorElevatorCover, wideCover: true, imagePosition: '78% center' },
   { tag: 'Commercial', title: 'Core Commercial', desc: 'High-traffic performance elevators built for offices, hotels, and commercial buildings.', image: imagePaths.elevators.commercial },
   { tag: 'Commercial', title: 'Hospital & Cargo Lifts', desc: 'Specialized lifts engineered for healthcare environments and industrial logistics needs.', image: imagePaths.elevators.cargo },
   { tag: 'Commercial', title: 'Escalators & Walkways', desc: 'Smooth, reliable moving infrastructure for malls, airports, and large public spaces.', image: imagePaths.elevators.escalator },
@@ -402,9 +405,9 @@ export const frWhyCards = [
 ];
 
 export const frElevatorCards = [
-  { tag: 'Résidentiel', title: 'Atlas Panorama', desc: 'Ascenseurs panoramiques en verre de prestige pour villas modernes au Maroc. Fonctionnement silencieux et finitions haut de gamme.', image: imagePaths.elevators.astoria },
-  { tag: 'Résidentiel', title: 'Ascenseurs Circulaires', desc: 'Une pièce architecturale forte pour la maison. Panoramique, raffinée et immédiatement reconnaissable.', image: imagePaths.elevators.circular },
-  { tag: 'Résidentiel', title: 'Ascenseurs Extérieurs', desc: 'Solutions extérieures résistantes aux intempéries pour jardins, terrasses et accès en façade.', image: imagePaths.elevators.exterior },
+  { tag: 'Résidentiel', title: 'Atlas Panorama', desc: 'Ascenseurs panoramiques en verre de prestige pour villas modernes au Maroc. Fonctionnement silencieux et finitions haut de gamme.', image: homeAtlasPanoramaCover, wideCover: true, imagePosition: '72% center' },
+  { tag: 'Résidentiel', title: 'Ascenseurs Circulaires', desc: 'Une pièce architecturale forte pour la maison. Panoramique, raffinée et immédiatement reconnaissable.', image: homeCircularElevatorCover, wideCover: true, imagePosition: '66% center' },
+  { tag: 'Résidentiel', title: 'Ascenseurs Extérieurs', desc: 'Solutions extérieures résistantes aux intempéries pour jardins, terrasses et accès en façade.', image: homeExteriorElevatorCover, wideCover: true, imagePosition: '78% center' },
   { tag: 'Commercial', title: 'Core Commercial', desc: 'Ascenseurs haute performance pour bureaux, hôtels et bâtiments à fort trafic.', image: imagePaths.elevators.commercial },
   { tag: 'Commercial', title: 'Ascenseurs Hospitaliers & Monte-charges', desc: 'Solutions spécialisées pour environnements médicaux et besoins logistiques industriels.', image: imagePaths.elevators.cargo },
   { tag: 'Commercial', title: 'Escalators & Trottoirs Roulants', desc: 'Mouvements fluides et fiables pour centres commerciaux, aéroports et grands espaces publics.', image: imagePaths.elevators.escalator },
